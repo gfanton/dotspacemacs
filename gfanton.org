@@ -37,8 +37,23 @@ values.
        better-defaults
        emacs-lisp
        git
+
+       ;; lang
+       python
+       ruby
+       c-c++
+       php
+       html
+       sql
+       java
+       javascript
+       clojure
+       latex
+
+       ;; markup lang
        markdown
        org
+
        ;; (shell :variables
        ;;        shell-default-height 30
        ;;        shell-default-position 'bottom)
