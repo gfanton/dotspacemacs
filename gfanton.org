@@ -31,10 +31,12 @@ Uncomment some layer names and press <SPC f e R> (Vim style) or
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-configuration-layers
   '(
+    ;; tools
     auto-completion
     better-defaults
     emacs-lisp
     git
+    vim-empty-lines
 
     ;; lang
     python
@@ -48,18 +50,29 @@ Uncomment some layer names and press <SPC f e R> (Vim style) or
     clojure
     latex
 
+    ;; conf files
+    dockerfile
+
     ;; markup lang
     markdown
     org
 
-    ;; (shell :variables
-    ;;        shell-default-height 30
-    ;;        shell-default-position 'bottom)
+    ;; shell
+    (shell :variables
+           shell-default-height 30
+           shell-default-position 'bottom)
+
+    ;; checking
     spell-checking
     syntax-checking
     version-control
+
+    ;; wm
+    eyebrowse
     )
 #+END_SRC
+
+**** layer path 
 
 List of additional paths where to look for configuration layers.
 Paths must have a trailing slash (i.e. `~/.mycontribs/')
