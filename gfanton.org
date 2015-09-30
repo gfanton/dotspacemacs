@@ -8,18 +8,17 @@
 ** Layers Initialisation
 
 Configuration Layers declaration.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :exports none
   (defun dotspacemacs/layers ()
     "Configuration Layers declaration."
     (setq-default
-
 #+END_SRC
 
 Base distribution to use. This is a layer contained in the directory
 `+distribution'. For now available distributions are `spacemacs-base'
 or `spacemacs'. (default 'spacemacs)
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp 
   dotspacemacs-distribution 'spacemacs
 #+END_SRC
 
@@ -96,8 +95,7 @@ the list `dotspacemacs-configuration-layers'. (default t)
   dotspacemacs-delete-orphan-packages t
 #+END_SRC
 
-; layers init end here
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :exports none
 ))
 #+END_SRC
 
