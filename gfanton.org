@@ -1,7 +1,7 @@
 #+TITLE: Spacemacs Configuration File
 #+AUTHOR: gfanton
 #+BABEL: :cache yes
-#+STARTUP: hideblocks
+#+STARTUP: indent hideblocks
 #+PROPERTY: header-args :tangle yes :comments org
 
 * INITIALISATION  
