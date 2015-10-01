@@ -106,6 +106,7 @@ Paths must have a trailing slash (i.e. `~/.mycontribs/')
   dotspacemacs-configuration-layer-path '()
 #+END_SRC
 
+
 *** packages 
 **** additional packages
 
@@ -141,6 +142,7 @@ the list `dotspacemacs-configuration-layers'. (default t)
 #+BEGIN_SRC emacs-lisp :exports none
 ))
 #+END_SRC
+
 
 ** Spacemacs Initialisation
 
