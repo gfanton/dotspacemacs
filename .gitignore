@@ -1,11 +1,3 @@
-# Ignore everything...
-*
-
-# except:
-!layers
-!.gitignore
-!gfanton.org
-!snippets
-!Readme.org
-!install/*
-!extra/*
+/init.el
+/snippets
+/gfanton.el
