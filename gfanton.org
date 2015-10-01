@@ -40,6 +40,8 @@ Uncommon some layer names and press <SPC f e R> (Vim style) or
 contributor layer
 
 #+BEGIN_SRC emacs-lisp
+  osx
+
   ;; tools
   auto-completion
   better-defaults
