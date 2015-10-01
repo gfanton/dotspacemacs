@@ -58,6 +58,9 @@ contributor layer
   clojure
   latex
 
+  ;; framework
+  django
+
   ;; conf files
   dockerfile
 
