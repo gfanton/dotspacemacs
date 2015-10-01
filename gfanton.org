@@ -509,18 +509,10 @@ Initialization function for user code. It is called immediately after
   It is called immediately after `dotspacemacs/init'."
 #+END_SRC
 
-*** projectile
-
-With this setting, once you have selected your project, the top-level directory
-of the project is immediately opened for you in a dired buffer.
-
-#+BEGIN_SRC emacs-lisp
-  (setq projectile-switch-project-action 'projectile-dired)
-#+END_SRC
-
 #+BEGIN_SRC emacs-lisp :exports none
     )
 #+END_SRC
+
 
 ** User Config
 
@@ -532,6 +524,15 @@ Spacemacs initialization after layers configuration.
     "Configuration function for user code.
        This function is called at the very end of Spacemacs initialization after
        layers configuration."
+#+END_SRC
+
+*** projectile
+
+With this setting, once you have selected your project, the top-level directory
+of the project is immediately opened for you in a dired buffer.
+
+#+BEGIN_SRC emacs-lisp
+  (setq projectile-switch-project-action 'projectile-dired)
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp :exports none
