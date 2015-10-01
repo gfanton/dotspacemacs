@@ -40,44 +40,48 @@ Uncommon some layer names and press <SPC f e R> (Vim style) or
 contributor layer
 
 #+BEGIN_SRC emacs-lisp
-    ;; tools
-    auto-completion
-    better-defaults
-    emacs-lisp
-    git
-    vim-empty-lines
+  ;; tools
+  auto-completion
+  better-defaults
+  emacs-lisp
+  vim-empty-lines
 
-    ;; lang
-    python
-    ruby
-    c-c++
-    php
-    html
-    sql
-    java
-    javascript
-    clojure
-    latex
+  ;; lang
+  python
+  ruby
+  c-c++
+  php
+  html
+  sql
+  java
+  javascript
+  clojure
+  latex
 
-    ;; conf files
-    dockerfile
+  ;; conf files
+  dockerfile
 
-    ;; markup lang
-    markdown
-    org
+  ;; source control
+  git
+  github
+  version-control
 
-    ;; shell
-    (shell :variables
-           shell-default-height 30
-           shell-default-position 'bottom)
+  ;; markup lang
+  markdown
+  org
 
-    ;; checking
-    spell-checking
-    syntax-checking
-    version-control
+  ;; shell
+  (shell :variables
+         shell-default-height 30
+         shell-default-position 'bottom)
 
-    ;; wm
-    eyebrowse
+  ;; checking
+  spell-checking
+  syntax-checking
+  version-control
+
+  ;; wm
+  eyebrowse
 #+END_SRC
 
 ***** user
@@ -91,6 +95,7 @@ private layers
 #+BEGIN_SRC emacs-lisp :exports none
     )
 #+END_SRC
+
 
 **** layer path 
 
