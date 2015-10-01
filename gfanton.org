@@ -78,7 +78,9 @@ contributor layer
   ;; shell
   (shell :variables
          shell-default-height 30
-         shell-default-position 'bottom)
+         shell-default-position 'bottom
+         shell-default-shell 'term
+         shell-default-term-shell "/bin/zsh")
 
   ;; checking
   spell-checking
