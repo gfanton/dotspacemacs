@@ -8,6 +8,7 @@
 ** Layers Initialisation
 
 Configuration Layers declaration.
+
 #+BEGIN_SRC emacs-lisp :exports none
   (defun dotspacemacs/layers ()
     "Configuration Layers declaration."
@@ -79,8 +80,7 @@ contributor layer
   (shell :variables
          shell-default-height 30
          shell-default-position 'bottom
-         shell-default-shell 'term
-         shell-default-term-shell "/bin/zsh")
+         shell-default-shell 'eshell)
 
   ;; checking
   spell-checking
@@ -103,7 +103,6 @@ private layers
     )
 #+END_SRC
 
-
 **** layer path 
 
 List of additional paths where to look for configuration layers.
@@ -112,7 +111,6 @@ Paths must have a trailing slash (i.e. `~/.mycontribs/')
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-configuration-layer-path '()
 #+END_SRC
-
 
 *** packages 
 **** additional packages
@@ -521,7 +519,6 @@ Initialization function for user code. It is called immediately after
 #+BEGIN_SRC emacs-lisp :exports none
     )
 #+END_SRC
-
 
 ** User Config
 
