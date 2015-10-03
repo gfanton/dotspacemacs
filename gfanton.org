@@ -414,7 +414,7 @@ This layer also configures =hippie-expand=.
                    auto-completion-return-key-behavior 'complete
                    auto-completion-tab-key-behavior 'cycle
                    auto-completion-complete-with-key-sequence nil
-                   auto-completion-private-snippets-directory '("~/.spacemacs.d/snippets"))
+                   auto-completion-private-snippets-directory "~/.spacemacs.d/snippets")
 #+END_SRC
 
 *** Better-Defaults
