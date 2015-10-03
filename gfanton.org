@@ -4,152 +4,8 @@
 #+STARTUP: indent hideblocks
 #+PROPERTY: header-args :tangle yes :comments org
 
-* INITIALISATION  
-** Layers Initialisation
 
-Configuration Layers declaration.
-
-#+BEGIN_SRC emacs-lisp :exports none
-  (defun dotspacemacs/layers ()
-    "Configuration Layers declaration."
-    (setq-default
-#+END_SRC
-
-*** distribution
-Base distribution to use. This is a layer contained in the directory
-`+distribution'. For now available distributions are `spacemacs-base'
-or `spacemacs'. (default 'spacemacs)
-
-#+BEGIN_SRC emacs-lisp 
-  dotspacemacs-distribution 'spacemacs
-#+END_SRC
-
-*** layers
-**** configuration layers
-
-Example of useful layers you may want to use right away.
-Uncommon some layer names and press <SPC f e R> (Vim style) or
-<M-m f e R> (Emacs style) to install them.
-
-#+BEGIN_SRC emacs-lisp :exports none
-  dotspacemacs-configuration-layers
-  '(
-#+END_SRC
-
-***** contrib
-
-contributor layer
-
-#+BEGIN_SRC emacs-lisp
-  osx
-
-  ;; tools
-  auto-completion
-  better-defaults
-  emacs-lisp
-  vim-empty-lines
-
-  ;; lang
-  python
-  ruby
-  c-c++
-  php
-  html
-  sql
-  java
-  javascript
-  clojure
-  latex
-
-  ;; framework
-  django
-
-  ;; conf files
-  dockerfile
-
-  ;; source control
-  git
-  github
-  version-control
-
-  ;; markup lang
-  markdown
-  org
-
-  ;; shell
-  (shell :variables
-         shell-default-height 30
-         shell-default-position 'bottom
-         shell-default-shell 'eshell)
-
-  ;; checking
-  spell-checking
-  syntax-checking
-  version-control
-
-  ;; wm
-  eyebrowse
-#+END_SRC
-
-***** user
-
-private layers
-
-#+BEGIN_SRC emacs-lisp
-  ;; not yet
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp :exports none
-    )
-#+END_SRC
-
-**** layer path 
-
-List of additional paths where to look for configuration layers.
-Paths must have a trailing slash (i.e. `~/.mycontribs/')
-
-#+BEGIN_SRC emacs-lisp
-  dotspacemacs-configuration-layer-path '()
-#+END_SRC
-
-*** packages 
-**** additional packages
-
-List of configuration layers to load. If it is the symbol `all' instead
-of a list then all discovered layers will be installed.
-List of additional packages that will be installed without being
-wrapped in a layer. If you need some configuration for these
-packages then consider to create a layer, you can also put the
-configuration in `dotspacemacs/config'.
-
-#+BEGIN_SRC emacs-lisp
-  dotspacemacs-additional-packages '()
-#+END_SRC
-
-**** excluded packages
-
-A list of packages and/or extensions that will not be install and loaded.
-
-#+BEGIN_SRC emacs-lisp
-  dotspacemacs-excluded-packages '()
-#+END_SRC
-
-**** orphan-packages 
-
-If non-nil spacemacs will delete any orphan packages, i.e. packages that
-are declared in a layer which is not a member of
-the list `dotspacemacs-configuration-layers'. (default t)
-
-#+BEGIN_SRC emacs-lisp
-  dotspacemacs-delete-orphan-packages t
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp :exports none
-))
-#+END_SRC
-
-
-** Spacemacs Initialisation
+* SPACEMACS INITIALIZATION
 
 Initialization function.
 This function is called at the very startup of Spacemacs initialization
@@ -167,7 +23,7 @@ before layers configuration.
     (setq-default
 #+END_SRC
 
-*** editing style
+** editing style
 
 One of `vim', `emacs' or `hybrid'. Evil is always enabled but if the
 variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
@@ -178,7 +34,7 @@ unchanged. (default 'vim)
   dotspacemacs-editing-style 'emacs
 #+END_SRC
 
-*** verbose loading
+** verbose loading
 
 If non nil output loading progress in `*Messages*' buffer. (default nil)
 
@@ -186,8 +42,8 @@ If non nil output loading progress in `*Messages*' buffer. (default nil)
   dotspacemacs-verbose-loading nil
 #+END_SRC
 
-*** startup page
-**** banner
+** startup page
+*** banner
 
 Specify the startup banner. Default value is `official', it displays
 the official spacemacs logo. An integer value is the index of text
@@ -200,7 +56,7 @@ If the value is nil then no banner is displayed. (default 'official)
   dotspacemacs-startup-banner 'official
 #+END_SRC
 
-**** lists
+*** lists
 
 List of items to show in the startup buffer. If nil it is disabled.
 Possible values are: `recents' `bookmarks' `projects'.
@@ -210,7 +66,7 @@ Possible values are: `recents' `bookmarks' `projects'.
   dotspacemacs-startup-lists '(recents projects)
 #+END_SRC
 
-*** themes
+** themes
 
 List of themes, the first of the list is loaded when spacemacs starts.
 Press <SPC> T n to cycle to the next theme in the list (works great
@@ -220,7 +76,7 @@ with 2 themes variants, one dark and one light)
   dotspacemacs-themes '(monokai)
 #+END_SRC
 
-*** cursor-color
+** cursor-color
 
 If non nil the cursor color matches the state color.
 
@@ -228,7 +84,7 @@ If non nil the cursor color matches the state color.
   dotspacemacs-colorize-cursor-according-to-state t
 #+END_SRC
 
-*** font
+** font
 
 Default font. `powerline-scale' allows to quickly tweak the mode-line
 size to make separators look not too crappy.
@@ -241,15 +97,15 @@ size to make separators look not too crappy.
                               :powerline-scale 1.1)
 #+END_SRC
 
-*** leader key
+** leader key
 
-**** the leader key
+*** the leader key
 
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-leader-key "SPC"
 #+END_SRC
 
-**** emacs leader key
+*** emacs leader key
 
 The leader key accessible in `emacs state' and `insert state'
 (default "M-m")
@@ -258,7 +114,7 @@ The leader key accessible in `emacs state' and `insert state'
   dotspacemacs-emacs-leader-key "M-m"
 #+END_SRC
 
-**** mode leader key
+*** mode leader key
 
 Major mode leader key is a shortcut key which is the equivalent of
 pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
@@ -267,7 +123,7 @@ pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
   dotspacemacs-major-mode-leader-key ","
 #+END_SRC
 
-**** major mode emacs leader key
+*** major mode emacs leader key
 
 Major mode leader key accessible in `emacs state' and `insert state'.
 (default "C-M-m)
@@ -276,7 +132,7 @@ Major mode leader key accessible in `emacs state' and `insert state'.
   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
 #+END_SRC
 
-*** command key
+** command key
 
 The command key used for Evil commands (ex-commands) and
 Emacs commands (M-x).
@@ -293,7 +149,7 @@ If non nil `Y' is remapped to `y$'. (default t)
   dotspacemacs-remap-Y-to-y$ t
 #+END_SRC
 
-*** auto-save
+** auto-save
 
 Location where to auto-save files. Possible values are `original' to
 auto-save the file in-place, `cache' to auto-save the file to another
@@ -304,7 +160,7 @@ file stored in the cache directory and `nil' to disable auto-saving.
   dotspacemacs-auto-save-file-location 'cache
 #+END_SRC
 
-*** ido
+** ido
 
 If non nil then `ido' replaces `helm' for some commands. For now only
 `find-files' (SPC f f), `find-spacemacs-file' (SPC f e s), and
@@ -314,8 +170,8 @@ If non nil then `ido' replaces `helm' for some commands. For now only
   dotspacemacs-use-ido nil
 #+END_SRC
 
-*** helm
-**** helm resize
+** helm
+*** helm resize
 
 If non nil, `helm' will try to miminimize the space it uses. (default nil)
 
@@ -323,7 +179,7 @@ If non nil, `helm' will try to miminimize the space it uses. (default nil)
   dotspacemacs-helm-resize nil
 #+END_SRC
 
-**** helm header
+*** helm header
 
 if non nil, the helm header is hidden when there is only one source.
 (default nil)
@@ -332,7 +188,7 @@ if non nil, the helm header is hidden when there is only one source.
   dotspacemacs-helm-no-header nil
 #+END_SRC
 
-**** helm position
+*** helm position
 
 define the position to display `helm', options are `bottom', `top',
 `left', or `right'. (default 'bottom)
@@ -341,7 +197,7 @@ define the position to display `helm', options are `bottom', `top',
   dotspacemacs-helm-position 'bottom
 #+END_SRC
 
-*** paste micro-state
+** paste micro-state
 
 If non nil the paste micro-state is enabled. When enabled pressing `p`
 several times cycle between the kill ring content. (default nil)
@@ -350,8 +206,8 @@ several times cycle between the kill ring content. (default nil)
   dotspacemacs-enable-paste-micro-state nil
 #+END_SRC
 
-*** which-key
-**** delay
+** which-key
+*** delay
 
 Which-key delay in seconds. The which-key buffer is the popup listing
 the commands bound to the current keystroke sequence. (default 0.4)
@@ -360,7 +216,7 @@ the commands bound to the current keystroke sequence. (default 0.4)
   dotspacemacs-which-key-delay 0.4
 #+END_SRC
 
-**** position
+*** position
 
 Which-key frame position. Possible values are `right', `bottom' and
 `right-then-bottom'. right-then-bottom tries to display the frame to the
@@ -371,7 +227,7 @@ right; if there is insufficient space it displays it at the bottom.
   dotspacemacs-which-key-position 'bottom
 #+END_SRC
 
-*** loading-progress-bar
+** loading-progress-bar
 
 If non nil a progress bar is displayed when spacemacs is loading. This
 may increase the boot time on some systems and emacs builds, set it to
@@ -381,17 +237,17 @@ nil to boost the loading time. (default t)
   dotspacemacs-loading-progress-bar t
 #+END_SRC
 
-*** fullscreen
-**** startup
+** fullscreen
+*** startup
 
 If non nil the frame is fullscreen when Emacs starts up. (default nil)
 (Emacs 24.4+ only)
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-fullscreen-at-startup nil
+  dotspacemacs-fullscreen-at-startup t
 #+END_SRC
 
-**** toggle native
+*** toggle native
 
 If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
 Use to disable fullscreen animations in OSX. (default nil)
@@ -400,8 +256,8 @@ Use to disable fullscreen animations in OSX. (default nil)
   dotspacemacs-fullscreen-use-non-native nil
 #+END_SRC
 
-*** frame
-**** startup
+** frame
+*** startup
 
 If non nil the frame is maximized when Emacs starts up.
 Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
@@ -411,8 +267,8 @@ Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
   dotspacemacs-maximized-at-startup nil
 #+END_SRC
 
-*** transparency
-**** active
+** transparency
+*** active
 
 A value from the range (0..100), in increasing opacity, which describes
 the transparency level of a frame when it's active or selected.
@@ -422,7 +278,7 @@ Transparency can be toggled through `toggle-transparency'. (default 90)
   dotspacemacs-active-transparency 90
 #+END_SRC
 
-**** inactive
+*** inactive
 
 A value from the range (0..100), in increasing opacity, which describes
 the transparency level of a frame when it's inactive or deselected.
@@ -432,7 +288,7 @@ Transparency can be toggled through `toggle-transparency'. (default 90)
   dotspacemacs-inactive-transparency 90
 #+END_SRC
 
-*** unicode
+** unicode
 
 If non nil unicode symbols are displayed in the mode line. (default t)
 
@@ -440,7 +296,7 @@ If non nil unicode symbols are displayed in the mode line. (default t)
   dotspacemacs-mode-line-unicode-symbols t
 #+END_SRC
 
-*** scrolling
+** scrolling
 
 If non nil smooth scrolling (native-scrolling) is enabled. Smooth
 scrolling overrides the default behavior of Emacs which recenters the
@@ -450,7 +306,7 @@ point when it reaches the top or bottom of the screen. (default t)
   dotspacemacs-smooth-scrolling t
 #+END_SRC
 
-*** smartparens
+** smartparens
 
 If non-nil smartparens-strict-mode will be enabled in programming modes.
 (default nil)
@@ -459,8 +315,8 @@ If non-nil smartparens-strict-mode will be enabled in programming modes.
   dotspacemacs-smartparens-strict-mode nil
 #+END_SRC
 
-*** delimiters
-**** highlight
+** delimiters
+*** highlight
 
 Select a scope to highlight delimiters. Possible values are `any',
 `current', `all' or `nil'. Default is `all' (highlight any scope and
@@ -470,7 +326,7 @@ emphasis the current one). (default 'all)
   dotspacemacs-highlight-delimiters 'all
 #+END_SRC
 
-*** server
+** server
 
 If non nil advises quit functions to keep server open when quitting.
 (default nil)
@@ -479,7 +335,7 @@ If non nil advises quit functions to keep server open when quitting.
   dotspacemacs-persistent-server nil
 #+END_SRC
 
-*** search tools
+** search tools
 
 List of search tool executable names. Spacemacs uses the first installed
 tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
@@ -489,7 +345,7 @@ tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
 #+END_SRC
 
-*** package repository
+** package repository
 
 The default package repository used if no explicit repository has been
 specified with an installed package.
@@ -501,6 +357,346 @@ Not used for now. (default nil)
 
 #+BEGIN_SRC emacs-lisp :exports none
      ))
+#+END_SRC
+
+
+* LAYERS CONFIGURATION
+
+Layers configuration declaration.
+
+#+BEGIN_SRC emacs-lisp :exports none
+  (defun dotspacemacs/layers ()
+    "Configuration Layers declaration."
+    (setq-default
+#+END_SRC
+
+** Distribution
+
+Base distribution to use. This is a layer contained in the directory
+`+distribution'. For now available distributions are `spacemacs-base'
+or `spacemacs'. (default 'spacemacs)
+
+#+BEGIN_SRC emacs-lisp 
+  dotspacemacs-distribution 'spacemacs
+#+END_SRC
+
+** Layers
+
+Use <SPC f e R> (Vim style) or <M-m f e R> (Emacs style) to install them.
+
+#+BEGIN_SRC emacs-lisp :exports none
+  dotspacemacs-configuration-layers
+  '(
+#+END_SRC
+
+*** OSX
+
+While this layer enables common OSX bindings, it does not implement OSX
+navigation keybindings. Spacemacs is meant to be used with evil, and we
+encourage you to do so :)
+
+#+BEGIN_SRC emacs-lisp
+osx
+#+END_SRC
+
+*** Auto-Completion
+
+This layer provides auto-completion to Spacemacs.
+The following completion engines are supported:
+- [[http://company-mode.github.io/][company]]
+- [[http://auto-complete.org/][auto-complete]]
+
+Snippets are supported via [[https://github.com/capitaomorte/yasnippet][yasnippet]] and [[https://github.com/abo-abo/auto-yasnippet][auto-yasnippet]].
+This layer also configures =hippie-expand=.
+
+#+BEGIN_SRC emacs-lisp
+  (auto-completion :variables
+                   auto-completion-return-key-behavior 'complete
+                   auto-completion-tab-key-behavior 'cycle
+                   auto-completion-complete-with-key-sequence nil
+                   auto-completion-private-snippets-directory '("~/.spacemacs.d/snippets"))
+#+END_SRC
+
+*** Better-Defaults
+
+This layer enhances the default commands of Emacs and is primarily intended to
+be used with the =emacs= editing style as it does not change anything in the Vim
+key bindings.
+
+However the =emacs= editing style is not required, you can still use this layer
+while you are using the =vim= editing style if you have some kind of mixed
+style.
+
+The commands defined in this layer are taken from various sources like [[https://github.com/bbatsov/prelude][Prelude]].
+
+#+BEGIN_SRC emacs-lisp
+  better-defaults
+#+END_SRC
+
+*** Emacs-Lisp
+
+This layer gathers all the configuration related to emacs-lisp. This should
+always be in your dotfile, it is not recommended to uninstall it.
+
+#+BEGIN_SRC emacs-lisp
+  emacs-lisp
+#+END_SRC
+
+*** Vim-Empty-lines
+
+This layer is a drop-in replacement for the =vi-tilde-fringe= mode, for those
+who desire behaviour closer to =vim='s.
+
+It has better compatibility with retina displays, as it uses a text overlay
+using your font, rather than a pixel-art tilde. The empty line indicators are
+overlaid in within the buffer as in =vim=, and not in the fringe. The indicator
+behaviour with trailing empty lines matches =vim='s behaviour.
+
+For details, see the [[https://github.com/jmickelin/vim-empty-lines-mode][vim-empty-lines-mode]] repository.   
+
+#+BEGIN_SRC emacs-lisp
+  vim-empty-lines
+#+END_SRC
+
+*** Python
+
+This layer adds support for the Python language.
+
+#+BEGIN_SRC emacs-lisp
+  python
+#+END_SRC
+
+*** Ruby
+
+This layer aims at providing support for the Ruby language using
+[[https://github.com/zenspider/enhanced-ruby-mode][enh-ruby-mode]] and [[https://github.com/dgutov/robe][robe-mode]].
+
+#+BEGIN_SRC emacs-lisp
+  ruby
+#+END_SRC
+
+*** C-C++
+
+This layer adds configuration for C/C++ language as well support for [[http://www.cmake.org/][CMake]]
+scripts.
+
+#+BEGIN_SRC emacs-lisp
+  c-c++
+#+END_SRC
+
+*** Php
+
+This layer adds PHP language support to Spacemacs.
+
+#+BEGIN_SRC emacs-lisp
+  php
+#+END_SRC
+
+*** Html
+
+This layer adds support for editing HTML and CSS.
+
+#+BEGIN_SRC emacs-lisp
+  html
+#+END_SRC
+
+*** Sql
+
+This layer adds key bindings and configuration for =sql-mode=, which manages
+interactive SQL buffers and highlights a wide range of SQL dialects.
+
+#+BEGIN_SRC emacs-lisp
+  sql
+#+END_SRC
+
+*** Java
+
+This layer adds support for the Java language using the [[http://eclim.org][Eclim]] client/server.
+
+#+BEGIN_SRC emacs-lisp
+  java
+#+END_SRC
+
+*** Javascript
+
+This layer adds support for the JavaScript language using [[https://github.com/mooz/js2-mode][js2-mode]].
+
+#+BEGIN_SRC emacs-lisp
+  javascript
+#+END_SRC
+
+*** Clojure
+
+This layer adds support for [[http://clojure.org][Clojure]] language using [[https://github.com/clojure-emacs/cider][CIDER]].
+
+#+BEGIN_SRC emacs-lisp
+  clojure
+#+END_SRC
+
+*** Latex
+
+This layer adds support for LaTeX files with [[https://savannah.gnu.org/projects/auctex/][AucTeX]].
+
+#+BEGIN_SRC emacs-lisp
+  latex
+#+END_SRC
+
+*** Django
+
+This layer adds support for the Python [[https://www.djangoproject.com/][Django]] framework via [[https://github.com/davidmiller/pony-mode][pony-mode]].
+
+#+BEGIN_SRC emacs-lisp
+  django
+#+END_SRC
+
+*** Dockerfile
+
+This layer provides syntax highlighting and build functionality for Docker files.
+
+#+BEGIN_SRC emacs-lisp
+  dockerfile
+#+END_SRC
+
+*** Git
+
+This layers adds extensive support for [[http://git-scm.com/][git]].
+
+#+BEGIN_SRC emacs-lisp
+  git
+#+END_SRC
+
+*** Github
+
+This layers adds support for [[http://github.com][Github]].
+
+#+BEGIN_SRC emacs-lisp
+  github
+#+END_SRC
+
+*** Version-Control
+
+This layers adds general configuration for [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html][Emacs VC]].
+It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc...
+
+#+BEGIN_SRC emacs-lisp
+  version-control
+#+END_SRC
+
+*** Markdown
+
+This layer adds markdown support to Spacemacs.
+
+#+BEGIN_SRC emacs-lisp
+  markdown
+#+END_SRC
+
+*** Org
+
+This layer enables  [[http://orgmode.org/][org mode]] for Spacemacs.
+
+#+BEGIN_SRC emacs-lisp
+  org
+#+END_SRC
+
+*** Shell
+
+This layer configures the various shells available in Emacs.
+
+#+BEGIN_SRC emacs-lisp
+  (shell :variables
+         shell-default-height 30
+         shell-default-position 'bottom
+         shell-default-shell 'eshell)
+#+END_SRC
+
+*** Spell-Checking
+
+This layer provides spell checking using [[http://www-sop.inria.fr/members/Manuel.Serrano/flyspell/flyspell.html][Flyspell]].
+
+#+BEGIN_SRC emacs-lisp
+  spell-checking
+#+END_SRC
+
+*** Syntax-Checking
+
+This layer provides on the fly syntax checking using [[http://www.flycheck.org/][Flycheck]].
+
+#+BEGIN_SRC emacs-lisp
+  syntax-checking
+#+END_SRC
+
+*** Eyebrowse
+
+This layer adds [[https://i3wm.org/][i3wm]] like workspaces thanks to the [[https://github.com/wasamasa/eyebrowse][eyebrowse]] package.
+
+Once the layer is activated a new number is added to the right side of the
+mode-line. This number corresponds to the currently active workspace number.
+
+At startup, the workspace number 1 is active. Switching to a workspace will
+create it if it does not exist. For instance at startup you can press
+~SPC W 2~ to create the workspace 2.
+
+The key bindings are registered in a micro-state displayed in the minibuffer.
+The docstring of the micro-state displays the existing workspaces and the
+currently active workspace has square brackets. Since this is a micro-state it
+is possible to just preview a workspace, for instance press ~SPC W 2~ to see
+what's on the workspace 2 then press ~TAB~ to go back to the previously
+activated workspace.
+
+It is also possible to give a label to a the current workspace by pressing
+~r~ in the micro-state.
+
+#+BEGIN_SRC emacs-lisp
+  eyebrowse
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :exports none
+  )   
+#+END_SRC
+
+** Layer Path 
+
+List of additional paths where to look for configuration layers.
+Paths must have a trailing slash (i.e. `~/.mycontribs/')
+
+#+BEGIN_SRC emacs-lisp
+  dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
+#+END_SRC
+
+** Packages 
+*** additional packages
+
+List of configuration layers to load. If it is the symbol `all' instead
+of a list then all discovered layers will be installed.
+List of additional packages that will be installed without being
+wrapped in a layer. If you need some configuration for these
+packages then consider to create a layer, you can also put the
+configuration in `dotspacemacs/config'.
+
+#+BEGIN_SRC emacs-lisp
+  dotspacemacs-additional-packages '()
+#+END_SRC
+
+*** excluded packages
+
+A list of packages and/or extensions that will not be install and loaded.
+
+#+BEGIN_SRC emacs-lisp
+  dotspacemacs-excluded-packages '()
+#+END_SRC
+
+*** orphan-packages 
+
+If non-nil spacemacs will delete any orphan packages, i.e. packages that
+are declared in a layer which is not a member of
+the list `dotspacemacs-configuration-layers'. (default t)
+
+#+BEGIN_SRC emacs-lisp
+  dotspacemacs-delete-orphan-packages t
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :exports none
+))
 #+END_SRC
 
 
@@ -538,7 +734,7 @@ With this setting, once you have selected your project, the top-level directory
 of the project is immediately opened for you in a dired buffer.
 
 #+BEGIN_SRC emacs-lisp
-  (setq projectile-switch-project-action 'projectile-dired)
+  (defvar projectile-switch-project-action 'projectile-dired)
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp :exports none
