@@ -432,6 +432,14 @@ The commands defined in this layer are taken from various sources like [[https:/
   better-defaults
 #+END_SRC
 
+*** Tmux
+
+This is an extension to support [[https://github.com/Keithbsmiley/evil-tmux-navigator][evil-tmux-navigator]].
+
+#+BEGIN_SRC emacs-lisp
+  tmux
+#+END_SRC
+
 *** Emacs-Lisp
 
 This layer gathers all the configuration related to emacs-lisp. This should
