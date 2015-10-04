@@ -4,7 +4,6 @@
 #+STARTUP: indent hideblocks
 #+PROPERTY: header-args :tangle yes :comments org
 
-
 * SPACEMACS INITIALIZATION
 
 Initialization function.
