@@ -737,6 +737,22 @@ of the project is immediately opened for you in a dired buffer.
   (setq projectile-switch-project-action 'projectile-dired)
 #+END_SRC
 
+*** windmove
+
+winmove lets you move point from window to window using Shift and the arrow keys.
+
+#+BEGIN_SRC emacs-lisp
+  (when (fboundp 'windmove-default-keybindings)
+    (windmove-default-keybindings))
+#+END_SRC
+
+Make windmove work in org-mode
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-shiftup-final-hook 'windmove-up)
+  (add-hook 'org-shiftleft-final-hook 'windmove-left)
+  (add-hook 'org-shiftdown-final-hook 'windmove-down)
+  (add-hook 'org-shiftright-final-hook 'windmove-right)
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp :exports none
