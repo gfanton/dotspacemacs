@@ -462,6 +462,14 @@ This layer colors your life with:
   colors
 #+END_SRC
 
+*** jabber
+
+This layer adds keybindings for jabber.el. jabber.el is a Jabber (XMPP) client for Emacs
+
+#+BEGIN_SRC emacs-lisp
+  jabber
+#+END_SRC
+
 *** Emacs-Lisp
 
 This layer gathers all the configuration related to emacs-lisp. This should
