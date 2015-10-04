@@ -440,6 +440,14 @@ This is an extension to support [[https://github.com/Keithbsmiley/evil-tmux-navi
   tmux
 #+END_SRC
 
+*** floobits
+
+This layer adds support for peer programming tool [[https://github.com/Floobits/floobits-emacs][floobits]].
+
+#+BEGIN_SRC emacs-lisp
+  floobits
+#+END_SRC
+
 *** Emacs-Lisp
 
 This layer gathers all the configuration related to emacs-lisp. This should
