@@ -780,6 +780,14 @@ Spacemacs initialization after layers configuration.
        layers configuration."
 #+END_SRC
 
+*** Org
+
+Hotfix for org problems
+
+#+BEGIN_SRC emacs-lisp
+  (org-reload)
+#+END_SRC
+
 *** projectile
 
 With this setting, once you have selected your project, the top-level directory
