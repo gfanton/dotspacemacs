@@ -521,6 +521,18 @@ scripts.
   c-c++
 #+END_SRC
 
+*** Cscope
+
+This layer provides bindings for using [[http://cscope.sourceforge.net][Cscope]] and [[https://github.com/portante/pycscope][PyCscope]] in Spacemacs.
+
+=Cscope= provides indexing and searching capabilities for C and C++ code.
+=PyCscope= extends these capabilities for Python code as well. See
+[[https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools][here]] for a comparison between =Cscope= and other similar tools (such as gtags).
+
+#+BEGIN_SRC emacs-lisp
+cscope
+#+END_SRC
+
 *** Php
 
 This layer adds PHP language support to Spacemacs.
