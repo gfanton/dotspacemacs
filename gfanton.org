@@ -5,6 +5,8 @@
 #+PROPERTY: header-args :tangle yes :comments org
 #+SETUPFILE: ~/.spacemacs.d/org-html-themes/setup/theme-readtheorg.setup
 
+My dotspacemacs configuration for [[https:github.com/syl20bnr/spacemacs%20][SpaceMacs_]]
+
 * SPACEMACS INITIALIZATION
 
 Initialization function.
