@@ -3,6 +3,7 @@
 #+BABEL: :cache yes
 #+STARTUP: indent hideblocks
 #+PROPERTY: header-args :tangle yes :comments org
+#+SETUPFILE: ~/.spacemacs.d/org-html-themes/setup/theme-readtheorg.setup
 
 * SPACEMACS INITIALIZATION
 
