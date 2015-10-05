@@ -723,7 +723,10 @@ packages then consider to create a layer, you can also put the
 configuration in `dotspacemacs/config'.
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-additional-packages '()
+  dotspacemacs-additional-packages '(
+                                     docker
+                                     docker-tramp
+                                     )
 #+END_SRC
 
 *** excluded packages
