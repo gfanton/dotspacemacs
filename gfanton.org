@@ -788,7 +788,7 @@ of the project is immediately opened for you in a dired buffer.
 
 *** windmove
 
-winmove lets you move point from window to window using Shift and the arrow keys.
+Windmove lets you move point from window to window using Shift and the arrow keys.
 
 #+BEGIN_SRC emacs-lisp
   (when (fboundp 'windmove-default-keybindings)
