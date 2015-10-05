@@ -1,3 +1,6 @@
 [submodule "snippets"]
 	path = snippets
 	url = https://github.com/gfanton/yasnippet-snippets.git
+[submodule "org-html-themes"]
+	path = org-html-themes
+	url = https://github.com/fniessen/org-html-themes.git

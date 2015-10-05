@@ -3,6 +3,7 @@
 #+BABEL: :cache yes
 #+STARTUP: indent hideblocks
 #+PROPERTY: header-args :tangle yes :comments org
+#+SETUPFILE: ~/.spacemacs.d/org-html-themes/setup/theme-readtheorg.setup
 
 * SPACEMACS INITIALIZATION
 
@@ -723,7 +724,10 @@ packages then consider to create a layer, you can also put the
 configuration in `dotspacemacs/config'.
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-additional-packages '()
+  dotspacemacs-additional-packages '(
+                                     docker
+                                     docker-tramp
+                                     )
 #+END_SRC
 
 *** excluded packages
@@ -775,6 +779,14 @@ Spacemacs initialization after layers configuration.
     "Configuration function for user code.
        This function is called at the very end of Spacemacs initialization after
        layers configuration."
+#+END_SRC
+
+*** Org
+
+Hotfix for org problems
+
+#+BEGIN_SRC emacs-lisp
+  (org-reload)
 #+END_SRC
 
 *** projectile
