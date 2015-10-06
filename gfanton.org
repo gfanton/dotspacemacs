@@ -462,7 +462,9 @@ This layer colors your life with:
 - [[https://github.com/syl20bnr/nyan-mode][nyan mode]] display a Nyan cat progress bar in the mode-line.
 
 #+BEGIN_SRC emacs-lisp
-  colors
+  (colors :variables
+          ;; colors-enable-rainbow-identifiers t
+          colors-enable-nyan-cat-progress-bar t)
 #+END_SRC
 
 *** jabber
