@@ -660,7 +660,8 @@ This layer configures the various shells available in Emacs.
   (shell :variables
          shell-default-height 30
          shell-default-position 'bottom
-         shell-default-shell 'eshell)
+         shell-default-shell 'term
+         shell-default-term-shell "/bin/zsh")
 #+END_SRC
 
 *** Spell-Checking
