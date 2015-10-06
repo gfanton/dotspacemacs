@@ -796,6 +796,17 @@ Hotfix for org problems
   (org-reload)
 #+END_SRC
 
+*** Skeletor
+
+=Skeletor= provides project templates for Emacs. It also automates the mundane
+parts of setting up a new project like version control, licenses and tooling.
+=Skeletor= comes with a number of predefined templates and allows you to easily
+create your own.
+
+#+BEGIN_SRC emacs-lisp
+  (setq skeletor-project-directory "~/.spacemacs.d/project-skeletons")
+#+END_SRC
+
 *** projectile
 
 With this setting, once you have selected your project, the top-level directory
