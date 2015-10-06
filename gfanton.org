@@ -731,6 +731,7 @@ configuration in `dotspacemacs/config'.
   dotspacemacs-additional-packages '(
                                      docker
                                      docker-tramp
+                                     edbi
                                      )
 #+END_SRC
 
