@@ -733,6 +733,7 @@ configuration in `dotspacemacs/config'.
                                      docker
                                      docker-tramp
                                      edbi
+                                     skeletor
                                      )
 #+END_SRC
 
