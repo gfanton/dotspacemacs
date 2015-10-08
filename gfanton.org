@@ -246,7 +246,7 @@ If non nil the frame is fullscreen when Emacs starts up. (default nil)
 (Emacs 24.4+ only)
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-fullscreen-at-startup t
+  dotspacemacs-fullscreen-at-startup nil
 #+END_SRC
 
 *** toggle native
@@ -462,7 +462,9 @@ This layer colors your life with:
 - [[https://github.com/syl20bnr/nyan-mode][nyan mode]] display a Nyan cat progress bar in the mode-line.
 
 #+BEGIN_SRC emacs-lisp
-  colors
+  (colors :variables
+          ;; colors-enable-rainbow-identifiers t
+          colors-enable-nyan-cat-progress-bar t)
 #+END_SRC
 
 *** jabber
@@ -533,7 +535,7 @@ This layer provides bindings for using [[http://cscope.sourceforge.net][Cscope]]
 [[https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools][here]] for a comparison between =Cscope= and other similar tools (such as gtags).
 
 #+BEGIN_SRC emacs-lisp
-cscope
+  cscope
 #+END_SRC
 
 *** Php
@@ -609,6 +611,26 @@ This layer provides syntax highlighting and build functionality for Docker files
   dockerfile
 #+END_SRC
 
+*** Semantic
+
+CEDET is a *C*ollection of *E*macs *D*evelopment *E*nvironment *T*ools written
+with the end goal of creating an advanced development environment in Emacs.
+CEDET includes common features such as intelligent completion, source code
+navigation, project management, code generation with templates. CEDET also
+provides a framework for working with programming languages; support for new
+programming languages can be added and use CEDET to provide IDE-like features.
+This framework is called Semantic.
+
+Semantic is a package that provides a framework for writing parsers. Parsing is
+a process of analyzing source code based on programming language syntax. The
+packages relies on Semantic for analyzing source code and uses its results to
+perform smart code refactoring that based on code structure of the analyzed
+language, instead of plain text structure. Semantic is the core of CEDET.
+
+#+BEGIN_SRC emacs-lisp
+  semantic
+#+END_SRC
+
 *** Git
 
 This layers adds extensive support for [[http://git-scm.com/][git]].
@@ -658,7 +680,8 @@ This layer configures the various shells available in Emacs.
   (shell :variables
          shell-default-height 30
          shell-default-position 'bottom
-         shell-default-shell 'eshell)
+         shell-default-shell 'term
+         shell-default-term-shell "/bin/zsh")
 #+END_SRC
 
 *** Spell-Checking
@@ -729,6 +752,12 @@ configuration in `dotspacemacs/config'.
   dotspacemacs-additional-packages '(
                                      docker
                                      docker-tramp
+                                     edbi
+                                     skeletor
+                                     visual-regexp
+                                     visual-regexp-steroids
+                                     ag
+                                     color-moccur
                                      )
 #+END_SRC
 
@@ -783,12 +812,31 @@ Spacemacs initialization after layers configuration.
        layers configuration."
 #+END_SRC
 
+*** regexp
+
+#+BEGIN_SRC emacs-lisp
+  (pcre-mode)
+  (custom-set-variables
+           '(vr/engine (quote pcre2el)))
+#+END_SRC
+
 *** Org
 
 Hotfix for org problems
 
 #+BEGIN_SRC emacs-lisp
   (org-reload)
+#+END_SRC
+
+*** Skeletor
+
+=Skeletor= provides project templates for Emacs. It also automates the mundane
+parts of setting up a new project like version control, licenses and tooling.
+=Skeletor= comes with a number of predefined templates and allows you to easily
+create your own.
+
+#+BEGIN_SRC emacs-lisp
+  (setq skeletor-project-directory "~/.spacemacs.d/project-skeletons")
 #+END_SRC
 
 *** projectile
