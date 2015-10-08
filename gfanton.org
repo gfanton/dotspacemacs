@@ -754,6 +754,10 @@ configuration in `dotspacemacs/config'.
                                      docker-tramp
                                      edbi
                                      skeletor
+                                     visual-regexp
+                                     visual-regexp-steroids
+                                     ag
+                                     color-moccur
                                      )
 #+END_SRC
 
@@ -806,6 +810,14 @@ Spacemacs initialization after layers configuration.
     "Configuration function for user code.
        This function is called at the very end of Spacemacs initialization after
        layers configuration."
+#+END_SRC
+
+*** regexp
+
+#+BEGIN_SRC emacs-lisp
+  (pcre-mode)
+  (custom-set-variables
+           '(vr/engine (quote pcre2el)))
 #+END_SRC
 
 *** Org
