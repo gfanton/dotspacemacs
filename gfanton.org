@@ -758,6 +758,7 @@ configuration in `dotspacemacs/config'.
                                      visual-regexp-steroids
                                      ag
                                      color-moccur
+                                     ssh-tunnels
                                      )
 #+END_SRC
 
