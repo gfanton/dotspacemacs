@@ -904,7 +904,7 @@ the list `dotspacemacs-configuration-layers'. (default t)
 
 
 * USER CONFIGURATION
-** User Init
+** User Initialization
 
 Initialization function for user code. It is called immediately after
 `dotspacemacs/init'.
