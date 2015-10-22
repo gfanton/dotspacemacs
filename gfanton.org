@@ -518,6 +518,15 @@ This layer aims at providing support for the Ruby language using
   ruby
 #+END_SRC
 
+*** Themes
+
+This simple contribution layer is an example. It installs around 100 themes
+for Emacs. You can try them easily by invoking helm-themes with: ~<SPC> T h~.
+
+#+BEGIN_SRC emacs-lisp
+  themes-megapack
+#+END_SRC
+
 *** C-C++
 
 This layer adds configuration for C/C++ language as well support for [[http://www.cmake.org/][CMake]]
