@@ -758,18 +758,126 @@ wrapped in a layer. If you need some configuration for these
 packages then consider to create a layer, you can also put the
 configuration in `dotspacemacs/config'.
 
+
+#+BEGIN_SRC emacs-lisp :exports none
+dotspacemacs-additional-packages '(
+#+END_SRC
+
+**** Docker
+
+=Docker= is an open platform for building, shipping and running distributed
+applications. It gives programmers, development teams and operations engineers
+the common toolbox they need to take advantage of the distributed and networked
+nature of modern applications.
+
+***** docker-mode
+
+Emacs interface to Docker
+
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-additional-packages '(
-                                     docker
-                                     docker-tramp
-                                     edbi
-                                     skeletor
-                                     visual-regexp
-                                     visual-regexp-steroids
-                                     ag
-                                     color-moccur
-                                     ssh-tunnels
-                                     )
+  docker
+#+END_SRC
+
+***** docker-tramp
+
+Docker-Tramp offers a TRAMP method for Docker containers.
+
+#+BEGIN_SRC emacs-lisp
+  docker-tramp
+#+END_SRC
+
+**** EDBI
+
+This program connects the database server through Perl's DBI, and provides
+DB-accessing API and the simple management UI.
+
+#+BEGIN_SRC emacs-lisp
+  edbi
+#+END_SRC
+
+**** Skeletor
+
+=Skeletor= provides project templates for Emacs. It also automates the mundane
+parts of setting up a new project like version control, licenses and tooling.
+
+=Skeletor= comes with a number of predefined templates and allows you to easily
+create your own.
+
+#+BEGIN_SRC emacs-lisp
+  skeletor
+#+END_SRC
+
+**** Visual Regexp
+
+visual-regexp for Emacs is like replace-regexp, but with live visual feedback
+directly in the buffer. Check out visual-regexp-steroids if you want to use
+modern regular expressions instead of Emacs-style regular expressions.
+
+***** visual-regexp
+
+Visual Regexp mode
+
+#+BEGIN_SRC emacs-lisp
+  visual-regexp
+#+END_SRC
+
+***** visual-regexp-steroids
+
+visual-regexp-steroids is an extension to visual-regexp which enables the use of
+modern regexp engines (no more escaped group parentheses, and other goodies!).
+In addition to that, you can optionally use the better regexp syntax to power
+isearch-forward-regexp and isearch-backward-regexp.
+
+#+BEGIN_SRC emacs-lisp
+  visual-regexp-steroids
+#+END_SRC
+
+**** Color Moccur
+
+With color-moccur, you can search a regexp in all buffers. And you can search
+files like grep(-find) without grep (and find) command.
+
+#+BEGIN_SRC emacs-lisp
+  color-moccur
+#+END_SRC
+
+**** SSH Tunnels
+
+This package lets you run and kill SSH tunnels. 
+Set the variable ssh-tunnels-configurations, e.g.:
+
+#+BEGIN_SRC emacs-lisp :startup nohideblocks
+  (setq ssh-tunnels-configurations
+        '((:name "my tunnel"
+                 :local-port 1234
+                 :remote-port 3306
+                 :login "me@host")))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  ssh-tunnels
+#+END_SRC
+
+**** Impatient Mode
+
+impatient-mode is a minor mode that publishes the live buffer through the local
+simple-httpd server under /imp/<buffer-name>. To unpublish a buffer, toggle
+impatient-mode off.
+
+#+BEGIN_SRC emacs-lisp
+  impatient-mode
+#+END_SRC
+
+**** Simple Httpd
+
+A simple Emacs web server.
+
+#+BEGIN_SRC emacs-lisp
+  simple-httpd
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :exports none
+)
 #+END_SRC
 
 *** excluded packages
