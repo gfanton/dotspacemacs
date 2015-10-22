@@ -94,7 +94,7 @@ size to make separators look not too crappy.
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-default-font '("Source Code Pro"
                               :size 13
-                              :weight normal
+                              :weight bold
                               :width normal
                               :powerline-scale 1.1)
 #+END_SRC
