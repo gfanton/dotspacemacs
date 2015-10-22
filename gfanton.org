@@ -914,111 +914,6 @@ Initialization function for user code. It is called immediately after
     "Initialization function for user code.
   It is called immediately after `dotspacemacs/init'."
 #+END_SRC
-*** toggle sudo
-
-#+BEGIN_SRC emacs-lisp
-  (defun dired-toggle-sudo-internal (path &optional sudo-user)
-    "Convert PATH to its sudoed version. root is used by default
-  unless SUDO-USER is provided."
-    (let* ((file-vec (or (ignore-errors (tramp-dissect-file-name
-                                         path))
-                         (tramp-dissect-file-name
-                          (concat "/:" path) 1)))
-           (method  (tramp-file-name-method file-vec))
-           (user (tramp-file-name-user file-vec))
-           (host  (tramp-file-name-host file-vec))
-           (localname (expand-file-name
-                       (tramp-file-name-localname file-vec))))
-      (when (string= system-name host)
-        (setq host nil))
-      (cond
-       ;; remote directory -> sudo
-       ((and host (string= method "scp"))
-        (setq method "sudo" user sudo-user))
-       ;; remote directory -> normal
-       ((and host (string= method "sudo"))
-        (setq method "scp" user nil))
-       ;; Local directory -> normal
-       ((and (not host) (string= method "scp"))
-        (setq method "sudo"))
-       ;; Local directory -> sudo
-       ((and (not host) (string= method "sudo"))
-        (setq method nil user sudo-user))
-       ;; Local directory -> normal
-       (t
-        (setq method "sudo" user sudo-user)))
-      (replace-regexp-in-string
-       "^/:/" "/"
-       (tramp-make-tramp-file-name method user host localname))))
-
-  (defun dired-toggle-sudo-find (fname)
-    "Create a new buffer for file name FNAME."
-    (let ((save-point (point)))
-      (find-alternate-file fname)
-      (goto-char save-point)))
-
-  ;;;###autoload
-  (defun dired-toggle-sudo (&optional sudo-user)
-    "Reopen current file or dired buffer with sudo.
-  If SUDO-USER is nil assume root.
-  If called with `universal-argument' (C-u), ask for username.
-  "
-    (interactive "P")
-    (let* ((fname (or buffer-file-name
-                      dired-directory))
-           (sudo-user (if current-prefix-arg
-                          (read-string "Username: ")
-                        sudo-user))
-           (orig (current-buffer)))
-      (when fname
-        (setq fname (dired-toggle-sudo-internal fname sudo-user))
-        (if (not (eq major-mode 'dired-mode))
-            (dired-toggle-sudo-find fname)
-          (kill-buffer orig)
-          (dired fname)))))
-#+END_SRC
-
-#+RESULTS:
-: dired-toggle-sudo
-
-
-#+BEGIN_SRC emacs-lisp :exports none
-    )
-#+END_SRC
-
-** User Config
-
-Configuration function for user code. This function is called at the very end of
-Spacemacs initialization after layers configuration.
-
-#+BEGIN_SRC emacs-lisp :exports none
-  (defun dotspacemacs/user-config ()
-    "Configuration function for user code.
-       This function is called at the very end of Spacemacs initialization after
-       layers configuration."
-#+END_SRC
-
-*** regexp
-
-I prefer to use PCRE REGEX engine instead
-
-#+BEGIN_SRC emacs-lisp
-  (pcre-mode)
-  (custom-set-variables
-           '(vr/engine (quote pcre2el)))
-#+END_SRC
-
-*** Skeletor
-
-=Skeletor= provides project templates for Emacs. It also automates the mundane
-parts of setting up a new project like version control, licenses and tooling.
-=Skeletor= comes with a number of predefined templates and allows you to easily
-create your own.
-
-#+BEGIN_SRC emacs-lisp
-  (setq skeletor-project-directory "~/.spacemacs.d/project-skeletons")
-#+END_SRC
-
 *** Sudo
 
 Allow to switch from current user to sudo when browsind `dired' buffers.
@@ -1105,6 +1000,43 @@ To activate and swit with "C-c C-s" just put in your .emacs:
       ;; Allow to use: /sudo:user@host:/path/to/file
       (add-to-list 'tramp-default-proxies-alist
        '(".*" "\\`.+\\'" "/ssh:%h:"))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :exports none
+    )
+#+END_SRC
+
+** User Config
+
+Configuration function for user code. This function is called at the very end of
+Spacemacs initialization after layers configuration.
+
+#+BEGIN_SRC emacs-lisp :exports none
+  (defun dotspacemacs/user-config ()
+    "Configuration function for user code.
+       This function is called at the very end of Spacemacs initialization after
+       layers configuration."
+#+END_SRC
+
+*** regexp
+
+I prefer to use PCRE REGEX engine instead
+
+#+BEGIN_SRC emacs-lisp
+  (pcre-mode)
+  (custom-set-variables
+           '(vr/engine (quote pcre2el)))
+#+END_SRC
+
+*** Skeletor
+
+=Skeletor= provides project templates for Emacs. It also automates the mundane
+parts of setting up a new project like version control, licenses and tooling.
+=Skeletor= comes with a number of predefined templates and allows you to easily
+create your own.
+
+#+BEGIN_SRC emacs-lisp
+  (setq skeletor-project-directory "~/.spacemacs.d/project-skeletons")
 #+END_SRC
 
 *** projectile
