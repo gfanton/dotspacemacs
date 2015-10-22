@@ -1028,6 +1028,14 @@ I prefer to use PCRE REGEX engine instead
            '(vr/engine (quote pcre2el)))
 #+END_SRC
 
+*** PowerLine
+
+Set `Powerline' default separator.
+
+#+BEGIN_SRC emacs-lisp
+  (setq powerline-default-separator 'arrow)
+#+END_SRC
+
 *** Skeletor
 
 =Skeletor= provides project templates for Emacs. It also automates the mundane
