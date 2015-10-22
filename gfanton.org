@@ -33,7 +33,7 @@ uses emacs key bindings for vim's insert mode, but otherwise leaves evil
 unchanged. (default 'vim)
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-editing-style 'emacs
+  dotspacemacs-editing-style 'hybrid
 #+END_SRC
 
 ** verbose loading
@@ -739,7 +739,7 @@ It is also possible to give a label to a the current workspace by pressing
   )   
 #+END_SRC
 
-** Layer Path 
+** Layer Path
 
 List of additional paths where to look for configuration layers.
 Paths must have a trailing slash (i.e. `~/.mycontribs/')
@@ -748,7 +748,7 @@ Paths must have a trailing slash (i.e. `~/.mycontribs/')
   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
 #+END_SRC
 
-** Packages 
+** Packages
 *** additional packages
 
 List of configuration layers to load. If it is the symbol `all' instead
@@ -1006,7 +1006,7 @@ To activate and swit with "C-c C-s" just put in your .emacs:
     )
 #+END_SRC
 
-** User Config
+** User Configuration
 
 Configuration function for user code. This function is called at the very end of
 Spacemacs initialization after layers configuration.
