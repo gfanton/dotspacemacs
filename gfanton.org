@@ -464,7 +464,8 @@ This layer colors your life with:
 #+BEGIN_SRC emacs-lisp
   (colors :variables
           ;; colors-enable-rainbow-identifiers t
-          colors-enable-nyan-cat-progress-bar t)
+          ;; colors-enable-nyan-cat-progress-bar t
+          )
 #+END_SRC
 
 *** jabber
