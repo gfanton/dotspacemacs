@@ -846,7 +846,7 @@ files like grep(-find) without grep (and find) command.
 This package lets you run and kill SSH tunnels. 
 Set the variable ssh-tunnels-configurations, e.g.:
 
-#+BEGIN_SRC emacs-lisp :startup nohideblocks
+#+BEGIN_SRC emacs-lisp :startup nohideblocks :tangle no
   (setq ssh-tunnels-configurations
         '((:name "my tunnel"
                  :local-port 1234
