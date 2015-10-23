@@ -33,7 +33,7 @@ uses emacs key bindings for vim's insert mode, but otherwise leaves evil
 unchanged. (default 'vim)
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-editing-style 'hybrid
+  dotspacemacs-editing-style 'emacs
 #+END_SRC
 
 ** verbose loading
