@@ -75,7 +75,8 @@ Press <SPC> T n to cycle to the next theme in the list (works great
 with 2 themes variants, one dark and one light)
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-themes '(molokai)
+    dotspacemacs-themes '(molokai
+                          monokai)
 #+END_SRC
 
 ** cursor-color
