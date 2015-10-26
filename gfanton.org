@@ -796,6 +796,15 @@ DB-accessing API and the simple management UI.
   edbi
 #+END_SRC
 
+**** Bookmark+
+The internal bookmark format (data structure) used by Bookmark+ is compatible
+with that of vanilla GnuEmacs. It extends that structure in new ways, to
+accommodate new bookmark types.
+
+#+BEGIN_SRC emacs-lisp
+   bookmark+
+#+END_SRC
+
 **** Skeletor
 
 =Skeletor= provides project templates for Emacs. It also automates the mundane
