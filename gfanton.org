@@ -817,40 +817,6 @@ create your own.
   skeletor
 #+END_SRC
 
-**** Visual Regexp
-
-visual-regexp for Emacs is like replace-regexp, but with live visual feedback
-directly in the buffer. Check out visual-regexp-steroids if you want to use
-modern regular expressions instead of Emacs-style regular expressions.
-
-***** visual-regexp
-
-Visual Regexp mode
-
-#+BEGIN_SRC emacs-lisp
-  visual-regexp
-#+END_SRC
-
-***** visual-regexp-steroids
-
-visual-regexp-steroids is an extension to visual-regexp which enables the use of
-modern regexp engines (no more escaped group parentheses, and other goodies!).
-In addition to that, you can optionally use the better regexp syntax to power
-isearch-forward-regexp and isearch-backward-regexp.
-
-#+BEGIN_SRC emacs-lisp
-  visual-regexp-steroids
-#+END_SRC
-
-**** Color Moccur
-
-With color-moccur, you can search a regexp in all buffers. And you can search
-files like grep(-find) without grep (and find) command.
-
-#+BEGIN_SRC emacs-lisp
-  color-moccur
-#+END_SRC
-
 **** SSH Tunnels
 
 This package lets you run and kill SSH tunnels. 
