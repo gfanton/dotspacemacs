@@ -890,6 +890,26 @@ Initialization function for user code. It is called immediately after
     "Initialization function for user code.
   It is called immediately after `dotspacemacs/init'."
 #+END_SRC
+
+*** compile
+
+This stuff is to ansi-colorize the compilation buffer after a rails test so the
+terminal colors come through.
+
+#+BEGIN_SRC emacs-lisp
+  (define-derived-mode ansi-compilation-mode compilation-mode "ansi compilation"
+    "Compilation mode that understands ansi colors."
+    (require 'ansi-color)
+    (toggle-read-only 0)
+    (ansi-color-apply-on-region (point-min) (point-max)))
+
+  (defun colorize-compilation (one two)
+    "ansi colorize the compilation buffer."
+    (ansi-compilation-mode))
+
+  (setq compilation-finish-function 'colorize-compilation)
+#+END_SRC
+
 *** Sudo
 
 Allow to switch from current user to sudo when browsind `dired' buffers.
