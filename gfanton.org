@@ -444,7 +444,7 @@ This is an extension to support [[https://github.com/Keithbsmiley/evil-tmux-navi
   tmux
 #+END_SRC
 
-*** floobits
+*** Floobits
 
 This layer adds support for peer programming tool [[https://github.com/Floobits/floobits-emacs][floobits]].
 
@@ -452,7 +452,7 @@ This layer adds support for peer programming tool [[https://github.com/Floobits/
   floobits
 #+END_SRC
 
-*** colors
+*** Colors
 
 This layer colors your life with:
 - [[https://github.com/Fanael/rainbow-identifiers][rainbow identifiers]] mode will colorize each variables and functions with an
@@ -469,7 +469,7 @@ This layer colors your life with:
           )
 #+END_SRC
 
-*** jabber
+*** Jabber
 
 This layer adds keybindings for jabber.el. jabber.el is a Jabber (XMPP) client for Emacs
 
@@ -526,6 +526,16 @@ for Emacs. You can try them easily by invoking helm-themes with: ~<SPC> T h~.
 
 #+BEGIN_SRC emacs-lisp
   themes-megapack
+#+END_SRC
+
+*** Restclient
+
+This is a package that lets you have a REPL-like interface
+for http requests. Full documentation and examples can be found in the
+package's [[https://github.com/pashky/restclient.el][GitHub Page]].
+
+#+BEGIN_SRC emacs-lisp
+  restclient
 #+END_SRC
 
 *** C-C++
@@ -797,12 +807,22 @@ DB-accessing API and the simple management UI.
 #+END_SRC
 
 **** Bookmark+
+
 The internal bookmark format (data structure) used by Bookmark+ is compatible
 with that of vanilla GnuEmacs. It extends that structure in new ways, to
 accommodate new bookmark types.
 
 #+BEGIN_SRC emacs-lisp
    bookmark+
+#+END_SRC
+
+**** Dash
+
+Dash is an API Documentation Browser and Code Snippet Manager. dash-at-point
+make it easy to search the word at point with Dash.
+
+#+BEGIN_SRC emacs-lisp
+  dash-at-point
 #+END_SRC
 
 **** Skeletor
@@ -889,25 +909,6 @@ Initialization function for user code. It is called immediately after
   (defun dotspacemacs/user-init ()
     "Initialization function for user code.
   It is called immediately after `dotspacemacs/init'."
-#+END_SRC
-
-*** compile
-
-This stuff is to ansi-colorize the compilation buffer after a rails test so the
-terminal colors come through.
-
-#+BEGIN_SRC emacs-lisp
-  (define-derived-mode ansi-compilation-mode compilation-mode "ansi compilation"
-    "Compilation mode that understands ansi colors."
-    (require 'ansi-color)
-    (toggle-read-only 0)
-    (ansi-color-apply-on-region (point-min) (point-max)))
-
-  (defun colorize-compilation (one two)
-    "ansi colorize the compilation buffer."
-    (ansi-compilation-mode))
-
-  (setq compilation-finish-function 'colorize-compilation)
 #+END_SRC
 
 *** Sudo
