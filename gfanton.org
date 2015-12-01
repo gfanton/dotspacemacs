@@ -342,7 +342,7 @@ If non nil advises quit functions to keep server open when quitting.
 
 List of search tool executable names. Spacemacs uses the first installed
 tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
-(default '("ag" "pt" "ack" "grep"))
+(default '("pt" "ag" "ack" "grep"))
 
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
