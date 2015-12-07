@@ -943,7 +943,7 @@ I prefer to use PCRE REGEX engine instead
 
 *** PowerLine
 
-Set `Powerline' default separator.
+Set `Powerline' default separator to arrow.
 
 #+BEGIN_SRC emacs-lisp
   (setq powerline-default-separator 'arrow)
@@ -958,6 +958,15 @@ create your own.
 
 #+BEGIN_SRC emacs-lisp
   (setq skeletor-project-directory "~/.spacemacs.d/project-skeletons")
+#+END_SRC
+
+*** Projectile
+
+Once you have selected your project, the top-level directory
+of the project is immediately opened for you in a dired buffer.
+
+#+BEGIN_SRC emacs-lisp
+  (setq projectile-switch-project-action 'projectile-dired)
 #+END_SRC
 
 *** windmove
