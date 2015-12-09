@@ -886,7 +886,7 @@ A simple Emacs web server.
 A list of packages and/or extensions that will not be install and loaded.
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-excluded-packages '()
+  dotspacemacs-excluded-packages '(drupal-mode)
 #+END_SRC
 
 *** orphan-packages 
