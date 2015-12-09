@@ -969,6 +969,13 @@ of the project is immediately opened for you in a dired buffer.
   (setq projectile-switch-project-action 'projectile-dired)
 #+END_SRC
 
+Make projectile work with tramp mode
+ 
+#+BEGIN_SRC emacs-lisp
+  (defadvice projectile-project-root (around ignore-remote first activate)
+      (unless (file-remote-p default-directory) ad-do-it))
+#+END_SRC
+
 *** windmove
 
 Windmove lets you move point from window to window using Shift and the arrow keys.
