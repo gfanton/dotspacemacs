@@ -698,6 +698,16 @@ This layer enables  [[http://orgmode.org/][org mode]] for Spacemacs.
   org
 #+END_SRC
 
+*** Deft
+
+[[http://jblevins.org/projects/deft/][Deft]] is an Emacs mode inspired by =Notational Velocity= for quickly
+browsing and creating notes.
+
+#+BEGIN_SRC emacs-lisp
+  deft
+#+END_SRC
+
+
 *** Shell
 
 This layer configures the various shells available in Emacs.
@@ -800,6 +810,16 @@ Docker-Tramp offers a TRAMP method for Docker containers.
 
 #+BEGIN_SRC emacs-lisp
   docker-tramp
+#+END_SRC
+
+**** Jira
+
+Use Jira in Emacs org-mode.
+
+#+BEGIN_SRC emacs-lisp
+  jira
+  org-jira
+  jira-markup-mode
 #+END_SRC
 
 **** EDBI
@@ -959,6 +979,15 @@ create your own.
 #+BEGIN_SRC emacs-lisp
   (setq skeletor-project-directory "~/.spacemacs.d/project-skeletons")
 #+END_SRC
+
+*** Deft
+
+
+
+#+BEGIN_SRC emacs-lisp
+  (setq deft-directory "~/Dropbox/notes")
+#+END_SRC
+
 
 *** Projectile
 
