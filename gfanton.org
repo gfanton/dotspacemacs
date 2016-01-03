@@ -531,7 +531,6 @@ package's [[https://github.com/pashky/restclient.el][GitHub Page]].
 #+END_SRC
 
 *** C-C++
-
 This layer adds configuration for C/C++ language as well support for [[http://www.cmake.org/][CMake]]
 scripts.
 
@@ -549,6 +548,14 @@ This layer provides bindings for using [[http://cscope.sourceforge.net][Cscope]]
 
 #+BEGIN_SRC emacs-lisp
   cscope
+#+END_SRC
+
+*** Go
+
+This layer adds extensive support for go.
+
+#+BEGIN_SRC emacs-lisp
+  go
 #+END_SRC
 
 *** Php
@@ -600,7 +607,7 @@ This layer adds support for [[http://clojure.org][Clojure]] language using [[htt
   clojure
 #+END_SRC
 
-*** Wakatime
+*** Wakatime (disabled)
 
 This layer adds support for Wakatime.
 
@@ -610,7 +617,7 @@ timer? WakaTime uses open-source text editor plugins to automatically track the
 time you spend programming so you never have to manually track it again!
 
 #+BEGIN_SRC emacs-lisp
-  wakatime
+;;  wakatime
 #+END_SRC
 
 *** Latex
