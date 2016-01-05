@@ -392,6 +392,200 @@ Use <SPC f e R> (Vim style) or <M-m f e R> (Emacs style) to install them.
   '(
 #+END_SRC
 
+*** + Config-Files
+**** Dockerfile
+
+This layer provides syntax highlighting and build functionality for Docker files.
+
+#+BEGIN_SRC emacs-lisp
+  dockerfile
+#+END_SRC
+*** + Window-Management
+**** Eyebrowse
+
+This layer adds [[https://i3wm.org/][i3wm]] like workspaces thanks to the [[https://github.com/wasamasa/eyebrowse][eyebrowse]] package.
+
+Once the layer is activated a new number is added to the right side of the
+mode-line. This number corresponds to the currently active workspace number.
+
+At startup, the workspace number 1 is active. Switching to a workspace will
+create it if it does not exist. For instance at startup you can press
+~SPC W 2~ to create the workspace 2.
+
+The key bindings are registered in a micro-state displayed in the minibuffer.
+The docstring of the micro-state displays the existing workspaces and the
+currently active workspace has square brackets. Since this is a micro-state it
+is possible to just preview a workspace, for instance press ~SPC W 2~ to see
+what's on the workspace 2 then press ~TAB~ to go back to the previously
+activated workspace.
+
+It is also possible to give a label to a the current workspace by pressing
+~r~ in the micro-state.
+
+#+BEGIN_SRC emacs-lisp
+  eyebrowse
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :exports none
+  )   
+#+END_SRC
+*** + Version-Control
+**** Version-Control
+
+This layers adds general configuration for [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html][Emacs VC]].
+It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc...
+
+#+BEGIN_SRC emacs-lisp
+  version-control
+#+END_SRC
+
+**** Github
+
+This layers adds support for [[http://github.com][Github]].
+
+#+BEGIN_SRC emacs-lisp
+  github
+#+END_SRC
+**** Git
+
+This layers adds extensive support for [[http://git-scm.com/][git]].
+
+#+BEGIN_SRC emacs-lisp
+  git
+#+END_SRC
+*** + Lang
+**** Emacs-Lisp
+
+This layer gathers all the configuration related to emacs-lisp. This should
+always be in your dotfile, it is not recommended to uninstall it.
+
+#+BEGIN_SRC emacs-lisp
+  emacs-lisp
+#+END_SRC
+
+**** C-C++
+This layer adds configuration for C/C++ language as well support for [[http://www.cmake.org/][CMake]]
+scripts.
+
+#+BEGIN_SRC emacs-lisp
+  c-c++
+#+END_SRC
+**** Go
+
+This layer adds extensive support for go.
+
+#+BEGIN_SRC emacs-lisp
+  go
+#+END_SRC
+
+**** Java
+
+This layer adds support for the Java language using the [[http://eclim.org][Eclim]] client/server.
+
+#+BEGIN_SRC emacs-lisp
+  java
+#+END_SRC
+
+**** Sql
+
+This layer adds key bindings and configuration for =sql-mode=, which manages
+interactive SQL buffers and highlights a wide range of SQL dialects.
+
+#+BEGIN_SRC emacs-lisp
+  sql
+#+END_SRC
+
+**** Php
+
+This layer adds PHP language support to Spacemacs.
+
+#+BEGIN_SRC emacs-lisp
+  php
+#+END_SRC
+
+**** Html
+
+This layer adds support for editing HTML and CSS.
+
+#+BEGIN_SRC emacs-lisp
+  html
+#+END_SRC
+
+**** Python
+
+This layer adds support for the Python language.
+
+#+BEGIN_SRC emacs-lisp
+  python
+#+END_SRC
+
+**** Ruby
+
+This layer aims at providing support for the Ruby language using
+[[https://github.com/zenspider/enhanced-ruby-mode][enh-ruby-mode]] and [[https://github.com/dgutov/robe][robe-mode]].
+
+#+BEGIN_SRC emacs-lisp
+  ruby
+#+END_SRC
+*** + Frameworks
+**** Django
+
+This layer adds support for the Python [[https://www.djangoproject.com/][Django]] framework via [[https://github.com/davidmiller/pony-mode][pony-mode]].
+
+#+BEGIN_SRC emacs-lisp
+  django
+#+END_SRC
+*** + Tools
+**** Dash
+
+- [[http://kapeli.com/dash][dash]] :: Is a great tool for quick access to various sets of documentation,
+          only available in OS X.
+
+- [[https://github.com/stanaka/dash-at-point][dash-at-point]] :: Is the package used to integrate =dash= in Emacs. It will try
+                   to intelligently guess specific docsets to use based off of
+                   your current mode.
+
+- [[http://zealdocs.org/][zeal]] :: Zeal is an offline documentation browser inspired by Dash,
+          available for Linux and Windows.
+
+- [[https://github.com/jinzhu/zeal-at-point][zeal-at-point]] :: Run zeal-at-point to search the word at point (or string in
+                   region), then Zeal is launched and search the word. Use
+                   prefix argument C-u to edit the search string first.
+
+#+BEGIN_SRC emacs-lisp
+  dash
+#+END_SRC
+
+**** Wakatime (disabled)
+
+This layer adds support for Wakatime.
+
+WakaTime was built to solve time tracking for programmers.
+Since we work inside a text editor, why should we have to start and stop a
+timer? WakaTime uses open-source text editor plugins to automatically track the
+time you spend programming so you never have to manually track it again!
+
+#+BEGIN_SRC emacs-lisp
+;;  wakatime
+#+END_SRC
+*** + Vim 
+**** Vim-Empty-lines
+
+This layer is a drop-in replacement for the =vi-tilde-fringe= mode, for those
+who desire behaviour closer to =vim='s.
+
+It has better compatibility with retina displays, as it uses a text overlay
+using your font, rather than a pixel-art tilde. The empty line indicators are
+overlaid in within the buffer as in =vim=, and not in the fringe. The indicator
+behaviour with trailing empty lines matches =vim='s behaviour.
+
+For details, see the [[https://github.com/jmickelin/vim-empty-lines-mode][vim-empty-lines-mode]] repository.   
+
+#+BEGIN_SRC emacs-lisp
+  vim-empty-lines
+#+END_SRC
+
+
 *** OSX
 
 While this layer enables common OSX bindings, it does not implement OSX
@@ -403,7 +597,6 @@ osx
 #+END_SRC
 
 *** Auto-Completion
-
 This layer provides auto-completion to Spacemacs.
 The following completion engines are supported:
 - [[http://company-mode.github.io/][company]]
@@ -469,48 +662,6 @@ This layer adds keybindings for jabber.el. jabber.el is a Jabber (XMPP) client f
   jabber
 #+END_SRC
 
-*** Emacs-Lisp
-
-This layer gathers all the configuration related to emacs-lisp. This should
-always be in your dotfile, it is not recommended to uninstall it.
-
-#+BEGIN_SRC emacs-lisp
-  emacs-lisp
-#+END_SRC
-
-*** Vim-Empty-lines
-
-This layer is a drop-in replacement for the =vi-tilde-fringe= mode, for those
-who desire behaviour closer to =vim='s.
-
-It has better compatibility with retina displays, as it uses a text overlay
-using your font, rather than a pixel-art tilde. The empty line indicators are
-overlaid in within the buffer as in =vim=, and not in the fringe. The indicator
-behaviour with trailing empty lines matches =vim='s behaviour.
-
-For details, see the [[https://github.com/jmickelin/vim-empty-lines-mode][vim-empty-lines-mode]] repository.   
-
-#+BEGIN_SRC emacs-lisp
-  vim-empty-lines
-#+END_SRC
-
-*** Python
-
-This layer adds support for the Python language.
-
-#+BEGIN_SRC emacs-lisp
-  python
-#+END_SRC
-
-*** Ruby
-
-This layer aims at providing support for the Ruby language using
-[[https://github.com/zenspider/enhanced-ruby-mode][enh-ruby-mode]] and [[https://github.com/dgutov/robe][robe-mode]].
-
-#+BEGIN_SRC emacs-lisp
-  ruby
-#+END_SRC
-
 *** Themes (disabled)
 
 This simple contribution layer is an example. It installs around 100 themes
@@ -530,16 +681,7 @@ package's [[https://github.com/pashky/restclient.el][GitHub Page]].
   restclient
 #+END_SRC
 
-*** C-C++
-This layer adds configuration for C/C++ language as well support for [[http://www.cmake.org/][CMake]]
-scripts.
-
-#+BEGIN_SRC emacs-lisp
-  c-c++
-#+END_SRC
-
 *** Cscope
-
 This layer provides bindings for using [[http://cscope.sourceforge.net][Cscope]] and [[https://github.com/portante/pycscope][PyCscope]] in Spacemacs.
 
 =Cscope= provides indexing and searching capabilities for C and C++ code.
@@ -548,100 +690,6 @@ This layer provides bindings for using [[http://cscope.sourceforge.net][Cscope]]
 
 #+BEGIN_SRC emacs-lisp
   cscope
-#+END_SRC
-
-*** Go
-
-This layer adds extensive support for go.
-
-#+BEGIN_SRC emacs-lisp
-  go
-#+END_SRC
-
-*** Php
-
-This layer adds PHP language support to Spacemacs.
-
-#+BEGIN_SRC emacs-lisp
-  php
-#+END_SRC
-
-*** Html
-
-This layer adds support for editing HTML and CSS.
-
-#+BEGIN_SRC emacs-lisp
-  html
-#+END_SRC
-
-*** Sql
-
-This layer adds key bindings and configuration for =sql-mode=, which manages
-interactive SQL buffers and highlights a wide range of SQL dialects.
-
-#+BEGIN_SRC emacs-lisp
-  sql
-#+END_SRC
-
-*** Java
-
-This layer adds support for the Java language using the [[http://eclim.org][Eclim]] client/server.
-
-#+BEGIN_SRC emacs-lisp
-  java
-#+END_SRC
-
-*** Javascript
-
-This layer adds support for the JavaScript language using [[https://github.com/mooz/js2-mode][js2-mode]].
-
-#+BEGIN_SRC emacs-lisp
-  javascript
-#+END_SRC
-
-*** Clojure
-
-This layer adds support for [[http://clojure.org][Clojure]] language using [[https://github.com/clojure-emacs/cider][CIDER]].
-
-#+BEGIN_SRC emacs-lisp
-  clojure
-#+END_SRC
-
-*** Wakatime (disabled)
-
-This layer adds support for Wakatime.
-
-WakaTime was built to solve time tracking for programmers.
-Since we work inside a text editor, why should we have to start and stop a
-timer? WakaTime uses open-source text editor plugins to automatically track the
-time you spend programming so you never have to manually track it again!
-
-#+BEGIN_SRC emacs-lisp
-;;  wakatime
-#+END_SRC
-
-*** Latex
-
-This layer adds support for LaTeX files with [[https://savannah.gnu.org/projects/auctex/][AucTeX]].
-
-#+BEGIN_SRC emacs-lisp
-  latex
-#+END_SRC
-
-*** Django
-
-This layer adds support for the Python [[https://www.djangoproject.com/][Django]] framework via [[https://github.com/davidmiller/pony-mode][pony-mode]].
-
-#+BEGIN_SRC emacs-lisp
-  django
-#+END_SRC
-
-*** Dockerfile
-
-This layer provides syntax highlighting and build functionality for Docker files.
-
-#+BEGIN_SRC emacs-lisp
-  dockerfile
 #+END_SRC
 
 *** Semantic
@@ -664,47 +712,6 @@ language, instead of plain text structure. Semantic is the core of CEDET.
   semantic
 #+END_SRC
 
-*** Git
-
-This layers adds extensive support for [[http://git-scm.com/][git]].
-
-#+BEGIN_SRC emacs-lisp
-  git
-#+END_SRC
-
-*** Github
-
-This layers adds support for [[http://github.com][Github]].
-
-#+BEGIN_SRC emacs-lisp
-  github
-#+END_SRC
-
-*** Version-Control
-
-This layers adds general configuration for [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html][Emacs VC]].
-It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc...
-
-#+BEGIN_SRC emacs-lisp
-  version-control
-#+END_SRC
-
-*** Markdown
-
-This layer adds markdown support to Spacemacs.
-
-#+BEGIN_SRC emacs-lisp
-  markdown
-#+END_SRC
-
-*** Org
-
-This layer enables  [[http://orgmode.org/][org mode]] for Spacemacs.
-
-#+BEGIN_SRC emacs-lisp
-  org
-#+END_SRC
-
 *** Deft
 
 [[http://jblevins.org/projects/deft/][Deft]] is an Emacs mode inspired by =Notational Velocity= for quickly
@@ -714,9 +721,7 @@ browsing and creating notes.
   deft
 #+END_SRC
 
-
 *** Shell
-
 This layer configures the various shells available in Emacs.
 
 #+BEGIN_SRC emacs-lisp
@@ -743,33 +748,43 @@ This layer provides on the fly syntax checking using [[http://www.flycheck.org/]
   syntax-checking
 #+END_SRC
 
-*** Eyebrowse
+*** Org
 
-This layer adds [[https://i3wm.org/][i3wm]] like workspaces thanks to the [[https://github.com/wasamasa/eyebrowse][eyebrowse]] package.
-
-Once the layer is activated a new number is added to the right side of the
-mode-line. This number corresponds to the currently active workspace number.
-
-At startup, the workspace number 1 is active. Switching to a workspace will
-create it if it does not exist. For instance at startup you can press
-~SPC W 2~ to create the workspace 2.
-
-The key bindings are registered in a micro-state displayed in the minibuffer.
-The docstring of the micro-state displays the existing workspaces and the
-currently active workspace has square brackets. Since this is a micro-state it
-is possible to just preview a workspace, for instance press ~SPC W 2~ to see
-what's on the workspace 2 then press ~TAB~ to go back to the previously
-activated workspace.
-
-It is also possible to give a label to a the current workspace by pressing
-~r~ in the micro-state.
+This layer enables  [[http://orgmode.org/][org mode]] for Spacemacs.
 
 #+BEGIN_SRC emacs-lisp
-  eyebrowse
+  org
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp :exports none
-  )   
+**** Latex
+
+This layer adds support for LaTeX files with [[https://savannah.gnu.org/projects/auctex/][AucTeX]].
+
+#+BEGIN_SRC emacs-lisp
+  latex
+#+END_SRC
+
+**** Clojure
+
+This layer adds support for [[http://clojure.org][Clojure]] language using [[https://github.com/clojure-emacs/cider][CIDER]].
+
+#+BEGIN_SRC emacs-lisp
+  clojure
+#+END_SRC
+**** Markdown
+
+This layer adds markdown support to Spacemacs.
+
+#+BEGIN_SRC emacs-lisp
+  markdown
+#+END_SRC
+
+**** Javascript
+
+This layer adds support for the JavaScript language using [[https://github.com/mooz/js2-mode][js2-mode]].
+
+#+BEGIN_SRC emacs-lisp
+  javascript
 #+END_SRC
 
 ** Layer Path
@@ -790,7 +805,6 @@ List of additional packages that will be installed without being
 wrapped in a layer. If you need some configuration for these
 packages then consider to create a layer, you can also put the
 configuration in `dotspacemacs/config'.
-
 
 #+BEGIN_SRC emacs-lisp :exports none
 dotspacemacs-additional-packages '(
@@ -846,15 +860,6 @@ accommodate new bookmark types.
 
 #+BEGIN_SRC emacs-lisp
    bookmark+
-#+END_SRC
-
-**** Dash
-
-Dash is an API Documentation Browser and Code Snippet Manager. dash-at-point
-make it easy to search the word at point with Dash.
-
-#+BEGIN_SRC emacs-lisp
-  dash-at-point
 #+END_SRC
 
 **** Skeletor
