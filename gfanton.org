@@ -49,7 +49,7 @@ by your Emacs build.
 If the value is nil then no banner is displayed. (default 'official)
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-startup-banner 999
+  dotspacemacs-startup-banner 'official
 #+END_SRC
 
 *** lists
@@ -644,7 +644,6 @@ This layer adds support for the JavaScript language using [[https://github.com/m
 #+BEGIN_SRC emacs-lisp
   javascript
 #+END_SRC
-
 
 *** + Frameworks
 **** Django
