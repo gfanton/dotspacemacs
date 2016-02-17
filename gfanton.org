@@ -1120,6 +1120,15 @@ handle files ending in '.tpl'.
   (add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
 #+END_SRC
 
+*** EditorConfig
+
+Always enable EditorConfig
+
+#+BEGIN_SRC emacs-lisp
+  (editorconfig-mode 1)
+#+END_SRC
+
+
 *** regexp
 
 I prefer to use PCRE REGEX engine instead
