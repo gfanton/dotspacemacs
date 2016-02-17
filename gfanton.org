@@ -705,6 +705,25 @@ For details, see the [[https://github.com/jmickelin/vim-empty-lines-mode][vim-em
   vim-empty-lines
 #+END_SRC
 
+*** + Emails
+**** mu4e
+
+mu4e is an emacs-based e-mail client. It’s based on the mu e-mail
+indexer/searcher. It attempts to be a super-efficient tool to withstand the
+daily e-mail tsunami.
+
+#+BEGIN_SRC emacs-lisp
+  mu4e
+#+END_SRC
+
+*** + irc
+**** ERC
+
+Layer for [[http://www.emacswiki.org/emacs/ERC][ERC IRC chat]].
+
+#+BEGIN_SRC emacs-lisp
+  erc
+#+END_SRC
 
 
 *** OSX
