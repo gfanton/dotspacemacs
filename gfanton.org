@@ -1131,6 +1131,14 @@ Set `Powerline' default separator to arrow.
   (setq powerline-default-separator 'arrow)
 #+END_SRC
 
+*** NeoTree
+
+Set the NeoTree Theme to Nerd
+
+#+BEGIN_SRC emacs-lisp
+  (setq neo-theme 'nerd)
+#+END_SRC
+
 *** Skeletor
 
 =Skeletor= provides project templates for Emacs. It also automates the mundane
