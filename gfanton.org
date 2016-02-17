@@ -10,7 +10,7 @@
 My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][SpaceMacs_]]
 
 * SPACEMACS INITIALIZATION
-
+  
 Initialization function.
 This function is called at the very startup of Spacemacs initialization
 before layers configuration.
@@ -103,7 +103,6 @@ size to make separators look not too crappy.
 #+END_SRC
 
 ** Leader Keys
-
 *** the leader key
 
 #+BEGIN_SRC emacs-lisp
@@ -411,7 +410,7 @@ To set the maximum number of rollback slots to keep in the cache.
   dotspacemacs-max-rollback-slots 5
 #+END_SRC
 
-** Line Numbers
+** gLine Numbers
 
 If non nil line numbers are turned on in all `prog-mode' and `text-mode'
 derivatives. If set to `relative', also turns on relative line numbers.
@@ -688,7 +687,7 @@ time you spend programming so you never have to manually track it again!
 ;;  wakatime
 #+END_SRC
 
-*** + Vim 
+*** + Vim
 **** Vim-Empty-lines
 
 This layer is a drop-in replacement for the =vi-tilde-fringe= mode, for those
