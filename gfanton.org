@@ -1113,6 +1113,13 @@ handle files ending in '.yml'.
 #+END_SRC
 
 *** Smarty
+
+handle files ending in '.tpl'.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
+#+END_SRC
+
 *** regexp
 
 I prefer to use PCRE REGEX engine instead
