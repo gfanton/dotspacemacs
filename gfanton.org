@@ -922,6 +922,32 @@ configuration in `dotspacemacs/config'.
 dotspacemacs-additional-packages '(
 #+END_SRC
 
+**** Yaml
+
+***** Yaml Mode
+
+Major mode for editing YAML files
+
+#+BEGIN_SRC emacs-lisp
+  yaml-mode
+#+END_SRC
+
+***** Yaml Tomato
+
+copy or show the yaml path currently under cursor.
+
+#+BEGIN_SRC emacs-lisp
+  yaml-tomato
+#+END_SRC
+
+**** EditorConfig
+
+This is an EditorConfig plugin for Emacs.
+
+#+BEGIN_SRC emacs-lisp
+  editorconfig
+#+END_SRC
+
 **** Docker
 
 =Docker= is an open platform for building, shipping and running distributed
@@ -1078,6 +1104,15 @@ Spacemacs initialization after layers configuration.
        layers configuration."
 #+END_SRC
 
+*** yaml
+
+handle files ending in '.yml'.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+#+END_SRC
+
+*** Smarty
 *** regexp
 
 I prefer to use PCRE REGEX engine instead
