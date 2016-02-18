@@ -653,6 +653,15 @@ This layer adds support for the Python [[https://www.djangoproject.com/][Django]
   django
 #+END_SRC
 
+**** React
+
+ES6 and JSX ready configuration layer for React
+It will automatically recognize =.jsx= and =.react.js= files
+
+#+BEGIN_SRC emacs-lisp
+  react
+#+END_SRC
+
 *** + Tools
 **** Dash
 
