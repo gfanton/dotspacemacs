@@ -1112,7 +1112,8 @@ Spacemacs initialization after layers configuration.
        layers configuration."
 #+END_SRC
 
-*** yaml
+*** Auto Mode Alist
+**** yaml
 
 handle files ending in '.yml'.
 
@@ -1120,12 +1121,19 @@ handle files ending in '.yml'.
   (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 #+END_SRC
 
-*** Smarty
+**** Smarty
 
 handle files ending in '.tpl'.
 
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
+#+END_SRC
+
+**** JavaScript
+
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.jsx?$" . react-mode))
 #+END_SRC
 
 *** EditorConfig
