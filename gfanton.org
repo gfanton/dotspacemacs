@@ -1112,6 +1112,23 @@ Spacemacs initialization after layers configuration.
        layers configuration."
 #+END_SRC
 
+*** keys
+**** find-files
+
+Switch to spacemacs/helm-find-file
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x C-f") 'spacemacs/helm-find-files)
+#+END_SRC
+
+**** buffer-switch
+
+Switch to spacemacs/helm-find-file
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x b") 'helm-mini)
+#+END_SRC
+
 *** Auto Mode Alist
 **** yaml
 
