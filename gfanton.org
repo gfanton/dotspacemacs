@@ -1129,6 +1129,21 @@ Switch to spacemacs/helm-find-file
   (global-set-key (kbd "C-x b") 'helm-mini)
 #+END_SRC
 
+**** buffer-kill-current
+
+Kill current buffers
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x k") 'ido-kill-buffer)
+#+END_SRC
+
+**** buffer-reload
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x C-v") 'spacemacs/safe-revert-buffer)
+#+END_SRC
+
+
 *** Auto Mode Alist
 **** yaml
 
