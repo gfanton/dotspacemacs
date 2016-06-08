@@ -691,6 +691,15 @@ It will automatically recognize =.jsx= and =.react.js= files
   dash
 #+END_SRC
 
+**** Vagrant
+
+This layer adds support for working with Vagrant using [[https://github.com/ottbot/vagrant.el][vagrant.el]] and
+[[https://github.com/dougm/vagrant-tramp][vagrant-tramp]].
+
+#+BEGIN_SRC emacs-lisp
+  vagrant
+#+END_SRC
+
 **** Wakatime (disabled)
 
 This layer adds support for Wakatime.
