@@ -758,7 +758,7 @@ navigation keybindings. Spacemacs is meant to be used with evil, and we
 encourage you to do so :)
 
 #+BEGIN_SRC emacs-lisp
-osx
+  osx
 #+END_SRC
 
 *** Auto-Completion
@@ -1160,7 +1160,6 @@ Kill current buffers
   (global-set-key (kbd "C-x C-v") 'spacemacs/safe-revert-buffer)
 #+END_SRC
 
-
 *** Auto Mode Alist
 **** yaml
 
@@ -1192,7 +1191,6 @@ Always enable EditorConfig
 #+BEGIN_SRC emacs-lisp
   (editorconfig-mode 1)
 #+END_SRC
-
 
 *** regexp
 
