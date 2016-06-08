@@ -487,6 +487,14 @@ This layer provides syntax highlighting and build functionality for Docker files
   dockerfile
 #+END_SRC
 
+**** Terraform
+This layer provides syntax support for Terraform `.tf` files using
+[[https://github.com/syohex/emacs-terraform-mode][terraform-mode]].
+
+#+BEGIN_SRC emacs-lisp
+  terraform
+#+END_SRC
+
 *** + Window-Management
 **** Eyebrowse
 
