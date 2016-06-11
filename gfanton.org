@@ -10,7 +10,7 @@
 My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][SpaceMacs_]]
 
 * SPACEMACS INITIALIZATION
-  
+
 Initialization function.
 This function is called at the very startup of Spacemacs initialization
 before layers configuration.
@@ -410,7 +410,7 @@ To set the maximum number of rollback slots to keep in the cache.
   dotspacemacs-max-rollback-slots 5
 #+END_SRC
 
-** gLine Numbers
+** Line Numbers
 
 If non nil line numbers are turned on in all `prog-mode' and `text-mode'
 derivatives. If set to `relative', also turns on relative line numbers.
@@ -827,6 +827,21 @@ This layer adds keybindings for jabber.el. jabber.el is a Jabber (XMPP) client f
   jabber
 #+END_SRC
 
+*** Geolocalisation
+
+This layer offers few location sensitive adjustment to Emacs, such as
+automatically switching between light (day) and dark (night) themes, weather
+forecast and on OS X, also automatic tracking of location, using OS X's
+CoreLocation services.
+
+#+BEGIN_SRC emacs-lisp
+  (geolocation :variables
+               geolocation-enable-osx-location-service-support t
+               geolocation-enable-weather-forecast t
+               geolocation-enable-automatic-theme-changer nil)
+#+END_SRC
+
+
 *** Themes (disabled)
 
 This simple contribution layer is an example. It installs around 100 themes
@@ -1204,10 +1219,25 @@ I prefer to use PCRE REGEX engine instead
 
 *** PowerLine
 
-Set `Powerline' default separator to arrow.
-
 #+BEGIN_SRC emacs-lisp
   (setq powerline-default-separator 'arrow)
+#+END_SRC
+
+Set `Powerline' default separator to arrow.
+
+*** Sunshine (weather forecast)
+
+Switch to metric.
+
+#+BEGIN_SRC emacs-lisp
+  (setq sunshine-units 'metric)
+#+END_SRC
+
+Weather forecast icons can be toggled by pressing `i' within this mode's main
+buffer.
+
+#+BEGIN_SRC emacs-lisp
+  (setq sunshine-show-icons t)
 #+END_SRC
 
 *** NeoTree
