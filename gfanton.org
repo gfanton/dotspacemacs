@@ -841,7 +841,6 @@ CoreLocation services.
                geolocation-enable-automatic-theme-changer nil)
 #+END_SRC
 
-
 *** Themes (disabled)
 
 This simple contribution layer is an example. It installs around 100 themes
@@ -909,7 +908,7 @@ This layer configures the various shells available in Emacs.
          shell-default-height 30
          shell-default-position 'bottom
          shell-default-shell 'term
-         shell-default-term-shell "/usr/bin/zsh")
+         shell-default-term-shell "zsh")
 #+END_SRC
 
 *** Spell-Checking
