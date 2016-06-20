@@ -751,7 +751,6 @@ daily e-mail tsunami.
 #+BEGIN_SRC emacs-lisp
   mu4e
 #+END_SRC
-
 *** + irc
 **** ERC
 
@@ -759,6 +758,14 @@ Layer for [[http://www.emacswiki.org/emacs/ERC][ERC IRC chat]].
 
 #+BEGIN_SRC emacs-lisp
   erc
+#+END_SRC
+*** + Custom
+**** 42
+
+42 layer
+
+#+BEGIN_SRC emacs-lisp
+  fortytwo
 #+END_SRC
 
 
@@ -949,6 +956,7 @@ This layer enables  [[http://orgmode.org/][org mode]] for Spacemacs.
 #+BEGIN_SRC emacs-lisp :exports none
   )   
 #+END_SRC
+
 ** Layer Path
 
 List of additional paths where to look for configuration layers.
