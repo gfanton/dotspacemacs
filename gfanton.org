@@ -918,6 +918,14 @@ browsing and creating notes.
   deft
 #+END_SRC
 
+*** Finance
+
+This layer adds finance related packages.
+
+#+BEGIN_SRC emacs-lisp
+  finance
+#+END_SRC
+
 *** Shell
 This layer configures the various shells available in Emacs.
 
