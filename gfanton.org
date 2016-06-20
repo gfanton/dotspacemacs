@@ -966,6 +966,28 @@ Paths must have a trailing slash (i.e. `~/.mycontribs/')
   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
 #+END_SRC
 
+** Layers Dependencies
+
+This section list all dependencies needed by the configuration.
+
+*** OSX
+
+brew dependencies
+
+#+BEGIN_SRC sh
+  brew install ledger pt ispell
+#+END_SRC
+
+
+*** NPM
+
+npm dependencies.
+
+#+BEGIN_SRC sh
+  npm i -g npm tern
+#+END_SRC
+
+
 ** Packages
 *** additional packages
 
