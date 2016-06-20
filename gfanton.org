@@ -73,7 +73,7 @@ To configure the number of recent files to display in the home buffer
 ** Themes
 
 List of themes, the first of the list is loaded when spacemacs starts.
-Press <SPC> T n to cycle to the next theme in the list (works great
+Press <SPC> T n to cycle to the next theme in the list. (works great
 with 2 themes variants, one dark and one light)
 
 #+BEGIN_SRC emacs-lisp
@@ -111,7 +111,7 @@ size to make separators look not too crappy.
 
 *** emacs leader key
 
-The leader key accessible in `emacs state' and `insert state'
+The leader key accessible in `emacs state' and `insert state'.
 (default "M-m")
 
 #+BEGIN_SRC emacs-lisp
@@ -370,7 +370,7 @@ if non nil use HTTPS otherwise use HTTP. Default is t.
 
 *** elpa timeout
 
-default is 5 seconds
+Default is 5 seconds.
 
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-elpa-timeout 5
@@ -378,7 +378,7 @@ default is 5 seconds
 ** Layout
 *** default layout name
 
-to set the name of the default Spacemacs layout.
+To set the name of the default Spacemacs layout.
 
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-default-layout-name "Main"
@@ -386,7 +386,7 @@ to set the name of the default Spacemacs layout.
 
 *** display default layout
 
-to toggle display of the name of the default layout in the mode-line, default is
+To toggle display of the name of the default layout in the mode-line, default is
 =nil=.
 
 #+BEGIN_SRC emacs-lisp
@@ -421,7 +421,7 @@ derivatives. If set to `relative', also turns on relative line numbers.
 
 ** Distinguish Gui Tab
 
-If non nil then ~TAB~ and ~C-i~ are distinct using GUI Emacs, default is =nil=
+If non nil then ~TAB~ and ~C-i~ are distinct using GUI Emacs, default is =nil=.
 
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-distinguish-gui-tab nil
@@ -430,7 +430,7 @@ If non nil then ~TAB~ and ~C-i~ are distinct using GUI Emacs, default is =nil=
 ** Whitespace Cleanup
 
 To enable automatic cleanup of whitespace on save. Possible values are =all=,
-=trailing=, =changed= or =nil=. Default is =changed=
+=trailing=, =changed= or =nil=. Default is =changed=.
 
 #+BEGIN_SRC emacs-lisp
 ;;  dotspacemacs-whitespace-cleanup changed 'changed
@@ -438,7 +438,7 @@ To enable automatic cleanup of whitespace on save. Possible values are =all=,
 
 ** Check For Update
 
-to toggle check for Spacemacs updates at startup, default is =t=
+to toggle check for Spacemacs updates at startup, default is =t=.
 
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-check-for-update t
@@ -663,8 +663,8 @@ This layer adds support for the Python [[https://www.djangoproject.com/][Django]
 
 **** React
 
-ES6 and JSX ready configuration layer for React
-It will automatically recognize =.jsx= and =.react.js= files
+ES6 and JSX ready configuration layer for React.
+It will automatically recognize =.jsx= and =.react.js= files.
 
 #+BEGIN_SRC emacs-lisp
   react
@@ -762,7 +762,7 @@ Layer for [[http://www.emacswiki.org/emacs/ERC][ERC IRC chat]].
 *** + Custom
 **** 42
 
-42 layer
+42 layer.
 
 #+BEGIN_SRC emacs-lisp
   fortytwo
@@ -839,7 +839,7 @@ This layer colors your life with:
 
 *** Jabber
 
-This layer adds keybindings for jabber.el. jabber.el is a Jabber (XMPP) client for Emacs
+This layer adds keybindings for jabber.el. jabber.el is a Jabber (XMPP) client for Emacs.
 
 #+BEGIN_SRC emacs-lisp
   jabber
@@ -1006,7 +1006,7 @@ dotspacemacs-additional-packages '(
 
 ***** Yaml Mode
 
-Major mode for editing YAML files
+Major mode for editing YAML files.
 
 #+BEGIN_SRC emacs-lisp
   yaml-mode
@@ -1037,7 +1037,7 @@ nature of modern applications.
 
 ***** docker-mode
 
-Emacs interface to Docker
+Emacs interface to Docker.
 
 #+BEGIN_SRC emacs-lisp
   docker
@@ -1187,7 +1187,7 @@ Spacemacs initialization after layers configuration.
 *** keys
 **** find-files
 
-Switch to spacemacs/helm-find-file
+Switch to spacemacs/helm-find-file.
 
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x C-f") 'spacemacs/helm-find-files)
@@ -1195,7 +1195,7 @@ Switch to spacemacs/helm-find-file
 
 **** buffer-switch
 
-Switch to spacemacs/helm-find-file
+Switch to spacemacs/helm-find-file.
 
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x b") 'helm-mini)
@@ -1203,7 +1203,7 @@ Switch to spacemacs/helm-find-file
 
 **** buffer-kill-current
 
-Kill current buffers
+Kill current buffers.
 
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x k") 'ido-kill-buffer)
@@ -1241,7 +1241,7 @@ handle files ending in '.tpl'.
 
 *** EditorConfig
 
-Always enable EditorConfig
+Always enable EditorConfig.
 
 #+BEGIN_SRC emacs-lisp
   (editorconfig-mode 1)
@@ -1249,7 +1249,7 @@ Always enable EditorConfig
 
 *** regexp
 
-I prefer to use PCRE REGEX engine instead
+I prefer to use PCRE REGEX engine instead.
 
 #+BEGIN_SRC emacs-lisp
   (pcre-mode)
@@ -1259,11 +1259,11 @@ I prefer to use PCRE REGEX engine instead
 
 *** PowerLine
 
+Set `Powerline' default separator to arrow.
+
 #+BEGIN_SRC emacs-lisp
   (setq powerline-default-separator 'arrow)
 #+END_SRC
-
-Set `Powerline' default separator to arrow.
 
 *** Sunshine (weather forecast)
 
@@ -1314,7 +1314,7 @@ of the project is immediately opened for you in a dired buffer.
   (setq projectile-switch-project-action 'projectile-dired)
 #+END_SRC
 
-Make projectile work with tramp mode
+Make projectile work with tramp mode.
  
 #+BEGIN_SRC emacs-lisp
   (defadvice projectile-project-root (around ignore-remote first activate)
@@ -1330,7 +1330,7 @@ Windmove lets you move point from window to window using Shift and the arrow key
     (windmove-default-keybindings))
 #+END_SRC
 
-Make windmove work in org-mode
+Make windmove work in org-mode.
 
 #+BEGIN_SRC emacs-lisp
   (add-hook 'org-shiftup-final-hook 'windmove-up)
@@ -1341,7 +1341,7 @@ Make windmove work in org-mode
 
 *** org fix
 
-org hotfix
+Org hotfix.
 
 #+BEGIN_SRC emacs-lisp
   (org-reload)
