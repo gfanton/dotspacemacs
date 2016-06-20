@@ -730,6 +730,17 @@ For details, see the [[https://github.com/jmickelin/vim-empty-lines-mode][vim-em
   vim-empty-lines
 #+END_SRC
 
+**** Vinegar
+
+This layer is a port contribution layer for vim-vinegar for emacs.
+
+A port of tpope's vinegar.vim [[https://github.com/tpope/vim-vinegar][vinegar]], simplifying =dired= with a limited number
+of details and exposing the ~-~ command in all buffers to enter dired.
+
+#+BEGIN_SRC emacs-lisp
+  vinegar
+#+END_SRC
+
 *** + Emails
 **** mu4e
 
