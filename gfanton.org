@@ -1028,6 +1028,38 @@ copy or show the yaml path currently under cursor.
   yaml-tomato
 #+END_SRC
 
+**** OrgBabel
+
+list of additional OB support
+
+***** go
+
+ Org-Babel support for evaluating go source code.
+
+#+BEGIN_SRC emacs-lisp
+  ob-go
+#+END_SRC
+
+***** shell
+
+ Org-Babel support for evaluating shell source code.
+
+***** restclient
+
+ Org-Babel support for evaluating restclient source code.
+
+ #+BEGIN_SRC emacs-lisp
+   ob-restclient
+ #+END_SRC
+
+***** php
+
+ Org-Babel support for evaluating php source code.
+
+#+BEGIN_SRC emacs-lisp
+  ob-php
+#+END_SRC
+
 **** EditorConfig
 
 This is an EditorConfig plugin for Emacs.
