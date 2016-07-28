@@ -765,7 +765,7 @@ Layer for [[http://www.emacswiki.org/emacs/ERC][ERC IRC chat]].
 42 layer.
 
 #+BEGIN_SRC emacs-lisp
-  fortytwo
+  ;; fortytwo
 #+END_SRC
 
 
