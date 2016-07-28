@@ -978,7 +978,7 @@ Paths must have a trailing slash (i.e. `~/.mycontribs/')
 
 This section list all dependencies needed by the configuration.
 
-*** OSX
+*** brew
 
 brew dependencies
 
@@ -991,7 +991,7 @@ brew dependencies
 npm dependencies.
 
 #+BEGIN_SRC bash
-  npm i -g npm tern
+  npm i -g npm tern js-beautify
 #+END_SRC
 
 *** GO
