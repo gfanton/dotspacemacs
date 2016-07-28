@@ -986,15 +986,24 @@ brew dependencies
   brew install ledger pt ispell
 #+END_SRC
 
-
 *** NPM
 
 npm dependencies.
 
-#+BEGIN_SRC sh
+#+BEGIN_SRC bash
   npm i -g npm tern
 #+END_SRC
 
+*** GO
+
+go dependencies
+
+#+BEGIN_SRC bash
+  go get -u -v github.com/nsf/gocode
+  go get -u -v github.com/rogpeppe/godef
+  go get -u -v golang.org/x/tools/cmd/oracle
+  go get -u -v golang.org/x/tools/cmd/gorename
+#+END_SRC
 
 ** Packages
 *** additional packages
@@ -1011,7 +1020,6 @@ dotspacemacs-additional-packages '(
 #+END_SRC
 
 **** Yaml
-
 ***** Yaml Mode
 
 Major mode for editing YAML files.
