@@ -1442,6 +1442,14 @@ I prefer to use PCRE REGEX engine instead.
            '(vr/engine (quote pcre2el)))
 #+END_SRC
 
+*** Origami
+
+Enable Origami globally
+
+#+BEGIN_SRC emacs-lisp
+  (global-origami-mode t)
+#+END_SRC
+
 *** PowerLine
 
 Set `Powerline' default separator to arrow.
