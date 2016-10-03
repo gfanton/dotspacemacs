@@ -827,6 +827,14 @@ This layer provides syntax support for Terraform `.tf` files using
 #+BEGIN_SRC emacs-lisp
   terraform
 #+END_SRC
+**** nginx
+
+[[https://github.com/ajc/nginx-mode][nginx-mode]] for editing [[http://nginx.org][nginx]] configuration files.
+It adds basic syntax highlighting and syntax-aware tabbing.
+
+#+BEGIN_SRC emacs-lisp
+  nginx
+#+END_SRC
 
 *** + vim
 **** vim-empty-lines
