@@ -473,13 +473,14 @@ or `spacemacs'. (default 'spacemacs)
 
 Use <SPC f e R> (Vim style) or <M-m f e R> (Emacs style) to install them.
 
+*** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
   dotspacemacs-configuration-layers
   '(
 #+END_SRC
 
-*** + Config-Files
-**** Dockerfile
+*** + config-files
+**** dockerfile
 
 This layer provides syntax highlighting and build functionality for Docker files.
 
@@ -487,16 +488,15 @@ This layer provides syntax highlighting and build functionality for Docker files
   dockerfile
 #+END_SRC
 
-**** Terraform
+**** terraform
 This layer provides syntax support for Terraform `.tf` files using
 [[https://github.com/syohex/emacs-terraform-mode][terraform-mode]].
 
 #+BEGIN_SRC emacs-lisp
   terraform
 #+END_SRC
-
-*** + Window-Management
-**** Eyebrowse
+*** + window-management
+**** eyebrowse
 
 This layer adds [[https://i3wm.org/][i3wm]] like workspaces thanks to the [[https://github.com/wasamasa/eyebrowse][eyebrowse]] package.
 
@@ -521,8 +521,8 @@ It is also possible to give a label to a the current workspace by pressing
   eyebrowse
 #+END_SRC
 
-*** + Version-Control
-**** Version-Control
+*** + version-control
+**** version-control
 
 This layers adds general configuration for [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html][Emacs VC]].
 It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc...
@@ -531,14 +531,14 @@ It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc...
   version-control
 #+END_SRC
 
-**** Github
+**** github
 
 This layers adds support for [[http://github.com][Github]].
 
 #+BEGIN_SRC emacs-lisp
   github
 #+END_SRC
-**** Git
+**** git
 
 This layers adds extensive support for [[http://git-scm.com/][git]].
 
@@ -546,7 +546,41 @@ This layers adds extensive support for [[http://git-scm.com/][git]].
   git
 #+END_SRC
 
-*** + Lang
+*** + lang
+**** csv
+
+This layer adds tools for better integration of CSV files in Spacemacs.
+
+#+BEGIN_SRC emacs-lisp
+  csv
+#+END_SRC
+**** asm
+
+This layer adds support for Assembly code. The built-in major mode for
+editing assembly code in Emacs is =asm-mode=.
+
+The layer also adds =nasm-mode= for NASM-specific syntax. Although =nasm-mode=
+is intended for NASM, it actually works well with other variants of Assembly
+in general, and provides Imenu integration so you can jump around with ~SPC s j~.
+
+_Features_:
+- Improved syntax highlighting.
+- Automatic indentation.
+- Auto-completion for symbol in opened buffers.
+- Look up documentation for current instruction at cursor.
+- Imenu integration.
+
+#+BEGIN_SRC emacs-lisp
+  asm
+#+END_SRC
+**** ocalm
+
+This is a very basic layer for editing ocaml files.
+
+#+BEGIN_SRC emacs-lisp
+  ocaml
+#+END_SRC
+
 **** Emacs-Lisp
 
 This layer gathers all the configuration related to emacs-lisp. This should
@@ -556,14 +590,14 @@ always be in your dotfile, it is not recommended to uninstall it.
   emacs-lisp
 #+END_SRC
 
-**** C-C++
+**** c-c++
 This layer adds configuration for C/C++ language as well support for [[http://www.cmake.org/][CMake]]
 scripts.
 
 #+BEGIN_SRC emacs-lisp
   c-c++
 #+END_SRC
-**** Go
+**** go
 
 This layer adds extensive support for go.
 
@@ -571,7 +605,7 @@ This layer adds extensive support for go.
   go
 #+END_SRC
 
-**** Java
+**** java
 
 This layer adds support for the Java language using the [[http://eclim.org][Eclim]] client/server.
 
@@ -579,7 +613,7 @@ This layer adds support for the Java language using the [[http://eclim.org][Ecli
   java
 #+END_SRC
 
-**** Sql
+**** sql
 
 This layer adds key bindings and configuration for =sql-mode=, which manages
 interactive SQL buffers and highlights a wide range of SQL dialects.
@@ -588,7 +622,7 @@ interactive SQL buffers and highlights a wide range of SQL dialects.
   sql
 #+END_SRC
 
-**** Php
+**** php
 
 This layer adds PHP language support to Spacemacs.
 
@@ -596,7 +630,7 @@ This layer adds PHP language support to Spacemacs.
   php
 #+END_SRC
 
-**** Html
+**** html
 
 This layer adds support for editing HTML and CSS.
 
@@ -604,7 +638,7 @@ This layer adds support for editing HTML and CSS.
   html
 #+END_SRC
 
-**** Python
+**** python
 
 This layer adds support for the Python language.
 
@@ -612,7 +646,7 @@ This layer adds support for the Python language.
   python
 #+END_SRC
 
-**** Ruby
+**** ruby
 
 This layer aims at providing support for the Ruby language using
 [[https://github.com/zenspider/enhanced-ruby-mode][enh-ruby-mode]] and [[https://github.com/dgutov/robe][robe-mode]].
@@ -621,7 +655,7 @@ This layer aims at providing support for the Ruby language using
   ruby
 #+END_SRC
 
-**** Clojure
+**** clojure
 
 This layer adds support for [[http://clojure.org][Clojure]] language using [[https://github.com/clojure-emacs/cider][CIDER]].
 
@@ -629,14 +663,14 @@ This layer adds support for [[http://clojure.org][Clojure]] language using [[htt
   clojure
 #+END_SRC
 
-**** Latex
+**** latex
 
 This layer adds support for LaTeX files with [[https://savannah.gnu.org/projects/auctex/][AucTeX]].
 
 #+BEGIN_SRC emacs-lisp
   latex
 #+END_SRC
-**** Markdown
+**** markdown
 
 This layer adds markdown support to Spacemacs.
 
@@ -644,7 +678,7 @@ This layer adds markdown support to Spacemacs.
   markdown
 #+END_SRC
 
-**** Javascript
+**** javascript
 
 This layer adds support for the JavaScript language using [[https://github.com/mooz/js2-mode][js2-mode]].
 
@@ -652,8 +686,8 @@ This layer adds support for the JavaScript language using [[https://github.com/m
   javascript
 #+END_SRC
 
-*** + Frameworks
-**** Django
+*** + frameworks
+**** django
 
 This layer adds support for the Python [[https://www.djangoproject.com/][Django]] framework via [[https://github.com/davidmiller/pony-mode][pony-mode]].
 
@@ -661,7 +695,7 @@ This layer adds support for the Python [[https://www.djangoproject.com/][Django]
   django
 #+END_SRC
 
-**** React
+**** react
 
 ES6 and JSX ready configuration layer for React.
 It will automatically recognize =.jsx= and =.react.js= files.
@@ -670,8 +704,35 @@ It will automatically recognize =.jsx= and =.react.js= files.
   react
 #+END_SRC
 
-*** + Tools
-**** Dash
+*** + chat 
+**** slack
+
+This layer provides an interface to the Slack chat service via the emacs-slack
+package. Where possible, this layer aims to reuse keybindings from the IRC
+packages in Spacemacs.
+
+#+BEGIN_SRC emacs-lisp
+  slack
+#+END_SRC
+
+**** erc
+
+Layer for [[http://www.emacswiki.org/emacs/ERC][ERC IRC chat]].
+
+#+BEGIN_SRC emacs-lisp
+  erc
+#+END_SRC
+
+**** jabber
+
+This layer adds keybindings for jabber.el. jabber.el is a Jabber (XMPP) client for Emacs.
+
+#+BEGIN_SRC emacs-lisp
+  jabber
+#+END_SRC
+
+*** + tools
+**** dash
 
 - [[http://kapeli.com/dash][dash]] :: Is a great tool for quick access to various sets of documentation,
           only available in OS X.
@@ -691,7 +752,7 @@ It will automatically recognize =.jsx= and =.react.js= files.
   dash
 #+END_SRC
 
-**** Vagrant
+**** vagrant
 
 This layer adds support for working with Vagrant using [[https://github.com/ottbot/vagrant.el][vagrant.el]] and
 [[https://github.com/dougm/vagrant-tramp][vagrant-tramp]].
@@ -700,21 +761,29 @@ This layer adds support for working with Vagrant using [[https://github.com/ottb
   vagrant
 #+END_SRC
 
-**** Wakatime (disabled)
+**** pdf-tools
 
-This layer adds support for Wakatime.
+This layer enables support for the [[https://github.com/politza/pdf-tools][pdf-tools]] package.
 
-WakaTime was built to solve time tracking for programmers.
-Since we work inside a text editor, why should we have to start and stop a
-timer? WakaTime uses open-source text editor plugins to automatically track the
-time you spend programming so you never have to manually track it again!
+According to the official repository:
+
+#+begin_quote
+"PDF Tools is, among other things, a replacement of DocView for PDF files. The
+key difference is, that pages are not pre-rendered by e.g. ghostscript and
+stored in the file-system, but rather created on-demand and stored in memory."
+#+end_quote
+
+Examples of features that =pdf-tools= provides:
+- Use =occur= in the pdf file;
+- Show all headings in a outline buffer;
+- Manipulate annotations.
 
 #+BEGIN_SRC emacs-lisp
-;;  wakatime
+  pdf-tools
 #+END_SRC
 
-*** + Vim
-**** Vim-Empty-lines
+*** + vim
+**** vim-empty-lines
 
 This layer is a drop-in replacement for the =vi-tilde-fringe= mode, for those
 who desire behaviour closer to =vim='s.
@@ -730,7 +799,7 @@ For details, see the [[https://github.com/jmickelin/vim-empty-lines-mode][vim-em
   vim-empty-lines
 #+END_SRC
 
-**** Vinegar
+**** vinegar
 
 This layer is a port contribution layer for vim-vinegar for emacs.
 
@@ -741,7 +810,7 @@ of details and exposing the ~-~ command in all buffers to enter dired.
   vinegar
 #+END_SRC
 
-*** + Emails
+*** + email
 **** mu4e
 
 mu4e is an emacs-based e-mail client. It’s based on the mu e-mail
@@ -751,15 +820,8 @@ daily e-mail tsunami.
 #+BEGIN_SRC emacs-lisp
   mu4e
 #+END_SRC
-*** + irc
-**** ERC
 
-Layer for [[http://www.emacswiki.org/emacs/ERC][ERC IRC chat]].
-
-#+BEGIN_SRC emacs-lisp
-  erc
-#+END_SRC
-*** + Custom
+*** + custom
 **** 42
 
 42 layer.
@@ -767,9 +829,8 @@ Layer for [[http://www.emacswiki.org/emacs/ERC][ERC IRC chat]].
 #+BEGIN_SRC emacs-lisp
   ;; fortytwo
 #+END_SRC
-
-
-*** OSX
+*** + os
+**** osx
 
 While this layer enables common OSX bindings, it does not implement OSX
 navigation keybindings. Spacemacs is meant to be used with evil, and we
@@ -779,7 +840,9 @@ encourage you to do so :)
   osx
 #+END_SRC
 
-*** Auto-Completion
+*** + completion
+**** auto-completion
+
 This layer provides auto-completion to Spacemacs.
 The following completion engines are supported:
 - [[http://company-mode.github.io/][company]]
@@ -796,7 +859,8 @@ This layer also configures =hippie-expand=.
                    auto-completion-private-snippets-directory "~/.spacemacs.d/snippets")
 #+END_SRC
 
-*** Better-Defaults
+*** + emacs
+**** better-defaults
 
 This layer enhances the default commands of Emacs and is primarily intended to
 be used with the =emacs= editing style as it does not change anything in the Vim
@@ -812,7 +876,36 @@ The commands defined in this layer are taken from various sources like [[https:/
   better-defaults
 #+END_SRC
 
-*** Floobits
+**** semantic
+
+CEDET is a *C*ollection of *E*macs *D*evelopment *E*nvironment *T*ools written
+with the end goal of creating an advanced development environment in Emacs.
+CEDET includes common features such as intelligent completion, source code
+navigation, project management, code generation with templates. CEDET also
+provides a framework for working with programming languages; support for new
+programming languages can be added and use CEDET to provide IDE-like features.
+This framework is called Semantic.
+
+#+BEGIN_SRC emacs-lisp
+  semantic
+#+END_SRC
+
+Semantic is a package that provides a framework for writing parsers. Parsing is
+a process of analyzing source code based on programming language syntax. The
+packages relies on Semantic for analyzing source code and uses its results to
+perform smart code refactoring that based on code structure of the analyzed
+language, instead of plain text structure. Semantic is the core of CEDET.
+
+**** org
+
+#+BEGIN_SRC emacs-lisp
+  org
+#+END_SRC
+
+This layer enables  [[http://orgmode.org/][org mode]] for Spacemacs.
+
+*** + pair-programming
+**** floobits
 
 This layer adds support for peer programming tool [[https://github.com/Floobits/floobits-emacs][floobits]].
 
@@ -820,7 +913,8 @@ This layer adds support for peer programming tool [[https://github.com/Floobits/
   floobits
 #+END_SRC
 
-*** Colors
+*** + themes
+**** colors
 
 This layer colors your life with:
 - [[https://github.com/Fanael/rainbow-identifiers][rainbow identifiers]] mode will colorize each variables and functions with an
@@ -837,15 +931,58 @@ This layer colors your life with:
           )
 #+END_SRC
 
-*** Jabber
+**** themes-megapack (disabled)
 
-This layer adds keybindings for jabber.el. jabber.el is a Jabber (XMPP) client for Emacs.
+This simple contribution layer is an example. It installs around 100 themes
+for Emacs. You can try them easily by invoking helm-themes with: ~<SPC> T h~.
 
 #+BEGIN_SRC emacs-lisp
-  jabber
+  ;; themes-megapack
 #+END_SRC
 
-*** Geolocalisation
+*** + tags
+**** cscope
+This layer provides bindings for using [[http://cscope.sourceforge.net][Cscope]] and [[https://github.com/portante/pycscope][PyCscope]] in Spacemacs.
+
+=Cscope= provides indexing and searching capabilities for C and C++ code.
+=PyCscope= extends these capabilities for Python code as well. See
+[[https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools][here]] for a comparison between =Cscope= and other similar tools (such as gtags).
+
+#+BEGIN_SRC emacs-lisp
+  cscope
+#+END_SRC
+
+*** + checkers
+**** spell-checking
+
+This layer provides spell checking using [[http://www-sop.inria.fr/members/Manuel.Serrano/flyspell/flyspell.html][Flyspell]].
+
+#+BEGIN_SRC emacs-lisp
+  spell-checking
+#+END_SRC
+**** syntax-checking
+
+This layer provides on the fly syntax checking using [[http://www.flycheck.org/][Flycheck]].
+
+#+BEGIN_SRC emacs-lisp
+  syntax-checking
+#+END_SRC
+
+*** + web-services
+**** wakatime (disabled)
+
+This layer adds support for Wakatime.
+
+WakaTime was built to solve time tracking for programmers.
+Since we work inside a text editor, why should we have to start and stop a
+timer? WakaTime uses open-source text editor plugins to automatically track the
+time you spend programming so you never have to manually track it again!
+
+#+BEGIN_SRC emacs-lisp
+;;  wakatime
+#+END_SRC
+
+**** geolocalisation
 
 This layer offers few location sensitive adjustment to Emacs, such as
 automatically switching between light (day) and dark (night) themes, weather
@@ -859,16 +996,7 @@ CoreLocation services.
                geolocation-enable-automatic-theme-changer nil)
 #+END_SRC
 
-*** Themes (disabled)
-
-This simple contribution layer is an example. It installs around 100 themes
-for Emacs. You can try them easily by invoking helm-themes with: ~<SPC> T h~.
-
-#+BEGIN_SRC emacs-lisp
-  ;; themes-megapack
-#+END_SRC
-
-*** Restclient
+**** restclient
 
 This is a package that lets you have a REPL-like interface
 for http requests. Full documentation and examples can be found in the
@@ -878,38 +1006,15 @@ package's [[https://github.com/pashky/restclient.el][GitHub Page]].
   restclient
 #+END_SRC
 
-*** Cscope
-This layer provides bindings for using [[http://cscope.sourceforge.net][Cscope]] and [[https://github.com/portante/pycscope][PyCscope]] in Spacemacs.
+**** finance
 
-=Cscope= provides indexing and searching capabilities for C and C++ code.
-=PyCscope= extends these capabilities for Python code as well. See
-[[https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools][here]] for a comparison between =Cscope= and other similar tools (such as gtags).
+This layer adds finance related packages.
 
 #+BEGIN_SRC emacs-lisp
-  cscope
+  finance
 #+END_SRC
 
-*** Semantic
-
-CEDET is a *C*ollection of *E*macs *D*evelopment *E*nvironment *T*ools written
-with the end goal of creating an advanced development environment in Emacs.
-CEDET includes common features such as intelligent completion, source code
-navigation, project management, code generation with templates. CEDET also
-provides a framework for working with programming languages; support for new
-programming languages can be added and use CEDET to provide IDE-like features.
-This framework is called Semantic.
-
-Semantic is a package that provides a framework for writing parsers. Parsing is
-a process of analyzing source code based on programming language syntax. The
-packages relies on Semantic for analyzing source code and uses its results to
-perform smart code refactoring that based on code structure of the analyzed
-language, instead of plain text structure. Semantic is the core of CEDET.
-
-#+BEGIN_SRC emacs-lisp
-  semantic
-#+END_SRC
-
-*** Deft
+**** deft
 
 [[http://jblevins.org/projects/deft/][Deft]] is an Emacs mode inspired by =Notational Velocity= for quickly
 browsing and creating notes.
@@ -918,15 +1023,7 @@ browsing and creating notes.
   deft
 #+END_SRC
 
-*** Finance
-
-This layer adds finance related packages.
-
-#+BEGIN_SRC emacs-lisp
-  finance
-#+END_SRC
-
-*** Shell
+**** shell
 This layer configures the various shells available in Emacs.
 
 #+BEGIN_SRC emacs-lisp
@@ -937,30 +1034,7 @@ This layer configures the various shells available in Emacs.
          shell-default-term-shell "zsh")
 #+END_SRC
 
-*** Spell-Checking
-
-This layer provides spell checking using [[http://www-sop.inria.fr/members/Manuel.Serrano/flyspell/flyspell.html][Flyspell]].
-
-#+BEGIN_SRC emacs-lisp
-  spell-checking
-#+END_SRC
-
-*** Syntax-Checking
-
-This layer provides on the fly syntax checking using [[http://www.flycheck.org/][Flycheck]].
-
-#+BEGIN_SRC emacs-lisp
-  syntax-checking
-#+END_SRC
-
-*** Org
-
-This layer enables  [[http://orgmode.org/][org mode]] for Spacemacs.
-
-#+BEGIN_SRC emacs-lisp
-  org
-#+END_SRC
-
+*** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
   )   
 #+END_SRC
@@ -983,7 +1057,7 @@ This section list all dependencies needed by the configuration.
 brew dependencies
 
 #+BEGIN_SRC sh
-  brew install ledger pt ispell
+  brew install ledger pt ispell poppler
 #+END_SRC
 
 *** NPM
@@ -1005,6 +1079,15 @@ go dependencies
   go get -u -v golang.org/x/tools/cmd/gorename
 #+END_SRC
 
+*** environment
+
+You will also have to help pkg-config find some libraries by setting PKG_CONFIG_PATH
+
+#+BEGIN_SRC sh
+  export PKG_CONFIG_PATH=/usr/local/Cellar/zlib/1.2.8/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
+#+END_SRC
+
+
 ** Packages
 *** additional packages
 
@@ -1019,7 +1102,7 @@ configuration in `dotspacemacs/config'.
 dotspacemacs-additional-packages '(
 #+END_SRC
 
-**** Yaml
+**** yaml
 ***** Yaml Mode
 
 Major mode for editing YAML files.
@@ -1036,7 +1119,24 @@ copy or show the yaml path currently under cursor.
   yaml-tomato
 #+END_SRC
 
-**** OrgBabel
+**** flow
+***** flycheck-flow
+
+Support Flow in flycheck
+
+#+BEGIN_SRC emacs-lisp
+  flycheck-flow
+#+END_SRC
+
+***** company-flow
+
+Flow backend for company-mode
+
+#+BEGIN_SRC emacs-lisp
+  company-flow
+#+END_SRC
+
+**** orgbabel
 
 list of additional OB support
 
@@ -1068,7 +1168,7 @@ list of additional OB support
   ob-php
 #+END_SRC
 
-**** EditorConfig
+**** editorconfig
 
 This is an EditorConfig plugin for Emacs.
 
@@ -1076,7 +1176,7 @@ This is an EditorConfig plugin for Emacs.
   editorconfig
 #+END_SRC
 
-**** Docker
+**** docker
 
 =Docker= is an open platform for building, shipping and running distributed
 applications. It gives programmers, development teams and operations engineers
@@ -1099,7 +1199,7 @@ Docker-Tramp offers a TRAMP method for Docker containers.
   docker-tramp
 #+END_SRC
 
-**** Jira
+**** jira
 
 Use Jira in Emacs org-mode.
 
@@ -1109,7 +1209,7 @@ Use Jira in Emacs org-mode.
   jira-markup-mode
 #+END_SRC
 
-**** EDBI
+**** edbi
 
 This program connects the database server through Perl's DBI, and provides
 DB-accessing API and the simple management UI.
@@ -1118,7 +1218,7 @@ DB-accessing API and the simple management UI.
   edbi
 #+END_SRC
 
-**** Bookmark+
+**** bookmark+
 
 The internal bookmark format (data structure) used by Bookmark+ is compatible
 with that of vanilla GnuEmacs. It extends that structure in new ways, to
@@ -1128,7 +1228,7 @@ accommodate new bookmark types.
    bookmark+
 #+END_SRC
 
-**** Skeletor
+**** skeletor
 
 =Skeletor= provides project templates for Emacs. It also automates the mundane
 parts of setting up a new project like version control, licenses and tooling.
@@ -1140,7 +1240,7 @@ create your own.
   skeletor
 #+END_SRC
 
-**** SSH Tunnels
+**** ssh tunnels
 
 This package lets you run and kill SSH tunnels. 
 Set the variable ssh-tunnels-configurations, e.g.:
@@ -1157,7 +1257,7 @@ Set the variable ssh-tunnels-configurations, e.g.:
   ssh-tunnels
 #+END_SRC
 
-**** Impatient Mode
+**** impatient mode
 
 impatient-mode is a minor mode that publishes the live buffer through the local
 simple-httpd server under /imp/<buffer-name>. To unpublish a buffer, toggle
@@ -1167,7 +1267,7 @@ impatient-mode off.
   impatient-mode
 #+END_SRC
 
-**** Simple Httpd
+**** simple httpd
 
 A simple Emacs web server.
 
@@ -1278,6 +1378,14 @@ handle files ending in '.tpl'.
 
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
+#+END_SRC
+
+**** Env
+
+handle files ending in '.env'.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.env$" . conf-mode))
 #+END_SRC
 
 **** JavaScript
@@ -1398,3 +1506,5 @@ Org hotfix.
 #+BEGIN_SRC emacs-lisp :exports none
     )
 #+END_SRC
+
+
