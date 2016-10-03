@@ -849,6 +849,19 @@ This layer automatically install an org exporter using the [[https://github.com/
   pandoc
 #+END_SRC
 
+**** geolocalisation
+
+This layer offers few location sensitive adjustment to Emacs, such as
+automatically switching between light (day) and dark (night) themes, weather
+forecast and on OS X, also automatic tracking of location, using OS X's
+CoreLocation services.
+
+#+BEGIN_SRC emacs-lisp
+  (geolocation :variables
+               geolocation-enable-osx-location-service-support t
+               geolocation-enable-weather-forecast t
+               geolocation-enable-automatic-theme-changer nil)
+#+END_SRC
 
 *** + vim
 **** vim-empty-lines
@@ -1048,20 +1061,6 @@ time you spend programming so you never have to manually track it again!
 
 #+BEGIN_SRC emacs-lisp
 ;;  wakatime
-#+END_SRC
-
-**** geolocalisation
-
-This layer offers few location sensitive adjustment to Emacs, such as
-automatically switching between light (day) and dark (night) themes, weather
-forecast and on OS X, also automatic tracking of location, using OS X's
-CoreLocation services.
-
-#+BEGIN_SRC emacs-lisp
-  (geolocation :variables
-               geolocation-enable-osx-location-service-support t
-               geolocation-enable-weather-forecast t
-               geolocation-enable-automatic-theme-changer nil)
 #+END_SRC
 
 **** restclient
