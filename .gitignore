@@ -1,6 +1,7 @@
 # Generated custom file.
-custom.el
+/custom.el
 
 # Generated config file.
-gfanton.el
+/gfanton.el
 
+/private.el
