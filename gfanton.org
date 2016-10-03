@@ -646,6 +646,14 @@ This layer adds support for LaTeX files with [[https://savannah.gnu.org/projects
 #+BEGIN_SRC emacs-lisp
   latex
 #+END_SRC
+**** yaml
+
+This layer provides syntax highlighting for YAML files.
+
+#+BEGIN_SRC emacs-lisp
+  yaml
+#+END_SRC
+
 **** markdown
 
 This layer adds markdown support to Spacemacs.
@@ -1137,23 +1145,6 @@ configuration in `dotspacemacs/config'.
 
 #+BEGIN_SRC emacs-lisp :exports none
 dotspacemacs-additional-packages '(
-#+END_SRC
-
-**** yaml
-***** Yaml Mode
-
-Major mode for editing YAML files.
-
-#+BEGIN_SRC emacs-lisp
-  yaml-mode
-#+END_SRC
-
-***** Yaml Tomato
-
-copy or show the yaml path currently under cursor.
-
-#+BEGIN_SRC emacs-lisp
-  yaml-tomato
 #+END_SRC
 
 **** orgbabel
