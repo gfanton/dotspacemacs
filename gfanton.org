@@ -1164,6 +1164,7 @@ wrapped in a layer. If you need some configuration for these
 packages then consider to create a layer, you can also put the
 configuration in `dotspacemacs/config'.
 
+**** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
 dotspacemacs-additional-packages '(
 #+END_SRC
@@ -1284,6 +1285,7 @@ A simple Emacs web server.
   simple-httpd
 #+END_SRC
 
+**** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
 )
 #+END_SRC
@@ -1325,6 +1327,12 @@ Initialization function for user code. It is called immediately after
     "Initialization function for user code.
   It is called immediately after `dotspacemacs/init'."
 #+END_SRC
+
+*** ------------------------------
+
+*** TODO 
+
+*** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
     )
 #+END_SRC
