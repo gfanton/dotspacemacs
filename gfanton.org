@@ -1371,7 +1371,7 @@ Switch to spacemacs/helm-find-file.
 Kill current buffers.
 
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-x k") 'ido-kill-buffer)
+  (global-set-key (kbd "C-x k") 'spacemacs/kill-this-buffer)
 #+END_SRC
 
 **** buffer-reload
