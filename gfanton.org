@@ -1373,14 +1373,6 @@ Kill current buffers.
 #+END_SRC
 
 *** Auto Mode Alist
-**** yaml
-
-handle files ending in '.yml'.
-
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-#+END_SRC
-
 **** Smarty
 
 handle files ending in '.tpl'.
