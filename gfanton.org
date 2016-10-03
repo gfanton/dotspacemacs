@@ -803,6 +803,18 @@ Examples of features that =pdf-tools= provides:
   pdf-tools
 #+END_SRC
 
+**** rebox
+
+
+This layer adds support for [[https://github.com/lewang/rebox2][rebox2]] package which is a minor-mode allowing
+to easily add ASCII text boxes to a buffer.
+
+A nice video demonstration by the package author can be found [[https://www.youtube.com/watch?v=53YeTdVtDkU][here]].
+
+#+BEGIN_SRC emacs-lisp
+  rebox
+#+END_SRC
+
 *** + vim
 **** vim-empty-lines
 
