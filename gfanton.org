@@ -1331,7 +1331,6 @@ Initialization function for user code. It is called immediately after
 *** ------------------------------
 
 *** TODO 
-
 *** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
     )
@@ -1511,6 +1510,13 @@ Make windmove work in org-mode.
   (add-hook 'org-shiftleft-final-hook 'windmove-left)
   (add-hook 'org-shiftdown-final-hook 'windmove-down)
   (add-hook 'org-shiftright-final-hook 'windmove-right)
+#+END_SRC
+
+*** Private File
+
+#+BEGIN_SRC emacs-lisp
+  (if (boundp 'dotspacemacs-private-file)
+      (load-file dotspacemacs-private-file))
 #+END_SRC
 
 *** ------------------------------
