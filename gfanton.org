@@ -673,6 +673,26 @@ This layer adds some [[https://flowtype.org/][flow]] related functionality to Em
   flow-type
 #+END_SRC
 
+**** typescript
+
+This layer adds support for TypeScript and TSX editing.
+
+This layer provides:
+- Eldoc-mode
+- Documentation at point
+- Auto complete
+- Flycheck with linter
+- Jump to definition, Jump to type definition
+- Find occurrences (Imenu-mode)
+- Rename symbol
+- tsx mode
+- formatting
+- TypeScript playground integration
+
+#+BEGIN_SRC emacs-lisp
+  typescript
+#+END_SRC
+
 *** + frameworks
 **** django
 
