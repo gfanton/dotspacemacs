@@ -662,6 +662,17 @@ This layer adds support for the JavaScript language using [[https://github.com/m
   javascript
 #+END_SRC
 
+**** flow-type
+
+This layer adds some [[https://flowtype.org/][flow]] related functionality to Emacs:
+ - Show the flow-type of the object under the cursor using Eldoc
+ - Add flow checking to flycheck (based on the flycheck-flow package)
+ - company-mode completion using company-flow
+
+#+BEGIN_SRC emacs-lisp
+  flow-type
+#+END_SRC
+
 *** + frameworks
 **** django
 
@@ -1123,23 +1134,6 @@ copy or show the yaml path currently under cursor.
 
 #+BEGIN_SRC emacs-lisp
   yaml-tomato
-#+END_SRC
-
-**** flow
-***** flycheck-flow
-
-Support Flow in flycheck
-
-#+BEGIN_SRC emacs-lisp
-  flycheck-flow
-#+END_SRC
-
-***** company-flow
-
-Flow backend for company-mode
-
-#+BEGIN_SRC emacs-lisp
-  company-flow
 #+END_SRC
 
 **** orgbabel
