@@ -310,6 +310,14 @@ point when it reaches the top or bottom of the screen. (default t)
   dotspacemacs-smooth-scrolling t
 #+END_SRC
 
+** Folding
+
+Code folding method. Possible values are `evil' and `origami'.
+
+#+BEGIN_SRC emacs-lisp
+  dotspacemacs-folding-method 'origami
+#+END_SRC
+
 ** Smartparens
 
 If non-nil smartparens-strict-mode will be enabled in programming modes.
