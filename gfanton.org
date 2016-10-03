@@ -1363,7 +1363,7 @@ Switch to spacemacs/helm-find-file.
 Switch to spacemacs/helm-find-file.
 
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-x b") 'helm-mini)
+  (global-set-key (kbd "C-x b") 'helm-projectile-switch-to-buffer)
 #+END_SRC
 
 **** buffer-kill-current
