@@ -1341,6 +1341,7 @@ Spacemacs initialization after layers configuration.
        layers configuration."
 #+END_SRC
 
+*** ------------------------------
 *** keys
 **** find-files
 
@@ -1504,14 +1505,7 @@ Make windmove work in org-mode.
   (add-hook 'org-shiftright-final-hook 'windmove-right)
 #+END_SRC
 
-*** org fix
-
-Org hotfix.
-
-#+BEGIN_SRC emacs-lisp
-  (org-reload)
-#+END_SRC
-
+*** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
     )
 #+END_SRC
