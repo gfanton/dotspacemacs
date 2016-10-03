@@ -1519,6 +1519,12 @@ Make windmove work in org-mode.
       (load-file dotspacemacs-private-file))
 #+END_SRC
 
+*** Org Hotfix
+
+#+BEGIN_SRC emacs-lisp
+  (org-reload)
+#+END_SRC
+
 *** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
     )
