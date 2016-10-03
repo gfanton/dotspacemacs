@@ -1436,7 +1436,7 @@ Enable Origami globally
 Set `Powerline' default separator to arrow.
 
 #+BEGIN_SRC emacs-lisp
-  (setq powerline-default-separator 'arrow)
+  (setq powerline-default-separator 'bar)
 #+END_SRC
 
 *** Sunshine (weather forecast)
