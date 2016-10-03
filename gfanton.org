@@ -38,6 +38,36 @@ unchanged. (default 'vim)
   dotspacemacs-editing-style 'hybrid
 #+END_SRC
 
+** Elpa
+*** elpa-https
+
+if non nil use HTTPS otherwise use HTTP. Default is t.
+
+#+BEGIN_SRC emacs-lisp
+  dotspacemacs-elpa-https t
+#+END_SRC
+
+*** elpa-timeout
+
+Default is 5 seconds.
+
+#+BEGIN_SRC emacs-lisp
+  dotspacemacs-elpa-timeout 5
+#+END_SRC
+
+*** elpa-subdirectory
+
+One of `vim', `emacs' or `hybrid'.
+`hybrid' is like `vim' except that `insert state' is replaced by the
+`hybrid state' with `emacs' key bindings. The value can also be a list
+with `:variables' keyword (similar to layers). Check the editing styles
+section of the documentation for details on available variables.
+(default 'vim)
+
+#+BEGIN_SRC emacs-lisp
+  dotspacemacs-elpa-subdirectory 'hybrid
+#+END_SRC
+
 ** Startup Page
 *** banner
 
@@ -365,23 +395,6 @@ Not used for now. (default nil)
 
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-default-package-repository nil
-#+END_SRC
-
-** Elpa
-*** elpa https
-
-if non nil use HTTPS otherwise use HTTP. Default is t.
-
-#+BEGIN_SRC emacs-lisp
-  dotspacemacs-elpa-https t
-#+END_SRC
-
-*** elpa timeout
-
-Default is 5 seconds.
-
-#+BEGIN_SRC emacs-lisp
-  dotspacemacs-elpa-timeout 5
 #+END_SRC
 ** Layout
 *** default layout name
