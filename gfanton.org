@@ -622,6 +622,24 @@ This layer adds support for the Python language.
   python
 #+END_SRC
 
+**** swift
+
+This layer adds support for Apple's Swift programming language, used as a
+general purpose scripting language.
+
+It relies on the [[https://github.com/chrisbarrett/swift-mode][swift-mode]] major-mode* for Emacs 24.4 or later, to provide the
+following features:
+
+- Syntax highlighting
+- Indentation
+- Code navigation using ~imenu~ (built-in)
+- Automatic syntax checking with ~flycheck~ (available with the
+  ~syntax-checking~ layer)
+
+#+BEGIN_SRC emacs-lisp
+  swift
+#+END_SRC
+
 **** ruby
 
 This layer aims at providing support for the Ruby language using
