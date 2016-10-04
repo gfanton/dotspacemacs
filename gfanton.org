@@ -1423,6 +1423,12 @@ Handle flowconfig `.flowconfig`.
   (add-to-list 'auto-mode-alist '("\\.flowconfig$" . conf-mode))
 #+END_SRC
 
+**** JavaScript
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.jsx?$" . react-mode))
+#+END_SRC
+
 *** EditorConfig
 
 Always enable EditorConfig.
