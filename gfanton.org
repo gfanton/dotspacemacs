@@ -1415,6 +1415,14 @@ handle files ending in '.env'.
   (add-to-list 'auto-mode-alist '("\\.env$" . conf-mode))
 #+END_SRC
 
+**** flowconfig
+
+Handle flowconfig `.flowconfig`.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.flowconfig$" . conf-mode))
+#+END_SRC
+
 *** EditorConfig
 
 Always enable EditorConfig.
