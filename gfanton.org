@@ -652,7 +652,6 @@ to toggle check for Spacemacs updates at startup, default is =t=.
      ))
 #+END_SRC
 
-
 * LAYERS CONFIGURATION
 
 Layers configuration declaration.
@@ -1510,7 +1509,6 @@ the list `dotspacemacs-configuration-layers'. (default t)
 ))
 #+END_SRC
 
-
 * USER CONFIGURATION
 
 User configuration declaration.
@@ -1525,11 +1523,6 @@ Initialization function for user code. It is called immediately after
     "Initialization function for user code.
   It is called immediately after `dotspacemacs/init'."
 #+END_SRC
-
-*** ------------------------------
-
-*** TODO 
-*** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
     )
 #+END_SRC
