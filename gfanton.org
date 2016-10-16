@@ -1399,6 +1399,14 @@ This is an EditorConfig plugin for Emacs.
   editorconfig
 #+END_SRC
 
+**** protobuf
+
+Major mode for editing protocol buffers.
+
+#+BEGIN_SRC emacs-lisp
+  protobuf-mode
+#+END_SRC
+
 **** jira
 
 Use Jira in Emacs org-mode.
