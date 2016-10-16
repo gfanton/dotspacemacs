@@ -1609,6 +1609,12 @@ Handle flowconfig `.flowconfig`.
   (add-to-list 'auto-mode-alist '("\\.jsx?$" . react-mode))
 #+END_SRC
 
+**** objc 
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
+#+END_SRC
+
 *** EditorConfig
 
 Always enable EditorConfig.
