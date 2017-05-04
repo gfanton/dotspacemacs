@@ -343,7 +343,7 @@ pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
 *** major mode emacs leader key
 
 Major mode leader key accessible in `emacs state' and `insert state'.
-(default "C-M-m)
+(default "C-M-m")
 
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
@@ -881,7 +881,7 @@ This layer adds some [[https://flowtype.org/][flow]] related functionality to Em
  - company-mode completion using company-flow
 
 #+BEGIN_SRC emacs-lisp
-  flow-type
+;;  flow-type
 #+END_SRC
 
 **** typescript
