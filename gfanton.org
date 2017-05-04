@@ -1,15 +1,15 @@
 #+TITLE: Spacemacs Configuration File
 #+AUTHOR: gfanton
-#+BABEL: :cache yes
-#+STARTUP: indent hideblocks
-#+PROPERTY: header-args :tangle yes :comments org
-#+SETUPFILE: ~/.spacemacs.d/org-html-themes/setup/theme-readtheorg.setup
+#+BABEL: :cache "yes"
+#+STARTUP: "indent"
+#+PROPERTY: header-args :tangle "yes" :comments "org"
+#+SETUPFILE: "~/.spacemacs.d/org-html-themes/setup/theme-readtheorg.setup"
 
 [[https://github.com/syl20bnr/spacemacs][file:https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg]]
 
 My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][SpaceMacs_]]
 
-* TABLE OF CONTENTS                                                     :TOC_4_gh:
+*  TABLE OF CONTENTS                                               :TOC_4_gh:
  - [[#spacemacs-initialization][SPACEMACS INITIALIZATION]]
    - [[#editing-style][Editing Style]]
    - [[#elpa][Elpa]]
