@@ -239,7 +239,7 @@ if non nil use HTTPS otherwise use HTTP. Default is t.
 Default is 5 seconds.
 
 #+BEGIN_SRC emacs-lisp
-  dotspacemacs-elpa-timeout 5
+  dotspacemacs-elpa-timeout 30
 #+END_SRC
 
 *** elpa-subdirectory
