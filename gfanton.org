@@ -92,6 +92,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
       - [[#clojure][clojure]]
       - [[#latex][latex]]
       - [[#yaml][yaml]]
+      - [[#rust][rust]]
       - [[#markdown][markdown]]
       - [[#javascript][javascript]]
       - [[#js-advance][js-advance]]
@@ -149,6 +150,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
     - [[#brew][brew]]
     - [[#npm][NPM]]
     - [[#go-1][GO]]
+    - [[#rust-1][Rust]]
     - [[#environment][environment]]
   - [[#packages][Packages]]
     - [[#additional-packages][additional packages]]
@@ -859,7 +861,13 @@ This layer provides syntax highlighting for YAML files.
 #+BEGIN_SRC emacs-lisp
   yaml
 #+END_SRC
+**** rust
 
+This layer supports [[https://www.rust-lang.org/en-US/][Rust]] development in Spacemacs.
+
+#+BEGIN_SRC emacs-lisp
+  rust
+#+END_SRC
 **** markdown
 
 This layer adds markdown support to Spacemacs.
@@ -1336,6 +1344,22 @@ go dependencies
   go get -u -v golang.org/x/tools/cmd/oracle
   go get -u -v golang.org/x/tools/cmd/gorename
 #+END_SRC
+
+*** Rust
+
+rust dependencies
+
+#+BEGIN_SRC bash
+  # Install cargo
+  curl -sSf https://static.rust-lang.org/rustup.sh | sh
+
+  # setting env
+  mkdir -p $HOME/rust/src; echo 'export RUST_SRC_PATH=$HOME/rust/src' >> .zshrc
+
+  # install required packages
+  cargo install racer rustfmt
+#+END_SRC
+
 
 *** environment
 
