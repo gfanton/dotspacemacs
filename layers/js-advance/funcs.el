@@ -8,35 +8,37 @@
       (delete-char sgml-basic-offset))))
 
 (defun js-advance/company-use-flow-from-node-modules ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
-         (global-flow (executable-find "flow"))
-         (local-flow (expand-file-name "node_modules/.bin/flow"
-                                         root))
-         (flow (if (file-executable-p local-flow)
-                     local-flow
-                 global-flow)))
-    (setq-local company-flow-executable flow)))
-
-(defun js-advance/flycheck-use-flow-from-node-modules ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
+  (let* ((root (or (projectile-project-root) (locate-dominating-file
+                                              (or (buffer-file-name) default-directory)
+                                              "node_modules")))
          (global-flow (executable-find "flow"))
          (local-flow (expand-file-name "node_modules/.bin/flow"
                                        root))
          (flow (if (file-executable-p local-flow)
                    local-flow
                  global-flow)))
+    (message "using flow for company: `%s'" flow)
+    (setq-local company-flow-executable flow)))
+
+(defun js-advance/flycheck-use-flow-from-node-modules ()
+  (let* ((root (or (projectile-project-root) (locate-dominating-file
+                                              (or (buffer-file-name) default-directory)
+                                              "node_modules")))
+         (global-flow (executable-find "flow"))
+         (local-flow (expand-file-name "node_modules/.bin/flow"
+                                       root))
+         (flow (if (file-executable-p local-flow)
+                   local-flow
+                 global-flow)))
+    (message "using flow for flycheck: `%s'" flow)
     (setq-local flycheck-javascript-flow-executable flow)))
 
 
 ;; Copied from spacemacs https://github.com/syl20bnr/spacemacs/blob/master/layers/%2Bframeworks/react/funcs.el
 (defun js-advance/use-eslint-from-node-modules ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
+  (let* ((root (or (projectile-project-root) (locate-dominating-file
+                                              (or (buffer-file-name) default-directory)
+                                              "node_modules")))
          (global-eslint (executable-find "eslint"))
          (local-eslint (expand-file-name "node_modules/.bin/eslint"
                                          root))
@@ -44,6 +46,7 @@
                      local-eslint
                    global-eslint)))
 
+    (message "using eslint: `%s'" eslint)
     (setq-local flycheck-javascript-eslint-executable eslint)))
 
 ;; From https://github.com/jdelStrother/dotfiles/tree/master/spacemacs_layers/flow-type
