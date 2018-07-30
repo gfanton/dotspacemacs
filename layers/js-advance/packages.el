@@ -98,8 +98,8 @@
     ))
 
 (defun js-advance/post-init-flycheck ()
-  (push 'javascript-jshint flycheck-disabled-checkers)
-  (push 'json-jsonlint flycheck-disabled-checkers)
+  ;; (push 'javascript-jshint flycheck-disabled-checkers)
+  ;; (push 'json-jsonlint flycheck-disabled-checkers)
   (add-hook 'web-mode-hook #'js-advance/use-eslint-from-node-modules)
   (add-hook 'web-mode-hook #'js-advance/flycheck-use-flow-from-node-modules)
   (spacemacs/enable-flycheck 'react-mode))
