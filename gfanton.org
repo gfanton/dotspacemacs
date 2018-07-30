@@ -107,7 +107,6 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
     - [[#-tools][+ tools]]
       - [[#dash][dash]]
       - [[#vagrant][vagrant]]
-      - [[#pdf-tools][pdf-tools]]
       - [[#rebox][rebox]]
       - [[#docker][docker]]
       - [[#terraform][terraform]]
@@ -172,6 +171,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
   - [[#user-initialization][User Initialization]]
   - [[#user-configuration-1][User Configuration]]
     - [[#-------------------------------4][------------------------------]]
+    - [[#epa][EPA]]
     - [[#keys][keys]]
       - [[#find-files][find-files]]
       - [[#buffer-switch][buffer-switch]]
@@ -192,7 +192,8 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
     - [[#skeletor-1][Skeletor]]
     - [[#deft-1][Deft]]
     - [[#projectile][Projectile]]
-    - [[#windmove][windmove]]
+    - [[#windmove][WindMove]]
+    - [[#framemove][FrameMove]]
     - [[#private-file][Private File]]
     - [[#helm-fix][Helm Fix]]
     - [[#org-hotfix][Org Hotfix]]
@@ -742,7 +743,7 @@ _Features_:
 This is a very basic layer for editing ocaml files.
 
 #+BEGIN_SRC emacs-lisp
-  ocaml
+  ;; opam 
 #+END_SRC
 
 **** Emacs-Lisp
@@ -988,27 +989,6 @@ This layer adds support for working with Vagrant using [[https://github.com/ottb
 
 #+BEGIN_SRC emacs-lisp
   vagrant
-#+END_SRC
-
-**** pdf-tools
-
-This layer enables support for the [[https://github.com/politza/pdf-tools][pdf-tools]] package.
-
-According to the official repository:
-
-#+begin_quote
-"PDF Tools is, among other things, a replacement of DocView for PDF files. The
-key difference is, that pages are not pre-rendered by e.g. ghostscript and
-stored in the file-system, but rather created on-demand and stored in memory."
-#+end_quote
-
-Examples of features that =pdf-tools= provides:
-- Use =occur= in the pdf file;
-- Show all headings in a outline buffer;
-- Manipulate annotations.
-
-#+BEGIN_SRC emacs-lisp
-  pdf-tools
 #+END_SRC
 
 **** rebox
@@ -1566,6 +1546,14 @@ Spacemacs initialization after layers configuration.
 #+END_SRC
 
 *** ------------------------------
+*** EPA
+
+handle querying the passphrase through minibuffer
+
+#+BEGIN_SRC emacs-lisp
+(setq epa-pinentry-mode 'loopback)
+#+END_SRC
+
 *** keys
 **** find-files
 
@@ -1723,8 +1711,7 @@ Make projectile work with tramp mode.
   (defadvice projectile-project-root (around ignore-remote first activate)
       (unless (file-remote-p default-directory) ad-do-it))
 #+END_SRC
-
-*** windmove
+*** WindMove
 
 Windmove lets you move point from window to window using Shift and the arrow keys.
 
@@ -1740,6 +1727,14 @@ Make windmove work in org-mode.
   (add-hook 'org-shiftleft-final-hook 'windmove-left)
   (add-hook 'org-shiftdown-final-hook 'windmove-down)
   (add-hook 'org-shiftright-final-hook 'windmove-right)
+#+END_SRC
+*** FrameMove
+
+#+BEGIN_SRC emacs-lisp
+  (load-file "~/.spacemacs.d/packages/framemove.el")
+  (require 'framemove)
+
+  (setq framemove-hook-into-windmove t)
 #+END_SRC
 
 *** Private File
