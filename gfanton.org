@@ -107,6 +107,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
     - [[#-tools][+ tools]]
       - [[#dash][dash]]
       - [[#vagrant][vagrant]]
+      - [[#lsp][lsp]]
       - [[#rebox][rebox]]
       - [[#docker][docker]]
       - [[#terraform][terraform]]
@@ -150,16 +151,16 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
     - [[#npm][NPM]]
     - [[#go-1][GO]]
     - [[#rust-1][Rust]]
+    - [[#reason][Reason]]
     - [[#environment][environment]]
   - [[#packages][Packages]]
     - [[#additional-packages][additional packages]]
       - [[#-------------------------------2][------------------------------]]
       - [[#orgbabel][orgbabel]]
       - [[#editorconfig][editorconfig]]
+      - [[#reason-1][reason]]
       - [[#protobuf][protobuf]]
-      - [[#jira][jira]]
       - [[#edbi][edbi]]
-      - [[#bookmark][bookmark+]]
       - [[#skeletor][skeletor]]
       - [[#ssh-tunnels][ssh tunnels]]
       - [[#impatient-mode][impatient mode]]
@@ -191,6 +192,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
     - [[#neotree][NeoTree]]
     - [[#skeletor-1][Skeletor]]
     - [[#deft-1][Deft]]
+    - [[#lsp-1][LSP]]
     - [[#projectile][Projectile]]
     - [[#windmove][WindMove]]
     - [[#framemove][FrameMove]]
@@ -200,7 +202,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
     - [[#-------------------------------5][------------------------------]]
 
 * SPACEMACS INITIALIZATION
-
+  
 Initialization function.
 This function is called at the very startup of Spacemacs initialization
 before layers configuration.
@@ -767,7 +769,12 @@ scripts.
 This layer adds extensive support for go.
 
 #+BEGIN_SRC emacs-lisp
-  go
+  (go :variables
+      go-use-golangci-lint t
+      go-backend 'lsp
+      go-format-before-save t
+      gofmt-command "goimports"
+      godoc-at-point-function 'godoc-gogetdoc)
 #+END_SRC
 
 **** java
@@ -779,6 +786,7 @@ This layer adds support for the Java language using the [[http://eclim.org][Ecli
                    eclim-eclipse-dirs '(shell-quote-argument "/Applications/Eclipse Java.app/Contents/Eclipse")
                    eclim-executable (shell-quote-argument "/Applications/Eclipse Java.app/Contents/Eclipse/eclim"))
 #+END_SRC
+
 
 **** sql
 
@@ -989,6 +997,20 @@ This layer adds support for working with Vagrant using [[https://github.com/ottb
 
 #+BEGIN_SRC emacs-lisp
   vagrant
+#+END_SRC
+
+**** lsp 
+
+This layer adds support for basic language server protocol packages speaking
+[[https://microsoft.github.io/language-server-protocol/specification][language server protocol]].
+
+Different language servers may support the language server protocol to varying degrees
+and they may also provide extensions; check the language server's website for
+details.
+=M-x lsp-capabilities= in a LSP buffer to list capabilities of the server.
+
+#+BEGIN_SRC emacs-lisp
+lsp
 #+END_SRC
 
 **** rebox
@@ -1340,6 +1362,18 @@ rust dependencies
   cargo install racer rustfmt
 #+END_SRC
 
+*** Reason
+
+reason dependencies
+
+#+BEGIN_SRC bash
+  # Install cargo
+  brew install opam
+
+  # Install merlin
+  opam install merlin
+#+END_SRC
+
 
 *** environment
 
@@ -1388,20 +1422,24 @@ list of additional OB support
    ob-restclient
  #+END_SRC
 
-***** php
-
- Org-Babel support for evaluating php source code.
-
-#+BEGIN_SRC emacs-lisp
-  ob-php
-#+END_SRC
-
 **** editorconfig
 
 This is an EditorConfig plugin for Emacs.
 
 #+BEGIN_SRC emacs-lisp
   editorconfig
+#+END_SRC
+
+**** reason
+
+An Emacs major mode for ReasonML.
+     
+#+BEGIN_SRC emacs-lisp
+  (reason-mode
+   :location (recipe
+              :repo "reasonml-editor/reason-mode"
+              :fetcher github
+              :files ("reason-mode.el" "refmt.el" "reason-indent.el" "reason-interaction.el")))
 #+END_SRC
 
 **** protobuf
@@ -1412,16 +1450,6 @@ Major mode for editing protocol buffers.
   protobuf-mode
 #+END_SRC
 
-**** jira
-
-Use Jira in Emacs org-mode.
-
-#+BEGIN_SRC emacs-lisp
-  jira
-  org-jira
-  jira-markup-mode
-#+END_SRC
-
 **** edbi
 
 This program connects the database server through Perl's DBI, and provides
@@ -1429,16 +1457,6 @@ DB-accessing API and the simple management UI.
 
 #+BEGIN_SRC emacs-lisp
   edbi
-#+END_SRC
-
-**** bookmark+
-
-The internal bookmark format (data structure) used by Bookmark+ is compatible
-with that of vanilla GnuEmacs. It extends that structure in new ways, to
-accommodate new bookmark types.
-
-#+BEGIN_SRC emacs-lisp
-   bookmark+
 #+END_SRC
 
 **** skeletor
@@ -1696,6 +1714,16 @@ create your own.
   (setq deft-directory "~/Dropbox/notes")
 #+END_SRC
 
+*** LSP
+
+Define key bindings for the specific MODE.
+
+#+BEGIN_SRC emacs-lisp
+  (spacemacs/lsp-bind-keys-for-mode 'go-mode)
+  (spacemacs/lsp-bind-keys-for-mode 'java-mode)
+  (spacemacs/lsp-bind-keys-for-mode 'react-mode)
+#+END_SRC
+
 *** Projectile
 
 Once you have selected your project, the top-level directory
@@ -1749,13 +1777,11 @@ Make windmove work in org-mode.
 #+BEGIN_SRC emacs-lisp
   (require 'helm-bookmark)
 #+END_SRC
-
-
 *** Org Hotfix
 
-#+BEGIN_SRC emacs-lisp
-  (org-reload)
-#+END_SRC
+ #+BEGIN_SRC emacs-lisp
+   (org-reload)
+ #+END_SRC
 
 *** ------------------------------
 #+BEGIN_SRC emacs-lisp :exports none
