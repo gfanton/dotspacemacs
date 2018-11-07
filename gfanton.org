@@ -160,6 +160,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
       - [[#editorconfig][editorconfig]]
       - [[#reason-1][reason]]
       - [[#protobuf][protobuf]]
+      - [[#lsp-1][lsp]]
       - [[#edbi][edbi]]
       - [[#skeletor][skeletor]]
       - [[#ssh-tunnels][ssh tunnels]]
@@ -172,6 +173,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
   - [[#user-initialization][User Initialization]]
   - [[#user-configuration-1][User Configuration]]
     - [[#-------------------------------4][------------------------------]]
+    - [[#xterm][Xterm]]
     - [[#epa][EPA]]
     - [[#keys][keys]]
       - [[#find-files][find-files]]
@@ -192,7 +194,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
     - [[#neotree][NeoTree]]
     - [[#skeletor-1][Skeletor]]
     - [[#deft-1][Deft]]
-    - [[#lsp-1][LSP]]
+    - [[#lsp-2][LSP]]
     - [[#projectile][Projectile]]
     - [[#windmove][WindMove]]
     - [[#framemove][FrameMove]]
@@ -782,11 +784,8 @@ This layer adds extensive support for go.
 This layer adds support for the Java language using the [[http://eclim.org][Eclim]] client/server.
 
 #+BEGIN_SRC emacs-lisp
-  (java :variables java-backend 'eclim
-                   eclim-eclipse-dirs '(shell-quote-argument "/Applications/Eclipse Java.app/Contents/Eclipse")
-                   eclim-executable (shell-quote-argument "/Applications/Eclipse Java.app/Contents/Eclipse/eclim"))
+  (java :variables java-backend 'lsp)
 #+END_SRC
-
 
 **** sql
 
@@ -890,7 +889,10 @@ This layer adds markdown support to Spacemacs.
 This layer adds support for the JavaScript language using [[https://github.com/mooz/js2-mode][js2-mode]].
 
 #+BEGIN_SRC emacs-lisp
-  javascript
+  (javascript :variables
+              javascript-backend 'lsp
+              node-add-modulesjavascript-fmt-tool-path t
+              javascript-fmt-tool 'prettier)
 #+END_SRC
 
 **** js-advance
@@ -1450,6 +1452,15 @@ Major mode for editing protocol buffers.
   protobuf-mode
 #+END_SRC
 
+**** lsp
+***** flow
+
+add flow support on lsp
+
+#+BEGIN_SRC emacs-lisp
+  lsp-javascript-flow
+#+END_SRC
+
 **** edbi
 
 This program connects the database server through Perl's DBI, and provides
@@ -1564,6 +1575,13 @@ Spacemacs initialization after layers configuration.
 #+END_SRC
 
 *** ------------------------------
+*** Xterm
+disable xterm mouse mode
+
+#+BEGIN_SRC emacs-lisp
+  (xterm-mouse-mode -1)
+#+END_SRC
+
 *** EPA
 
 handle querying the passphrase through minibuffer
@@ -1571,7 +1589,6 @@ handle querying the passphrase through minibuffer
 #+BEGIN_SRC emacs-lisp
 (setq epa-pinentry-mode 'loopback)
 #+END_SRC
-
 *** keys
 **** find-files
 
@@ -1631,7 +1648,23 @@ Handle flowconfig `.flowconfig`.
 **** JavaScript
 
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'auto-mode-alist '("\\.jsx?$" . react-mode))
+  (require 'lsp-javascript-flow)
+
+  (add-to-list 'auto-mode-alist '("\\.jsx?$" . rjsx-mode))
+  (add-hook 'rjsx-mode #'lsp-javascript-flow-enable) ;; for rjsx-mode support
+
+  ;; fix completion glitch
+
+  (defun my-company-transformer (candidates)
+    (let ((completion-ignore-case t))
+      (all-completions (company-grab-symbol) candidates)))
+
+  (defun my-js-hook nil
+    (make-local-variable 'company-transformers)
+    (push 'my-company-transformer company-transformers))
+
+  (add-hook 'js-mode-hook 'my-js-hook)
+
 #+END_SRC
 
 **** objc 
@@ -1641,7 +1674,7 @@ Handle flowconfig `.flowconfig`.
 #+END_SRC
 
 *** EditorConfig
-
+    
 Always enable EditorConfig.
 
 #+BEGIN_SRC emacs-lisp
@@ -1723,6 +1756,26 @@ Define key bindings for the specific MODE.
   (spacemacs/lsp-bind-keys-for-mode 'java-mode)
   (spacemacs/lsp-bind-keys-for-mode 'react-mode)
 #+END_SRC
+
+Enable lsp ui with golang flycheck
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'lsp-ui-mode-hook
+            (lambda ()
+              (when (eq major-mode 'go-mode)
+                (setq flycheck-checker 'golangci-lint))))
+
+  ;; Check each time you open a file 
+  ;; (add-hook 'lsp-ui-mode-hook 'flycheck-buffer t 'make-it-local)
+
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (add-hook 'after-save-hook 'flycheck-buffer t 'make-it-local)
+              (add-hook 'auto-save-hook 'flycheck-buffer t 'make-it-local))
+            t nil)
+
+#+END_SRC
+
 
 *** Projectile
 
