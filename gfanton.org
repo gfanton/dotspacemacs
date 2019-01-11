@@ -75,6 +75,8 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
       - [[#version-control][version-control]]
       - [[#github][github]]
       - [[#git][git]]
+    - [[#-filetree][+ filetree]]
+      - [[#treemacs][treemacs]]
     - [[#-lang][+ lang]]
       - [[#csv][csv]]
       - [[#asm][asm]]
@@ -83,6 +85,7 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
       - [[#c-c][c-c++]]
       - [[#go][go]]
       - [[#java][java]]
+      - [[#dart][dart]]
       - [[#sql][sql]]
       - [[#php][php]]
       - [[#html][html]]
@@ -113,6 +116,8 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
       - [[#terraform][terraform]]
       - [[#nginx][nginx]]
       - [[#geolocalisation][geolocalisation]]
+      - [[#prettier][prettier]]
+      - [[#games][games]]
     - [[#-vim][+ vim]]
       - [[#vim-empty-lines][vim-empty-lines]]
       - [[#vinegar][vinegar]]
@@ -158,7 +163,8 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
       - [[#-------------------------------2][------------------------------]]
       - [[#orgbabel][orgbabel]]
       - [[#editorconfig][editorconfig]]
-      - [[#reason-1][reason]]
+      - [[#reason-disabled][reason (disabled)]]
+      - [[#dart-1][dart]]
       - [[#protobuf][protobuf]]
       - [[#lsp-1][lsp]]
       - [[#edbi][edbi]]
@@ -173,6 +179,15 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
   - [[#user-initialization][User Initialization]]
   - [[#user-configuration-1][User Configuration]]
     - [[#-------------------------------4][------------------------------]]
+    - [[#windmove][WindMove]]
+    - [[#auto-mode-alist][Auto Mode Alist]]
+      - [[#smarty][Smarty]]
+      - [[#env][Env]]
+      - [[#flowconfig][flowconfig]]
+      - [[#javascript-1][JavaScript]]
+      - [[#dart-2][dart]]
+      - [[#objc][objc]]
+    - [[#lsp-2][LSP]]
     - [[#xterm][Xterm]]
     - [[#epa][EPA]]
     - [[#keys][keys]]
@@ -180,23 +195,14 @@ My dotspacemacs configuration for [[https://github.com/syl20bnr/spacemacs][Space
       - [[#buffer-switch][buffer-switch]]
       - [[#buffer-kill-current][buffer-kill-current]]
       - [[#buffer-reload][buffer-reload]]
-    - [[#auto-mode-alist][Auto Mode Alist]]
-      - [[#smarty][Smarty]]
-      - [[#env][Env]]
-      - [[#flowconfig][flowconfig]]
-      - [[#javascript-1][JavaScript]]
-      - [[#objc][objc]]
     - [[#editorconfig-1][EditorConfig]]
     - [[#regexp][regexp]]
     - [[#origami][Origami]]
     - [[#powerline][PowerLine]]
     - [[#sunshine-weather-forecast][Sunshine (weather forecast)]]
-    - [[#neotree][NeoTree]]
     - [[#skeletor-1][Skeletor]]
     - [[#deft-1][Deft]]
-    - [[#lsp-2][LSP]]
     - [[#projectile][Projectile]]
-    - [[#windmove][WindMove]]
     - [[#framemove][FrameMove]]
     - [[#private-file][Private File]]
     - [[#helm-fix][Helm Fix]]
@@ -298,8 +304,11 @@ Press <SPC> T n to cycle to the next theme in the list. (works great
 with 2 themes variants, one dark and one light)
 
 #+BEGIN_SRC emacs-lisp
-    dotspacemacs-themes '(material
-                          monokai)
+  dotspacemacs-themes '(odersky
+                        hc-zenburn
+                        jazz
+                        badwolf
+                        material)
 #+END_SRC
 
 ** Cursor-Color
@@ -661,7 +670,7 @@ to toggle check for Spacemacs updates at startup, default is =t=.
 #+END_SRC
 
 * LAYERS CONFIGURATION
-
+  
 Layers configuration declaration.
 
 #+BEGIN_SRC emacs-lisp :exports none
@@ -708,11 +717,20 @@ This layers adds support for [[http://github.com][Github]].
   github
 #+END_SRC
 **** git
-
 This layers adds extensive support for [[http://git-scm.com/][git]].
 
 #+BEGIN_SRC emacs-lisp
   git
+#+END_SRC
+*** + filetree
+**** treemacs
+
+This layer brings in Treemacs to replace Neotree as the default file and project explorer:
+
+#+BEGIN_SRC emacs-lisp
+  (treemacs :variables
+            treemacs-use-follow-mode t
+            treemacs-use-filewatch-mode t)
 #+END_SRC
 
 *** + lang
@@ -787,6 +805,9 @@ This layer adds support for the Java language using the [[http://eclim.org][Ecli
   (java :variables java-backend 'lsp)
 #+END_SRC
 
+**** dart
+
+
 **** sql
 
 This layer adds key bindings and configuration for =sql-mode=, which manages
@@ -801,7 +822,7 @@ interactive SQL buffers and highlights a wide range of SQL dialects.
 This layer adds PHP language support to Spacemacs.
 
 #+BEGIN_SRC emacs-lisp
-  php
+  ;; php
 #+END_SRC
 
 **** html
@@ -817,7 +838,7 @@ This layer adds support for editing HTML and CSS.
 This layer adds support for the Python language.
 
 #+BEGIN_SRC emacs-lisp
-  python
+  (python :variables python-backend 'lsp)
 #+END_SRC
 
 **** swift
@@ -952,7 +973,7 @@ package. Where possible, this layer aims to reuse keybindings from the IRC
 packages in Spacemacs.
 
 #+BEGIN_SRC emacs-lisp
-;;  slack
+  slack
 #+END_SRC
 
 **** erc
@@ -1067,6 +1088,21 @@ CoreLocation services.
 ;;               geolocation-enable-automatic-theme-changer nil)
 #+END_SRC
 
+**** prettier
+This layer adds support for [[https://github.com/prettier/prettier][prettier]]
+
+     #+BEGIN_SRC emacs-lisp
+       prettier
+     #+END_SRC
+     
+**** games
+
+This layer allows you to play evilified games in spacemacs.
+
+     #+BEGIN_SRC emacs-lisp
+       games
+     #+END_SRC
+ 
 *** + vim
 **** vim-empty-lines
 
@@ -1211,7 +1247,7 @@ This layer colors your life with:
 
 #+BEGIN_SRC emacs-lisp
   (colors :variables
-          ;; colors-enable-rainbow-identifiers t
+          colors-enable-rainbow-identifiers t
           ;; colors-enable-nyan-cat-progress-bar t
           )
 #+END_SRC
@@ -1222,7 +1258,7 @@ This simple contribution layer is an example. It installs around 100 themes
 for Emacs. You can try them easily by invoking helm-themes with: ~<SPC> T h~.
 
 #+BEGIN_SRC emacs-lisp
-  ;; themes-megapack
+ ;; themes-megapack
 #+END_SRC
 
 *** + tags
@@ -1432,16 +1468,27 @@ This is an EditorConfig plugin for Emacs.
   editorconfig
 #+END_SRC
 
-**** reason
+**** reason (disabled)
 
 An Emacs major mode for ReasonML.
      
 #+BEGIN_SRC emacs-lisp
-  (reason-mode
-   :location (recipe
-              :repo "reasonml-editor/reason-mode"
-              :fetcher github
-              :files ("reason-mode.el" "refmt.el" "reason-indent.el" "reason-interaction.el")))
+  ;; (reason-mode
+  ;;  :location (recipe
+  ;;             :repo "reasonml-editor/reason-mode"
+  ;;             :fetcher github
+  ;;             :files ("reason-mode.el" "refmt.el" "reason-indent.el" "reason-interaction.el")))
+#+END_SRC
+
+**** dart
+
+Major mode for editing Dart files.
+
+Provides basic syntax highlighting and indentation. Also provides
+formatting via the dartfmt and diff executables.
+
+#+BEGIN_SRC emacs-lisp
+  dart-mode
 #+END_SRC
 
 **** protobuf
@@ -1575,6 +1622,108 @@ Spacemacs initialization after layers configuration.
 #+END_SRC
 
 *** ------------------------------
+*** WindMove
+
+Windmove lets you move point from window to window using Shift and the arrow keys.
+
+#+BEGIN_SRC emacs-lisp
+  (when (fboundp 'windmove-default-keybindings)
+    (windmove-default-keybindings))
+#+END_SRC
+
+Make windmove work in org-mode.
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-shiftup-final-hook 'windmove-up)
+  (add-hook 'org-shiftleft-final-hook 'windmove-left)
+  (add-hook 'org-shiftdown-final-hook 'windmove-down)
+  (add-hook 'org-shiftright-final-hook 'windmove-right)
+#+END_SRC
+
+*** Auto Mode Alist
+**** Smarty
+
+handle files ending in '.tpl'.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
+#+END_SRC
+
+**** Env
+
+handle files ending in '.env'.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.env$" . conf-mode))
+#+END_SRC
+
+**** flowconfig
+
+Handle flowconfig `.flowconfig`.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.flowconfig$" . conf-mode))
+#+END_SRC
+
+**** JavaScript
+
+#+BEGIN_SRC emacs-lisp
+  ;; (require 'lsp-javascript-flow)
+
+  (add-to-list 'auto-mode-alist '("\\.jsx?$" . rjsx-mode))
+  ;; (add-hook 'rjsx-mode #'lsp-javascript-flow-enable) ;; for rjsx-mode support
+
+  ;; fix completion glitch
+
+  (defun my-company-transformer (candidates)
+    (let ((completion-ignore-case t))
+      (all-completions (company-grab-symbol) candidates)))
+
+  (defun my-js-hook nil
+    (make-local-variable 'company-transformers)
+    (push 'my-company-transformer company-transformers))
+
+  (add-hook 'js-mode-hook 'my-js-hook)
+#+END_SRC
+
+**** dart
+
+dart auto mode alist
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.dart$" . dart-mode))
+#+END_SRC
+
+**** objc 
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
+#+END_SRC
+*** LSP
+
+#+BEGIN_SRC emacs-lisp
+  ;; (add-hook 'lsp-ui-mode-hook
+  ;;           (lambda ()
+  ;;             (when (eq major-mode 'go-mode)
+  ;;               (setq flycheck-checker 'golangci-lint))))
+
+  ;; ;; Check each time you open a file 
+  ;; (add-hook 'lsp-ui-mode-hook 'flycheck-buffer t 'make-it-local)
+
+  ;; (add-hook 'go-mode-hook
+  ;;           (lambda ()
+  ;;             (add-hook 'after-save-hook 'flycheck-buffer t 'make-it-local)
+  ;;             (add-hook 'auto-save-hook 'flycheck-buffer t 'make-it-local))
+  ;;           t nil)
+#+END_SRC
+
+Dart support for lsp-mode using dart_language_server.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'lsp)
+  (add-hook 'dart-mode-hook #'lsp)
+#+END_SRC
+
 *** Xterm
 disable xterm mouse mode
 
@@ -1619,60 +1768,6 @@ Kill current buffers.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x C-v") 'spacemacs/safe-revert-buffer)
 #+END_SRC
-
-*** Auto Mode Alist
-**** Smarty
-
-handle files ending in '.tpl'.
-
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
-#+END_SRC
-
-**** Env
-
-handle files ending in '.env'.
-
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'auto-mode-alist '("\\.env$" . conf-mode))
-#+END_SRC
-
-**** flowconfig
-
-Handle flowconfig `.flowconfig`.
-
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'auto-mode-alist '("\\.flowconfig$" . conf-mode))
-#+END_SRC
-
-**** JavaScript
-
-#+BEGIN_SRC emacs-lisp
-  (require 'lsp-javascript-flow)
-
-  (add-to-list 'auto-mode-alist '("\\.jsx?$" . rjsx-mode))
-  (add-hook 'rjsx-mode #'lsp-javascript-flow-enable) ;; for rjsx-mode support
-
-  ;; fix completion glitch
-
-  (defun my-company-transformer (candidates)
-    (let ((completion-ignore-case t))
-      (all-completions (company-grab-symbol) candidates)))
-
-  (defun my-js-hook nil
-    (make-local-variable 'company-transformers)
-    (push 'my-company-transformer company-transformers))
-
-  (add-hook 'js-mode-hook 'my-js-hook)
-
-#+END_SRC
-
-**** objc 
-
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
-#+END_SRC
-
 *** EditorConfig
     
 Always enable EditorConfig.
@@ -1722,14 +1817,6 @@ buffer.
   (setq sunshine-show-icons t)
 #+END_SRC
 
-*** NeoTree
-
-Set the NeoTree Theme to Nerd
-
-#+BEGIN_SRC emacs-lisp
-  (setq neo-theme 'nerd)
-#+END_SRC
-
 *** Skeletor
 
 =Skeletor= provides project templates for Emacs. It also automates the mundane
@@ -1744,38 +1831,8 @@ create your own.
 *** Deft
 
 #+BEGIN_SRC emacs-lisp
-  (setq deft-directory "~/Dropbox/notes")
+  (setq deft-directory "~/Documents/notes")
 #+END_SRC
-
-*** LSP
-
-Define key bindings for the specific MODE.
-
-#+BEGIN_SRC emacs-lisp
-  (spacemacs/lsp-bind-keys-for-mode 'go-mode)
-  (spacemacs/lsp-bind-keys-for-mode 'java-mode)
-  (spacemacs/lsp-bind-keys-for-mode 'react-mode)
-#+END_SRC
-
-Enable lsp ui with golang flycheck
-
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'lsp-ui-mode-hook
-            (lambda ()
-              (when (eq major-mode 'go-mode)
-                (setq flycheck-checker 'golangci-lint))))
-
-  ;; Check each time you open a file 
-  ;; (add-hook 'lsp-ui-mode-hook 'flycheck-buffer t 'make-it-local)
-
-  (add-hook 'go-mode-hook
-            (lambda ()
-              (add-hook 'after-save-hook 'flycheck-buffer t 'make-it-local)
-              (add-hook 'auto-save-hook 'flycheck-buffer t 'make-it-local))
-            t nil)
-
-#+END_SRC
-
 
 *** Projectile
 
@@ -1791,23 +1848,6 @@ Make projectile work with tramp mode.
 #+BEGIN_SRC emacs-lisp
   (defadvice projectile-project-root (around ignore-remote first activate)
       (unless (file-remote-p default-directory) ad-do-it))
-#+END_SRC
-*** WindMove
-
-Windmove lets you move point from window to window using Shift and the arrow keys.
-
-#+BEGIN_SRC emacs-lisp
-  (when (fboundp 'windmove-default-keybindings)
-    (windmove-default-keybindings))
-#+END_SRC
-
-Make windmove work in org-mode.
-
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'org-shiftup-final-hook 'windmove-up)
-  (add-hook 'org-shiftleft-final-hook 'windmove-left)
-  (add-hook 'org-shiftdown-final-hook 'windmove-down)
-  (add-hook 'org-shiftright-final-hook 'windmove-right)
 #+END_SRC
 *** FrameMove
 
