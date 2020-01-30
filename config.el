@@ -74,6 +74,11 @@ This function should only modify configuration layer settings."
 
      (java :variables java-backend 'lsp)
 
+     (javascript :variables
+                 javascript-backend 'lsp
+                 node-add-modulesjavascript-fmt-tool-path t
+                 javascript-fmt-tool 'prettier)
+
      emacs-lisp
      yaml
      lsp
