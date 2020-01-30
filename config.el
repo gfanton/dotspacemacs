@@ -54,7 +54,9 @@ This function should only modify configuration layer settings."
 
      spell-checking
      syntax-checking
-     treemacs
+     (treemacs :variables
+               treemacs-use-follow-mode t
+               treemacs-use-filewatch-mode t)
 
      docker
 
