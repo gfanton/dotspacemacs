@@ -343,12 +343,12 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup t
+   dotspacemacs-maximized-at-startup nil
 
    ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
    ;; variable with `dotspacemacs-maximized-at-startup' in OSX to obtain
    ;; borderless fullscreen. (default nil)
-   dotspacemacs-undecorated-at-startup t
+   dotspacemacs-undecorated-at-startup nil
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
@@ -547,7 +547,7 @@ before packages are loaded."
      ("fix"     ? (:foreground "#FB6542" :height 1.2))
      ("chore"   ? (:foreground "#FFBB00" :height 1.2))
      ("test"    ?T (:foreground "#3F681C" :height 1.2))))
-  (pretty-magit-setup)
+  (pretty-magit-setup t)
 
   ;; regexp
   ;; set pcre as default
@@ -556,25 +556,18 @@ before packages are loaded."
    '(vr/engine (quote pcre2el)))
 
 
-
-  (editorconfig-mode 1)
-
-
   ;; Projectile
 
   ;; Once you have selected your project, the top-level directory
   ;; of the project is immediately opened for you in a dired buffer.
 
-
   (setq projectile-switch-project-action 'projectile-dired)
-
 
   ;; keybindings
 
   (global-set-key (kbd "C-x k") 'spacemacs/kill-this-buffer)
 
   ;; Private File
-
 
   (if (boundp 'dotspacemacs-private-file)
       (load-file dotspacemacs-private-file))
