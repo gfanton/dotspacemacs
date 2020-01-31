@@ -39,10 +39,12 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      osx
+     vinegar
 
      auto-completion
      better-defaults
      helm
+     spacemacs-editing
      multiple-cursors
      org
      deft
@@ -79,11 +81,12 @@ This function should only modify configuration layer settings."
                  node-add-modulesjavascript-fmt-tool-path t
                  javascript-fmt-tool 'prettier)
 
+     (typescript :variables typescript-backend 'lsp)
+
      emacs-lisp
      yaml
      lsp
      markdown
-
      ;; custom
      )
 
@@ -94,7 +97,8 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(doom-themes)
+   dotspacemacs-additional-packages '(doom-themes
+                                      ivy)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -489,6 +493,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
 
   (push "~/.spacemacs.d/packages/ligature-font/" load-path)
+  (push "~/.spacemacs.d/packages/pretty-magit/" load-path)
   (push "~/.spacemacs.d/fonts/fira-code/" load-path)
 )
 
@@ -535,13 +540,50 @@ before packages are loaded."
 
   (my-global-fira-code-mode 1)
 
+  ;; pretty magit
+  (require 'pretty-magit)
+  (pretty-magit-add-leaders
+   '(("add"     ? (:foreground "#375E97" :height 1.2))
+     ("feat"    ? (:foreground "slate gray" :height 1.2))
+     ("fix"     ? (:foreground "#FB6542" :height 1.2))
+     ("clean"   ? (:foreground "#FFBB00" :height 1.2))
+     ("chore"   ? (:foreground "#FFBB00" :height 1.2))
+     ("docs"    ? (:foreground "#3F681C" :height 1.2))
+     ("test"    ?T (:foreground "#3F681C" :height 1.2))))
+  (pretty-magit-setup)
   ;; regexp
-
   ;; set pcre as default
   (pcre-mode)
   (custom-set-variables
    '(vr/engine (quote pcre2el)))
-  )
+
+
+
+  (editorconfig-mode 1)
+
+
+  ;; Projectile
+
+  ;; Once you have selected your project, the top-level directory
+  ;; of the project is immediately opened for you in a dired buffer.
+
+
+  (setq projectile-switch-project-action 'projectile-dired)
+
+
+  ;; keybindings
+
+  (global-set-key (kbd "C-x k") 'spacemacs/kill-this-buffer)
+
+  ;; Private File
+
+
+  (if (boundp 'dotspacemacs-private-file)
+      (load-file dotspacemacs-private-file))
+
+
+  ;; end
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
