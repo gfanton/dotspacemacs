@@ -543,14 +543,12 @@ before packages are loaded."
   ;; pretty magit
   (require 'pretty-magit)
   (pretty-magit-add-leaders
-   '(("add"     ? (:foreground "#375E97" :height 1.2))
-     ("feat"    ? (:foreground "slate gray" :height 1.2))
+   '(("feat"    ? (:foreground "slate gray" :height 1.2))
      ("fix"     ? (:foreground "#FB6542" :height 1.2))
-     ("clean"   ? (:foreground "#FFBB00" :height 1.2))
      ("chore"   ? (:foreground "#FFBB00" :height 1.2))
-     ("docs"    ? (:foreground "#3F681C" :height 1.2))
      ("test"    ?T (:foreground "#3F681C" :height 1.2))))
   (pretty-magit-setup)
+
   ;; regexp
   ;; set pcre as default
   (pcre-mode)
