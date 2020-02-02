@@ -68,7 +68,7 @@ This function should only modify configuration layer settings."
 
      ;; langs
      (go :variables
-         go-use-golangci-lint t
+         go-use-golangci-lint nil ;; disable golangci lint
          go-backend 'lsp
          go-format-before-save t
          gofmt-command "goimports"
