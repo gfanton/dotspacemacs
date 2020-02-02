@@ -87,6 +87,7 @@ This function should only modify configuration layer settings."
      yaml
      lsp
      markdown
+     protobuf
      ;; custom
      )
 
@@ -97,14 +98,13 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(doom-themes
-                                      ivy)
+   dotspacemacs-additional-packages '(doom-themes ivy)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(doom-horizon-theme doom-one-light-theme)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -219,11 +219,11 @@ It should only modify the values of Spacemacs settings."
    ;; Initial message in the scratch buffer, such as "Welcome to Spacemacs!"
    ;; (default nil)
    dotspacemacs-initial-scratch-message nil
-
+ 
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '((doom-horizon :location local))
+   dotspacemacs-themes '(doom-horizon doom-one-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -487,10 +487,6 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-
-  ;; (setq-default dotspacemacs-themes '(doom-horizon
-  ;;                                     doom-solarized-light))
-
 
   (push "~/.spacemacs.d/packages/ligature-font/" load-path)
   (push "~/.spacemacs.d/packages/pretty-magit/" load-path)
