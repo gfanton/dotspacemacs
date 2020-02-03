@@ -491,7 +491,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   (push "~/.spacemacs.d/packages/ligature-font/" load-path)
   (push "~/.spacemacs.d/packages/pretty-magit/" load-path)
+  (push "~/.spacemacs.d/packages/framemove/" load-path)
   (push "~/.spacemacs.d/fonts/fira-code/" load-path)
+
 )
 
 (defun dotspacemacs/user-load ()
@@ -502,6 +504,8 @@ dump."
   ;; fira code
   (require 'ligature-font)
   (require 'fira-code)
+  (require 'framemove)
+  (require 'pretty-magit)
   )
 
 (defun dotspacemacs/user-config ()
@@ -510,6 +514,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+
+  ;; framemove
+  (require 'framemove)
+  (windmove-default-keybindings)
+  (setq framemove-hook-into-windmove t)
 
   ;; windmove
 
