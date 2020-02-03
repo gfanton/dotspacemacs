@@ -40,7 +40,7 @@
   "Replace sanitized WORD with CHAR having FACE-PROPS and add to prompts."
   (add-to-list 'pretty-magit--alist
                (list (rx-to-string `(: bow
-                                       (group ,word ":")))
+                                       (group ,word (submatch (*? nonl) ":"))))
                      char face-props))
   (add-to-list 'pretty-magit--prompt
                (concat word ": ")))

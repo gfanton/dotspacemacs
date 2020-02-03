@@ -89,6 +89,7 @@ This function should only modify configuration layer settings."
 
      (rust :variables rust-backend 'lsp)
      emacs-lisp
+     ;; common-lisp TODO: test this
      yaml
      lsp
      markdown
@@ -548,8 +549,8 @@ before packages are loaded."
   ;; pretty magit
   (require 'pretty-magit)
   (pretty-magit-add-leaders
-   '(("feat"    ? (:foreground "#FDFCCE" :height 1.2))
-     ("fix"     ? (:foreground "#FB6542" :height 1.2))
+   '(("feat"    ? (:foreground "#D83018" :height 1.2))
+     ("fix"     ? (:foreground "#FDFCCE" :height 1.2))
      ("chore"   ? (:foreground "#FFBB00" :height 1.2))
      ("test"    ?T (:foreground "#3F681C" :height 1.2))))
   (pretty-magit-setup t)
