@@ -90,6 +90,7 @@ This function should only modify configuration layer settings."
      (rust :variables rust-backend 'lsp)
      emacs-lisp
      ;; common-lisp TODO: test this
+     ruby
      yaml
      lsp
      markdown
