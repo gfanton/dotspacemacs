@@ -541,10 +541,9 @@ before packages are loaded."
   ;; fira code mode
   (require 'ligature-font)
   (require 'fira-code)
-  (define-globalized-minor-mode my-global-fira-code-mode fira-code-mode
-   (lambda () (fira-code-mode 1)))
+  (add-hook 'go-mode-hook 'fira-code-mode)
+  (add-hook ')
 
-  (my-global-fira-code-mode 1)
 
   ;; pretty magit
   (require 'pretty-magit)
