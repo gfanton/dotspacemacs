@@ -46,8 +46,10 @@ This function should only modify configuration layer settings."
      helm
      spacemacs-editing
      multiple-cursors
-     org
      deft
+     (org :variables-
+           org-enable-org-journal-support t)
+
 
      (shell :variables
             shell-default-height 30
@@ -530,10 +532,6 @@ before packages are loaded."
   (add-hook 'org-shiftdown-final-hook 'windmove-down)
   (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-
-  ;; notes
-  (setq deft-directory "~/notes")
-
   ;; alist mode
 
   (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
@@ -554,13 +552,6 @@ before packages are loaded."
      ("test"    ?T (:foreground "#3F681C" :height 1.2))))
   (pretty-magit-setup t)
 
-  ;; regexp
-  ;; set pcre as default
-  (pcre-mode)
-  (custom-set-variables
-   '(vr/engine (quote pcre2el)))
-
-
   ;; Projectile
 
   ;; Once you have selected your project, the top-level directory
@@ -577,6 +568,23 @@ before packages are loaded."
   (if (boundp 'dotspacemacs-private-file)
       (load-file dotspacemacs-private-file))
 
+
+  ;; org
+
+  (setq org-folder "~/org/")
+
+  (setq deft-directory (concat org-folder "notes/"))
+  (setq org-journal-dir (concat org-folder "journal/"))
+  (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
+  (setq org-agenda-files (list org-journal-dir
+                               org-directory
+                               deft-directory))
+
+  ;; regexp
+  ;; set pcre as default
+  (pcre-mode)
+  (custom-set-variables
+   '(vr/engine (quote pcre2el)))
 
   ;; end
 )
