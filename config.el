@@ -520,6 +520,11 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; lsp
+  ;; force custom variables
+  (custom-set-variables
+   '(lsp-enable-file-watchers nil)) ;; set file-watchers to nil improve emacs performance
+
   ;; framemove
   (require 'framemove)
   (windmove-default-keybindings)
