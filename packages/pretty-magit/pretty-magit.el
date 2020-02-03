@@ -64,7 +64,7 @@
     (insert (ivy-read "Commit Type " pretty-magit--prompt
                       :require-match t
                       :sort          t
-                      :preselect     "Add: "))
+                      :preselect     "wip: "))
     (pretty-magit--add-magit-faces)
     (evil-insert 1)))
 

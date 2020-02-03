@@ -554,11 +554,12 @@ before packages are loaded."
   ;; pretty magit
   (require 'pretty-magit)
   (pretty-magit-add-leaders
-   '(("feat"    ? (:foreground "#D83018" :height 1.2))
+   '(("wip"     ? (:foreground "#45AAB8" :height 1.2))
+     ("feat"    ? (:foreground "#D83018" :height 1.2))
      ("fix"     ? (:foreground "#FDFCCE" :height 1.2))
      ("chore"   ? (:foreground "#FFBB00" :height 1.2))
      ("test"    ?T (:foreground "#3F681C" :height 1.2))))
-  (pretty-magit-setup t)
+  (pretty-magit-setup)
 
   ;; Projectile
 
