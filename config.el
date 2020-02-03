@@ -83,6 +83,7 @@ This function should only modify configuration layer settings."
 
      (typescript :variables typescript-backend 'lsp)
 
+     (rust :variables rust-backend 'lsp)
      emacs-lisp
      yaml
      lsp
