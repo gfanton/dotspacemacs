@@ -47,6 +47,8 @@ This function should only modify configuration layer settings."
      spacemacs-editing
      multiple-cursors
      deft
+     colors
+
      (org :variables-
            org-enable-org-journal-support t)
 
@@ -540,13 +542,13 @@ before packages are loaded."
   (require 'ligature-font)
   (require 'fira-code)
   (add-hook 'go-mode-hook 'fira-code-mode)
-  (add-hook ')
+  (add-hook 'rust-mode-hook 'fira-code-mode)
 
 
   ;; pretty magit
   (require 'pretty-magit)
   (pretty-magit-add-leaders
-   '(("feat"    ? (:foreground "slate gray" :height 1.2))
+   '(("feat"    ? (:foreground "#FDFCCE" :height 1.2))
      ("fix"     ? (:foreground "#FB6542" :height 1.2))
      ("chore"   ? (:foreground "#FFBB00" :height 1.2))
      ("test"    ?T (:foreground "#3F681C" :height 1.2))))

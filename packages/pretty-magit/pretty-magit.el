@@ -73,11 +73,8 @@
 ;;;#autoload
 (defun pretty-magit-setup (&optional no-commit-prompts?)
   "Advise the appropriate magit funcs to add to pretty-magit faces."
-  ;; (advice-add 'magit-status         :after 'pretty-magit--add-magit-faces)
-  ;; (advice-add 'magit-refresh :after 'pretty-magit--add-magit-faces)
-  ;; (advice-add 'magit-refresh-buffer :after 'pretty-magit--add-magit-faces)
-  (add-hook 'forge-post-mode-hook 'pretty-magit--add-magit-faces)
-  (add-hook 'magit-post-refresh-hook 'pretty-magit--add-magit-faces)
+  (advice-add 'magit-status         :after 'pretty-magit--add-magit-faces)
+  (advice-add 'magit-refresh-buffer :after 'pretty-magit--add-magit-faces)
 
   (unless no-commit-prompts?
     (remove-hook 'git-commit-setup-hook 'with-editor-usage-message)
