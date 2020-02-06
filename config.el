@@ -48,6 +48,7 @@ This function should only modify configuration layer settings."
      multiple-cursors
      deft
      colors
+     (multiple-cursors :variables multiple-cursors-backend 'evil-mc)
 
      (org :variables-
            org-enable-org-journal-support t)
