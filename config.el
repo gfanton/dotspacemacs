@@ -24,7 +24,7 @@ This function should only modify configuration layer settings."
 
    ;; If non-nil then Spacemacs will ask for confirmation before installing
    ;; a layer lazily. (default t)
-   dotspacemacs-ask-for-lazy-installation t
+   dotspacemacs-ask-for-lazy-installation nil
 
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
@@ -51,7 +51,7 @@ This function should only modify configuration layer settings."
      (multiple-cursors :variables multiple-cursors-backend 'evil-mc)
 
      (org :variables-
-           org-enable-org-journal-support t)
+          org-enable-org-journal-support t)
 
 
      (shell :variables
@@ -108,7 +108,9 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(doom-themes ivy)
+   dotspacemacs-additional-packages '(doom-themes ;; doom themes packs
+                                      ivy ;; use for prompt options
+                                      )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -229,7 +231,7 @@ It should only modify the values of Spacemacs settings."
    ;; Initial message in the scratch buffer, such as "Welcome to Spacemacs!"
    ;; (default nil)
    dotspacemacs-initial-scratch-message nil
- 
+   
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
@@ -244,7 +246,7 @@ It should only modify the values of Spacemacs settings."
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
    dotspacemacs-mode-line-theme '(all-the-icons
                                   :separator arrow
-                                  :separator-scale 1.4)
+                                  :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -503,7 +505,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (push "~/.spacemacs.d/packages/framemove/" load-path)
   (push "~/.spacemacs.d/fonts/fira-code/" load-path)
 
-)
+  )
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
@@ -550,6 +552,14 @@ before packages are loaded."
          )
        )))
   (add-hook 'swift-mode-hook #'lsp)
+
+  ;; doom-treemacs
+  (doom-themes-treemacs-config)
+
+  ;; doom-org
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config)
+
   ;; framemove
   (require 'framemove)
   (windmove-default-keybindings)
@@ -564,6 +574,9 @@ before packages are loaded."
   (add-hook 'org-shiftleft-final-hook 'windmove-left)
   (add-hook 'org-shiftdown-final-hook 'windmove-down)
   (add-hook 'org-shiftright-final-hook 'windmove-right)
+
+  ;; imenu
+  (setq imenu-list-focus-after-activation nil)
 
   ;; alist mode
 
@@ -620,8 +633,9 @@ before packages are loaded."
   (custom-set-variables
    '(vr/engine (quote pcre2el)))
 
+
   ;; end
-)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
