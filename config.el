@@ -597,7 +597,7 @@ before packages are loaded."
      ("fix"     ? (:foreground "#FDFCCE" :height 1.2))
      ("chore"   ? (:foreground "#FFBB00" :height 1.2))
      ("test"    ?T (:foreground "#3F681C" :height 1.2))))
-  (pretty-magit-setup)
+  (pretty-magit-setup t)
 
   ;; Projectile
 
