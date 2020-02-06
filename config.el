@@ -89,12 +89,14 @@ This function should only modify configuration layer settings."
 
      (rust :variables rust-backend 'lsp)
      emacs-lisp
+
      ;; common-lisp TODO: test this
      ruby
      yaml
      lsp
      markdown
      protobuf
+     swift
      ;; custom
      )
 
@@ -522,10 +524,31 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
   ;; lsp
+  (require 'lsp)
+  (require 'lsp-mode)
+
   ;; force custom variables
   (custom-set-variables
    '(lsp-enable-file-watchers nil)) ;; set file-watchers to nil improve emacs performance
 
+  ;; lsp swift
+  (async-start
+   ;; check if sourcekit exist
+   (lambda ()
+     (shell-command-to-string "xcrun --find sourcekit-lsp 2>/dev/null"))
+
+   ;; register swift lsp client
+   (lambda (lsp-sourcekit-executable)
+     (if (= (length lsp-sourcekit-executable) 0)
+         (message "no sourcekit-lsp detected for swift: skipping ")
+       (progn
+         (lsp-register-client
+          (make-lsp-client :new-connection (lsp-stdio-connection '("xcrun" "sourcekit-lsp"))
+                           :major-modes '(swift-mode)
+                           :server-id 'sourcekit-lsp))
+         )
+       )))
+  (add-hook 'swift-mode-hook #'lsp)
   ;; framemove
   (require 'framemove)
   (windmove-default-keybindings)
