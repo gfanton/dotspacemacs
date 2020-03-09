@@ -64,7 +64,6 @@ This function should only modify configuration layer settings."
      (treemacs :variables
                treemacs-use-follow-mode t
                treemacs-use-filewatch-mode t)
-
      docker
 
      version-control
@@ -90,7 +89,8 @@ This function should only modify configuration layer settings."
                  typescript-linter 'eslint
                  typescript-backend 'lsp)
 
-     (rust :variables rust-backend 'lsp)
+     (rust :variables
+           rust-backend 'lsp)
      emacs-lisp
 
      ;; common-lisp TODO: test this
@@ -502,9 +502,13 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
+  ;; packages
   (push "~/.spacemacs.d/packages/ligature-font/" load-path)
   (push "~/.spacemacs.d/packages/pretty-magit/" load-path)
+  (push "~/.spacemacs.d/packages/capnp-mode/" load-path)
   (push "~/.spacemacs.d/packages/framemove/" load-path)
+
+  ;; fonts
   (push "~/.spacemacs.d/fonts/fira-code/" load-path)
 
   )
@@ -582,7 +586,13 @@ before packages are loaded."
 
   ;; alist mode
 
+  ;; objc
   (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
+
+  ;; capn
+  (require 'capnp-mode)
+  (add-to-list 'auto-mode-alist '("\\.capnp\\'" . capnp-mode))
+
 
   ;; fira code mode
   (require 'ligature-font)
