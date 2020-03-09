@@ -86,7 +86,9 @@ This function should only modify configuration layer settings."
                  node-add-modulesjavascript-fmt-tool-path t
                  javascript-fmt-tool 'prettier)
 
-     (typescript :variables typescript-backend 'lsp)
+     (typescript :variables
+                 typescript-linter 'eslint
+                 typescript-backend 'lsp)
 
      (rust :variables rust-backend 'lsp)
      emacs-lisp
@@ -116,7 +118,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(doom-horizon-theme doom-one-light-theme)
+   dotspacemacs-excluded-packages '(window-purpose doom-horizon-theme doom-one-light-theme)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -590,14 +592,14 @@ before packages are loaded."
 
 
   ;; pretty magit
-  (require 'pretty-magit)
-  (pretty-magit-add-leaders
-   '(("wip"     ? (:foreground "#45AAB8" :height 1.2))
-     ("feat"    ? (:foreground "#D83018" :height 1.2))
-     ("fix"     ? (:foreground "#FDFCCE" :height 1.2))
-     ("chore"   ? (:foreground "#FFBB00" :height 1.2))
-     ("test"    ?T (:foreground "#3F681C" :height 1.2))))
-  (pretty-magit-setup t)
+  ;; (require 'pretty-magit)
+  ;; (pretty-magit-add-leaders
+  ;;  '(("wip"     ? (:foreground "#45AAB8" :height 1.2))
+  ;;    ("feat"    ? (:foreground "#D83018" :height 1.2))
+  ;;    ("fix"     ? (:foreground "#FDFCCE" :height 1.2))
+  ;;    ("chore"   ? (:foreground "#FFBB00" :height 1.2))
+  ;;    ("test"    ?T (:foreground "#3F681C" :height 1.2))))
+  ;; (pretty-magit-setup t)
 
   ;; Projectile
 
