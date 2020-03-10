@@ -50,9 +50,17 @@ This function should only modify configuration layer settings."
      colors
      (multiple-cursors :variables multiple-cursors-backend 'evil-mc)
 
-     (org :variables-
+     ;; org
+     (org :variables
+          org-journal-file-format "%Y-%m-%d"
+          org-journal-date-prefix "#+TITLE: "
+          org-journal-date-format "%A, %B %d %Y"
+          org-journal-time-prefix "* "
+          org-journal-time-format ""
+          org-projectile-file ".projectile.todos.org"
+          org-enable-github-support t
           org-enable-org-journal-support t)
-
+     spacemacs-org
 
      (shell :variables
             shell-default-height 30
@@ -622,11 +630,15 @@ before packages are loaded."
 
   (global-set-key (kbd "C-x k") 'spacemacs/kill-this-buffer)
 
-  ;; Private File
-
-  (if (boundp 'dotspacemacs-private-file)
-      (load-file dotspacemacs-private-file))
-
+  ;; @TODO: move this elsewhere
+  ;; (defun org-journal-save-entry-and-exit()
+  ;;   "Simple convenience function.
+  ;; Saves the buffer of the current day's entry and kills the window
+  ;; Similar to org-capture like behavior"
+  ;;   (interactive)
+  ;;   (save-buffer)
+  ;;   (kill-buffer-and-window))
+  ;; (define-key org-journal-mode-map (kbd "C-x C-s") 'org-journal-save-entry-and-exit)
 
   ;; org
 
@@ -634,10 +646,68 @@ before packages are loaded."
 
   (setq deft-directory (concat org-folder "notes/"))
   (setq org-journal-dir (concat org-folder "journal/"))
-  (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
+  (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|\\\([0-9]-?\\\)\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
   (setq org-agenda-files (list org-journal-dir
                                org-directory
                                deft-directory))
+
+
+  ;;  set todo sequences
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "DONE(d)")))
+
+
+  ;; add project todo to agenda @NOTE(gfanton) this may be more confusing than anything
+  (with-eval-after-load 'org-agenda
+    (require 'org-projectile)
+    (mapcar '(lambda (file)
+               (when (file-exists-p file)
+                 (push file org-agenda-files)))
+            (org-projectile-todo-files))
+    (setq org-agenda-prefix-format '(
+                                     ;; (agenda  . " %i %-12:c%?-12t% s") ;; file name + org-agenda-entry-type
+                                     (agenda  . "%e • %i %-12:c%?-12t% s %-12T")
+                                     (timeline  . "  % s")
+                                     (todo  . " %i %-12:c")
+                                     (tags  . " %i %-12:c")
+                                     (search . " %i %-12:c")))
+
+    ;; set super agenda group
+    (setq org-super-agenda-groups
+          '(
+            (:name "Projects IN-PROGRESS"  ; Optionally specify section name
+                   :time-grid t  ; Items that appear on the time grid
+                   :tag "project"
+                   :todo "STARTED"
+                   :log t)
+
+            (:name "Projects TODO"  ; Optionally specify section name
+                   :tag "project"
+                   :todo ("TODO" "DONE")
+                   :log t)
+            (:name "Projects ON-HOLD"  ; Optionally specify section name
+                   :time-grid t  ; Items that appear on the time grid
+                   :tag "project"
+                   :todo "WAITING"
+                   :log t)
+
+            (:name "Life"
+                   ;; Single arguments given alone
+                   :tag "life")
+            (:auto-tags)))
+
+    ;; enable org-super-agenda
+    (org-super-agenda-mode))
+
+  (require 'org-expiry)
+  (add-hook 'org-after-todo-state-change-hook
+            (lambda ()
+              (when (string= org-state "STARTED")
+                (save-excursion
+                  (org-back-to-heading)
+                  (org-expiry-insert-created)))))
+
+  (setq org-journal-carryover-items "/+TODO|+STARTED|+WAITING")
 
   ;; regexp
   ;; set pcre as default
@@ -645,6 +715,13 @@ before packages are loaded."
   (custom-set-variables
    '(vr/engine (quote pcre2el)))
 
+  ;; Private File
+  (if (boundp 'dotspacemacs-private-file)
+      (load-file dotspacemacs-private-file))
+
+
+  ;; open agenda
+  ;; (org-agenda nil "a")
 
   ;; end
   )
